@@ -44,11 +44,22 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 72px;
   -webkit-text-size-adjust: 100%;
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+}
+
+/* Anchor jumps: land the section eyebrow ~24px below the fixed header (64px / 72px),
+   compensating the section's top padding (py-20 / md:py-28 / lg:py-36; #talk: py-24 / md:py-32). */
+section[id]:not(#top):not(#talk) { scroll-margin-top: 8px; }
+section#talk { scroll-margin-top: -8px; }
+@media (min-width: 768px) {
+  section[id]:not(#top):not(#talk) { scroll-margin-top: -16px; }
+  section#talk { scroll-margin-top: -32px; }
+}
+@media (min-width: 1200px) {
+  section[id]:not(#top):not(#talk) { scroll-margin-top: -48px; }
 }
 
 body {
