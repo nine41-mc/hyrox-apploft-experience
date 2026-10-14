@@ -33,9 +33,9 @@ export function Gap({ c }: { c: Content }) {
           </Reveal>
         </div>
 
-        <ul className="mt-16 grid grid-cols-2 border-t border-ink-600 md:mt-24 lg:grid-cols-4">
+        <ul className="mt-16 grid border-t border-ink-600 md:mt-24 md:grid-cols-3">
           {gap.stats.map((s, i) => (
-            <Reveal as="li" key={s.label} delay={i * 0.08} className="border-b border-ink-600 py-8 pr-4 lg:border-b-0 lg:border-r lg:pl-6 lg:first:pl-0 lg:last:border-r-0">
+            <Reveal as="li" key={s.label} delay={i * 0.08} className="border-b border-ink-600 py-8 pr-4 md:border-b-0 md:border-r md:pl-6 md:first:pl-0 md:last:border-r-0">
               <p className={`headline text-[48px] md:text-[72px] lg:text-[88px] ${s.value === "0" ? "text-yellow" : ""}`}>
                 {s.value}
               </p>
@@ -47,22 +47,6 @@ export function Gap({ c }: { c: Content }) {
           ))}
         </ul>
 
-        <div className="mt-20 md:mt-28">
-          <Reveal>
-            <h3 className="headline text-[32px] md:text-[44px] lg:text-[56px]">{gap.meanwhile.title}</h3>
-          </Reveal>
-          <div className="mt-10 grid gap-4 md:grid-cols-3">
-            {gap.meanwhile.items.map((m, i) => (
-              <Reveal key={m.k} delay={i * 0.08} className="border border-ink-600 bg-ink-800 p-6 md:p-7">
-                <p className="eyebrow text-yellow">{m.k}_</p>
-                <p className="mt-4 text-[16px] leading-relaxed text-paper/85">
-                  {m.v}
-                  <Src n={m.source} />
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
       </div>
     </Section>
   );

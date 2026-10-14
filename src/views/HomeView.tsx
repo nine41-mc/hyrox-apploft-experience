@@ -2,19 +2,15 @@ import { content, type Locale } from "@/content";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { Statement } from "@/components/sections/Statement";
 import { Gap } from "@/components/sections/Gap";
-import { Today } from "@/components/sections/Today";
-import { Insight } from "@/components/sections/Insight";
-import { Model } from "@/components/sections/Model";
-import { Racers } from "@/components/sections/Racers";
+import { Idea } from "@/components/sections/Idea";
 import { Year } from "@/components/sections/Year";
-import { Audiences } from "@/components/sections/Audiences";
-import { Clubs } from "@/components/sections/Clubs";
-import { ForHyrox } from "@/components/sections/ForHyrox";
-import { Learn } from "@/components/sections/Learn";
-import { Build } from "@/components/sections/Build";
-import { Cta } from "@/components/sections/Cta";
+import { Wins } from "@/components/sections/Wins";
+import { Ask } from "@/components/sections/Ask";
+import { About } from "@/components/sections/About";
 
+/** The pitch in 8 beats: hero · punch · gap · idea · Lena · everybody wins · start · apploft. */
 export function HomeView({ locale }: { locale: Locale }) {
   const c = content[locale];
   return (
@@ -22,18 +18,13 @@ export function HomeView({ locale }: { locale: Locale }) {
       <Header locale={locale} nav={c.nav} ui={c.ui} page="home" />
       <main>
         <Hero c={c} />
+        <Statement c={c} />
         <Gap c={c} />
-        <Today c={c} />
-        <Insight c={c} />
-        <Model c={c} />
-        <Racers c={c} />
+        <Idea c={c} />
         <Year year={c.year} ui={c.ui} />
-        <Audiences c={c} />
-        <Clubs c={c} />
-        <ForHyrox c={c} />
-        <Learn c={c} />
-        <Build c={c} />
-        <Cta c={c} />
+        <Wins c={c} />
+        <Ask c={c} />
+        <About c={c} />
       </main>
       <Footer c={c} locale={locale} />
     </>

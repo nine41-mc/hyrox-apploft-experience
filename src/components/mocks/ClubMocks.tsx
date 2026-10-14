@@ -1,51 +1,8 @@
 import { Check, TrendingUp, UserPlus, Euro, Timer } from "lucide-react";
-import type { Content } from "@/content";
-import { Section, Eyebrow } from "@/components/ui/Section";
-import { Headline } from "@/components/ui/Headline";
-import { Reveal } from "@/components/ui/Reveal";
 import { Photo } from "@/components/ui/Photo";
 
-export function Clubs({ c }: { c: Content }) {
-  const { clubs, ui } = c;
-  return (
-    <Section id="clubs" tone="ink" className="overflow-hidden">
-      <div className="container-site">
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr] lg:items-end lg:gap-20">
-          <div>
-            <Eyebrow>{clubs.eyebrow}</Eyebrow>
-            <Reveal>
-              <Headline lines={clubs.title} hl={clubs.titleHl} />
-            </Reveal>
-          </div>
-          <Reveal delay={0.1}>
-            <p className="max-w-[560px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{clubs.body}</p>
-          </Reveal>
-        </div>
-
-        <div className="mt-14 grid gap-6 lg:mt-20 lg:grid-cols-[1.35fr_1fr]">
-          <Reveal>
-            <ClubOsMock note={ui.illustrativeData} />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <WallMock caption={ui.wallCaption} />
-          </Reveal>
-        </div>
-
-        <ul className="mt-14 grid gap-px bg-ink-600 md:grid-cols-2 lg:grid-cols-3">
-          {clubs.benefits.map((b, i) => (
-            <Reveal as="li" key={b.k} delay={i * 0.06} className="bg-ink-800 p-6 md:p-7">
-              <p className="headline text-[26px] md:text-[28px]">{b.k}</p>
-              <p className="mt-4 text-[15px] leading-relaxed text-paper/75">{b.v}</p>
-            </Reveal>
-          ))}
-        </ul>
-      </div>
-    </Section>
-  );
-}
-
 /** Browser-framed dashboard for a club owner (illustrative data) */
-function ClubOsMock({ note }: { note: string }) {
+export function ClubOsMock({ note }: { note: string }) {
   const kpis = [
     { icon: TrendingUp, k: "Active racers", v: "184", d: "+23 this season" },
     { icon: Timer, k: "Judged sims", v: "46", d: "this month" },
@@ -104,7 +61,7 @@ function ClubOsMock({ note }: { note: string }) {
 }
 
 /** The gym-floor leaderboard screen */
-function WallMock({ caption }: { caption: string }) {
+export function WallMock({ caption }: { caption: string }) {
   const legends = [
     ["Lena K.", "9 sims", "72.4"],
     ["Jonas B.", "8 sims", "78.9"],
