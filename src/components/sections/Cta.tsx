@@ -1,13 +1,14 @@
 import { ArrowUpRight } from "lucide-react";
-import { cta } from "@/content/en";
+import type { Content } from "@/content";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 import { Photo } from "@/components/ui/Photo";
 
-export function Cta() {
+export function Cta({ c }: { c: Content }) {
+  const { cta, ui } = c;
   return (
     <section id="talk" className="relative overflow-hidden bg-ink py-24 md:py-32 lg:py-40">
-      <Photo name="sled" alt="An athlete pushing a sled, head down" className="!absolute inset-0" imgClassName="object-[50%_30%]" />
+      <Photo name="sled" alt={ui.sledAlt} className="!absolute inset-0" imgClassName="object-[50%_30%]" />
       <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/30" />
       <div className="grain absolute inset-0" />
       <div className="container-site relative">

@@ -1,9 +1,10 @@
-import { build } from "@/content/en";
+import type { Content } from "@/content";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 
-export function Build() {
+export function Build({ c }: { c: Content }) {
+  const { build } = c;
   return (
     <Section id="build" tone="ink">
       <div className="container-site">

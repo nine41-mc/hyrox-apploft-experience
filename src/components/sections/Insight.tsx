@@ -1,14 +1,15 @@
 import { ArrowRight } from "lucide-react";
-import { insight } from "@/content/en";
+import type { Content } from "@/content";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 import { Photo } from "@/components/ui/Photo";
 
-export function Insight() {
+export function Insight({ c }: { c: Content }) {
+  const { insight, ui } = c;
   return (
     <Section id="insight" tone="ink" className="overflow-hidden">
-      <Photo name="moment" alt="Banner reading: This is the moment you have been training for" className="!absolute inset-0 opacity-25" />
+      <Photo name="moment" alt={ui.momentAlt} className="!absolute inset-0 opacity-25" />
       <div className="absolute inset-0 bg-gradient-to-b from-ink-800 via-ink-800/70 to-ink-800" />
       <div className="container-site relative">
         <Eyebrow>{insight.eyebrow}</Eyebrow>

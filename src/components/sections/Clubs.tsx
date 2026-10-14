@@ -1,11 +1,12 @@
 import { Check, TrendingUp, UserPlus, Euro, Timer } from "lucide-react";
-import { clubs } from "@/content/en";
+import type { Content } from "@/content";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 import { Photo } from "@/components/ui/Photo";
 
-export function Clubs() {
+export function Clubs({ c }: { c: Content }) {
+  const { clubs, ui } = c;
   return (
     <Section id="clubs" tone="ink" className="overflow-hidden">
       <div className="container-site">
@@ -23,10 +24,10 @@ export function Clubs() {
 
         <div className="mt-14 grid gap-6 lg:mt-20 lg:grid-cols-[1.35fr_1fr]">
           <Reveal>
-            <ClubOsMock />
+            <ClubOsMock note={ui.illustrativeData} />
           </Reveal>
           <Reveal delay={0.1}>
-            <WallMock />
+            <WallMock caption={ui.wallCaption} />
           </Reveal>
         </div>
 
@@ -44,7 +45,7 @@ export function Clubs() {
 }
 
 /** Browser-framed dashboard for a club owner (illustrative data) */
-function ClubOsMock() {
+function ClubOsMock({ note }: { note: string }) {
   const kpis = [
     { icon: TrendingUp, k: "Active racers", v: "184", d: "+23 this season" },
     { icon: Timer, k: "Judged sims", v: "46", d: "this month" },
@@ -96,14 +97,14 @@ function ClubOsMock() {
             ))}
           </ul>
         </div>
-        <p className="mt-4 text-[11px] text-grey-400">Illustrative data.</p>
+        <p className="mt-4 text-[11px] text-grey-400">{note}</p>
       </div>
     </div>
   );
 }
 
 /** The gym-floor leaderboard screen */
-function WallMock() {
+function WallMock({ caption }: { caption: string }) {
   const legends = [
     ["Lena K.", "9 sims", "72.4"],
     ["Jonas B.", "8 sims", "78.9"],
@@ -137,7 +138,7 @@ function WallMock() {
         </div>
       </div>
       <div className="mx-auto h-6 w-24 bg-ink-700" aria-hidden />
-      <p className="mt-2 text-center text-[12px] text-grey-400">The Wall – a screen for the gym floor</p>
+      <p className="mt-2 text-center text-[12px] text-grey-400">{caption}</p>
     </div>
   );
 }

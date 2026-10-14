@@ -1,11 +1,12 @@
-import { today } from "@/content/en";
+import type { Content } from "@/content";
 import { Section, Eyebrow, Src } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 
 type Step = { k: string; v: string; cost: string; source?: number };
 
-export function Today() {
+export function Today({ c }: { c: Content }) {
+  const { today } = c;
   return (
     <Section id="today" tone="ink">
       <div className="container-site">

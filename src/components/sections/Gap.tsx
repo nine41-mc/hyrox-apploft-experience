@@ -1,10 +1,11 @@
-import { gap } from "@/content/en";
+import type { Content } from "@/content";
 import { Section, Eyebrow, Src } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 import { YearGrid } from "./YearGrid";
 
-export function Gap() {
+export function Gap({ c }: { c: Content }) {
+  const { gap, ui } = c;
   return (
     <Section id="gap">
       <div className="container-site">
@@ -20,7 +21,7 @@ export function Gap() {
             <p className="max-w-[560px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{gap.body}</p>
           </Reveal>
           <Reveal delay={0.15} className="mt-4 lg:col-span-2 lg:mt-10">
-            <YearGrid />
+            <YearGrid months={ui.months} aria={ui.gridAria} />
             <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-[13px] text-grey-300">
               <span className="flex items-center gap-2">
                 <span className="h-3 w-3 bg-yellow" /> {gap.legend.race}

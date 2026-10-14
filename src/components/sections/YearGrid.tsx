@@ -5,19 +5,18 @@ import { useRef } from "react";
 
 // Race weekends of an illustrative racer: Hamburg (Apr), Berlin (Nov) + a 3rd day = 3 race days
 const RACE_DAYS = new Set([104, 105, 318]);
-const MONTHS = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
 
 /** 365 squares, 3 yellow. The point of the whole site in one picture. */
-export function YearGrid() {
+export function YearGrid({ months, aria }: { months: readonly string[]; aria: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "0px 0px -20% 0px" });
   const reduce = useReducedMotion();
   const days = Array.from({ length: 365 }, (_, i) => i);
 
   return (
-    <div ref={ref} role="img" aria-label="A year of 365 days: 3 race days in yellow, 362 training days in grey">
+    <div ref={ref} role="img" aria-label={aria}>
       <div className="mb-2 hidden grid-cols-12 text-[10px] text-grey-400 md:grid">
-        {MONTHS.map((m, i) => (
+        {months.map((m, i) => (
           <span key={i}>{m}</span>
         ))}
       </div>

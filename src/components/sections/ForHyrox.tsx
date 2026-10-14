@@ -1,10 +1,11 @@
-import { forHyrox, ecosystem } from "@/content/en";
+import type { Content } from "@/content";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 import { Photo } from "@/components/ui/Photo";
 
-export function ForHyrox() {
+export function ForHyrox({ c }: { c: Content }) {
+  const { forHyrox, ui } = c;
   return (
     <Section id="hyrox" className="overflow-hidden">
       <div className="container-site">
@@ -18,7 +19,7 @@ export function ForHyrox() {
               <p className="mt-8 max-w-[560px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{forHyrox.body}</p>
             </Reveal>
             <Reveal delay={0.15}>
-              <Photo name="arena" alt="A HYROX race inside a historic glass-roofed hall" className="mt-10 aspect-[4/5] w-full md:aspect-[16/10] lg:aspect-[4/5]" />
+              <Photo name="arena" alt={ui.arenaAlt} className="mt-10 aspect-[4/5] w-full md:aspect-[16/10] lg:aspect-[4/5]" />
             </Reveal>
           </div>
           <ol className="lg:pt-4">
@@ -36,14 +37,14 @@ export function ForHyrox() {
           </ol>
         </div>
 
-        <Ecosystem />
+        <Ecosystem ecosystem={c.ecosystem} aria={ui.ecosystemAria} />
       </div>
     </Section>
   );
 }
 
 /** Orbit: HYROX ID in the middle, partners and clubs around it */
-function Ecosystem() {
+function Ecosystem({ ecosystem, aria }: { ecosystem: Content["ecosystem"]; aria: string }) {
   const r = 150;
   const nodes = ecosystem.nodes.map((label, i) => {
     const a = (i / ecosystem.nodes.length) * Math.PI * 2 - Math.PI / 2;
@@ -57,7 +58,7 @@ function Ecosystem() {
         <p className="mt-6 max-w-[480px] text-[17px] leading-relaxed text-paper/80 md:text-[19px]">{ecosystem.body}</p>
       </Reveal>
       <Reveal delay={0.1} className="mx-auto w-full max-w-[520px]">
-        <svg viewBox="0 0 400 400" className="w-full" role="img" aria-label={`HYROX ID connected to ${ecosystem.nodes.join(", ")}`}>
+        <svg viewBox="0 0 400 400" className="w-full" role="img" aria-label={`${aria} ${ecosystem.nodes.join(", ")}`}>
           <circle cx="200" cy="200" r={r} fill="none" stroke="#3a3a3a" strokeDasharray="3 6" />
           <circle cx="200" cy="200" r="96" fill="none" stroke="#262626" />
           {nodes.map((n) => (

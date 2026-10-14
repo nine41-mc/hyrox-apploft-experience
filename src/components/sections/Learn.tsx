@@ -1,9 +1,10 @@
-import { learn } from "@/content/en";
+import type { Content } from "@/content";
 import { Section, Eyebrow, Src } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 
-export function Learn() {
+export function Learn({ c }: { c: Content }) {
+  const { learn, ui } = c;
   return (
     <Section id="learn">
       <div className="container-site">
@@ -29,7 +30,7 @@ export function Learn() {
               </p>
               <p className="mt-5 text-[15px] leading-relaxed text-paper/75">{m.how}</p>
               <p className="mt-auto pt-6 text-[15px] font-medium leading-snug">
-                <span className="hl">For HYROX</span> {m.lesson}
+                <span className="hl">{ui.forHyrox}</span> {m.lesson}
               </p>
             </Reveal>
           ))}
@@ -48,7 +49,7 @@ export function Learn() {
         </div>
 
         <Reveal className="mt-14 bg-yellow p-6 text-ink md:p-10">
-          <p className="eyebrow">Five principles we design by_</p>
+          <p className="eyebrow">{ui.principles}</p>
           <ol className="mt-6 grid gap-x-8 gap-y-4 md:grid-cols-2 lg:grid-cols-5">
             {learn.principles.map((p, i) => (
               <li key={p} className="flex gap-3">

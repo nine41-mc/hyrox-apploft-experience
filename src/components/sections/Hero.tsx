@@ -1,14 +1,15 @@
 import { ArrowDown } from "lucide-react";
-import { hero, ticker } from "@/content/en";
+import type { Content } from "@/content";
 import { Photo } from "@/components/ui/Photo";
 import { Headline } from "@/components/ui/Headline";
 
-export function Hero() {
+export function Hero({ c }: { c: Content }) {
+  const { hero, ticker, ui } = c;
   return (
     <section id="top" className="relative flex min-h-[100svh] flex-col overflow-hidden bg-ink">
       <Photo
         name="wallball"
-        alt="Two athletes throwing wall balls, seen from above"
+        alt={ui.heroImgAlt}
         priority
         className="!absolute inset-0"
         imgClassName="object-[60%_30%] md:object-center"

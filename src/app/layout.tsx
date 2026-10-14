@@ -3,6 +3,7 @@ import { Barlow } from "next/font/google";
 import "./globals.css";
 import { ServiceWorker } from "@/components/layout/ServiceWorker";
 import { asset } from "@/lib/asset";
+import { en } from "@/content/meta";
 
 // Brutal Type is licensed → served from /public/fonts/licensed (gitignored).
 // When the files are missing the stack falls back to Barlow (next/font, OFL).
@@ -26,9 +27,8 @@ const barlow = Barlow({
 });
 
 export const metadata: Metadata = {
-  title: "HYROX Experience 2027 – A vision by apploft.",
-  description:
-    "Every day counts: a year-round platform that connects every racer and every club to HYROX. A vision concept by apploft.",
+  title: en.title,
+  description: en.description,
   robots: { index: false, follow: false },
   manifest: asset("/manifest.webmanifest"),
 };

@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { year } from "@/content/en";
+import type { Content } from "@/content";
 import { Eyebrow } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
@@ -11,7 +11,7 @@ import { AppScreen } from "@/components/screens/AppScreens";
 import { cn } from "@/components/ui/cn";
 
 /** "A year as a racer": swipeable months, each with an app screen. */
-export function Year() {
+export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] }) {
   const track = useRef<HTMLDivElement>(null);
   const rail = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
@@ -88,7 +88,7 @@ export function Year() {
           <div className="hidden gap-2 md:flex">
             <button
               type="button"
-              aria-label="Previous month"
+              aria-label={ui.prevMonth}
               disabled={active === 0}
               onClick={() => scrollTo(Math.max(0, active - 1))}
               className="grid h-12 w-12 place-items-center border border-paper/30 transition-colors hover:border-yellow hover:text-yellow disabled:opacity-30"
@@ -97,7 +97,7 @@ export function Year() {
             </button>
             <button
               type="button"
-              aria-label="Next month"
+              aria-label={ui.nextMonth}
               disabled={active === last}
               onClick={() => scrollTo(Math.min(last, active + 1))}
               className="grid h-12 w-12 place-items-center border border-paper/30 transition-colors hover:border-yellow hover:text-yellow disabled:opacity-30"

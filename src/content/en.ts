@@ -1,7 +1,58 @@
 /**
- * All copy for the site (EN). A German version will mirror this shape later.
+ * All copy for the site (EN). `de.ts` mirrors this shape exactly (checked by the type in ./index.ts).
  * Facts are sourced (see `sources`); people, clubs and app data in the screens are illustrative.
  */
+import type { ScreenKey } from "@/components/screens/AppScreens";
+
+type YearStep = { month: string; title: string; text: string; screen: ScreenKey };
+
+export const meta = {
+  title: "HYROX Experience 2027 – A vision by apploft.",
+  description:
+    "Every day counts: a year-round platform that connects every racer and every club to HYROX. A vision concept by apploft.",
+  summaryTitle: "Executive summary – HYROX Experience 2027",
+};
+
+export const ui = {
+  summaryBtn: "Summary",
+  talk: "Let’s talk",
+  summaryLong: "Executive summary",
+  sources: "Sources_",
+  summaryLink: "Executive summary →",
+  print: "Print / save PDF",
+  summaryHeadA: "Executive",
+  summaryHeadB: "summary.",
+  summaryNote: "Sources and details: see the full story on the main page. Screens and data in the concept are illustrative.",
+  openMenu: "Open menu",
+  closeMenu: "Close menu",
+  backToTop: "Back to top",
+  sections: "Sections",
+  language: "Language",
+  illustrativeData: "Illustrative data.",
+  wallCaption: "The Wall – a screen for the gym floor",
+  indexLabel: "Lena’s HYROX Index",
+  noResults: "No results",
+  reliable: "Reliable",
+  results: "results",
+  provisional: "Provisional",
+  of3: "of 3",
+  scoreNote: "Illustrative results. Score = benchmark time ÷ result × 100.",
+  prevMonth: "Previous month",
+  nextMonth: "Next month",
+  loopNote: "…and the next season starts in the club again.",
+  funnelNote: "Stages, not to scale. The Club Sim is the on-ramp.",
+  funnelAria: "Path from gym member to repeat racer",
+  forHyrox: "For HYROX",
+  principles: "Five principles we design by_",
+  golf: "Golf:",
+  gridAria: "A year of 365 days: 3 race days in yellow, 362 training days in grey",
+  months: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
+  ecosystemAria: "HYROX ID connected to",
+  heroImgAlt: "Two athletes throwing wall balls, seen from above",
+  momentAlt: "Banner reading: This is the moment you have been training for",
+  arenaAlt: "A HYROX race inside a historic glass-roofed hall",
+  sledAlt: "An athlete pushing a sled, head down",
+};
 
 export const nav = [
   { id: "gap", label: "The gap" },
@@ -11,7 +62,7 @@ export const nav = [
   { id: "clubs", label: "Clubs" },
   { id: "hyrox", label: "HYROX" },
   { id: "build", label: "How" },
-] as const;
+];
 
 export const hero = {
   eyebrow: "HYROX Experience 2027_",
@@ -134,7 +185,7 @@ export const year = {
   titleHl: "Her 2027.",
   body: "34, Hamburg, two HYROX races behind her. Here is what changes when HYROX is with her every week – not just on race day.",
   note: "Illustrative persona, club and data.",
-  steps: [
+  steps: <YearStep[]>[
     {
       month: "Jan",
       title: "Licence day",
@@ -184,7 +235,7 @@ export const year = {
       screen: "record",
     },
   ],
-} as const;
+};
 
 export const clubs = {
   eyebrow: "08_For clubs",
@@ -247,7 +298,7 @@ export const build = {
     title: "Why us",
     items: [
       { k: "apploft.", v: "Hamburg, since 2008. 250+ apps, 100M+ downloads – product teams that design, build and run apps for the long haul." },
-      { k: "Sport & fans", v: "Apps and fan accounts for SC Freiburg, BVB and HSV, the OMR Festival app – we know how to turn events and clubs into everyday products." },
+      { k: "Sport & fans", v: "PadelCity (clubs, courts, community), qalcha (the app behind a HYROX coach certification programme), fan apps and accounts for SC Freiburg, BVB, HSV, Dynamo Dresden and FC Basel – we turn clubs and events into everyday products." },
       { k: "Built for scale", v: "Products live in 108 countries and 18 languages – ready for a race calendar on six continents." },
     ],
   },

@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { Check } from "lucide-react";
-import { indexDemo } from "@/content/en";
+import type { Content } from "@/content";
 import { cn } from "@/components/ui/cn";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -12,7 +12,7 @@ function toMinutes(t: string) {
 }
 
 /** Interactive: toggle results, watch the Index (best 5, benchmark ÷ time × 100) react. */
-export function IndexDemo() {
+export function IndexDemo({ indexDemo, ui }: { indexDemo: Content["indexDemo"]; ui: Content["ui"] }) {
   const [on, setOn] = useState<Record<string, boolean>>(
     Object.fromEntries(indexDemo.results.map((r) => [r.id, r.on])),
   );
@@ -35,7 +35,7 @@ export function IndexDemo() {
         <p className="mt-6 max-w-[520px] text-[16px] leading-relaxed text-paper/80 md:text-[18px]">{indexDemo.body}</p>
         <div className="mt-10 flex items-end gap-5">
           <div>
-            <p className="eyebrow !text-[11px] text-grey-300">Lena’s HYROX Index</p>
+            <p className="eyebrow !text-[11px] text-grey-300">{ui.indexLabel}</p>
             <p className="headline mt-2 text-[96px] leading-none md:text-[128px]" aria-live="polite">
               <span className={cn(index ? "hl" : "text-grey-400")}>{index ? index.toFixed(1) : "—"}</span>
             </p>
@@ -46,7 +46,7 @@ export function IndexDemo() {
               reliable ? "border-yellow text-yellow" : "border-grey-400 text-grey-300",
             )}
           >
-            {best.length === 0 ? "No results" : reliable ? `Reliable · ${best.length} results` : `Provisional · ${best.length} of 3`}
+            {best.length === 0 ? ui.noResults : reliable ? `${ui.reliable} · ${best.length} ${ui.results}` : `${ui.provisional} · ${best.length} ${ui.of3}`}
           </span>
         </div>
         <ul className="mt-8 flex flex-wrap gap-2">
@@ -96,7 +96,7 @@ export function IndexDemo() {
             );
           })}
         </ul>
-        <p className="mt-4 text-[12px] text-grey-400">Illustrative results. Score = benchmark time ÷ result × 100.</p>
+        <p className="mt-4 text-[12px] text-grey-400">{ui.scoreNote}</p>
       </Reveal>
     </div>
   );

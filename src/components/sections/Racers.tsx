@@ -1,10 +1,11 @@
 import { ArrowRight, RotateCcw } from "lucide-react";
-import { racers } from "@/content/en";
+import type { Content } from "@/content";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 
-export function Racers() {
+export function Racers({ c }: { c: Content }) {
+  const { racers, ui } = c;
   return (
     <Section id="racers" tone="ink">
       <div className="container-site">
@@ -45,7 +46,7 @@ export function Racers() {
             ))}
           </ol>
           <p className="mt-4 flex items-center gap-2 text-[13px] text-grey-300">
-            <RotateCcw className="h-4 w-4 text-yellow" /> …and the next season starts in the club again.
+            <RotateCcw className="h-4 w-4 text-yellow" /> {ui.loopNote}
           </p>
         </Reveal>
       </div>

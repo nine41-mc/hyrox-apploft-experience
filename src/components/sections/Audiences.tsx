@@ -1,9 +1,10 @@
-import { audiences } from "@/content/en";
+import type { Content } from "@/content";
 import { Section, Eyebrow, Src } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 
-export function Audiences() {
+export function Audiences({ c }: { c: Content }) {
+  const { audiences, ui } = c;
   const n = audiences.funnel.length;
   return (
     <Section id="growth">
@@ -21,7 +22,7 @@ export function Audiences() {
         </div>
 
         {/* path from gym member to repeat racer – a staircase, not to scale */}
-        <ol className="mt-14 flex flex-col gap-2 lg:mt-20" aria-label="Path from gym member to repeat racer">
+        <ol className="mt-14 flex flex-col gap-2 lg:mt-20" aria-label={ui.funnelAria}>
           {audiences.funnel.map((f, i) => {
             const width = 100 - (i * 52) / (n - 1);
             const club = i === 2;
@@ -41,7 +42,7 @@ export function Audiences() {
             );
           })}
         </ol>
-        <p className="mt-3 text-[12px] text-grey-400">Stages, not to scale. The Club Sim is the on-ramp.</p>
+        <p className="mt-3 text-[12px] text-grey-400">{ui.funnelNote}</p>
 
         <ul className="mt-14 grid gap-px bg-ink-600 md:grid-cols-2 lg:grid-cols-4">
           {audiences.segments.map((s, i) => (

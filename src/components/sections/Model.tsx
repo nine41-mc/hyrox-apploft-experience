@@ -1,10 +1,11 @@
-import { model } from "@/content/en";
+import type { Content } from "@/content";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 import { IndexDemo } from "./IndexDemo";
 
-export function Model() {
+export function Model({ c }: { c: Content }) {
+  const { model, ui } = c;
   return (
     <Section id="model">
       <div className="container-site">
@@ -27,7 +28,7 @@ export function Model() {
               <h3 className="headline mt-8 text-[40px] md:text-[48px]">
                 <span className="transition-colors group-hover:text-yellow">{p.name}</span>
               </h3>
-              <p className="eyebrow mt-3 !text-[11px] text-grey-300">Golf: {p.golf}</p>
+              <p className="eyebrow mt-3 !text-[11px] text-grey-300">{ui.golf} {p.golf}</p>
               <p className="mt-6 text-[16px] leading-relaxed text-paper/80">{p.text}</p>
             </Reveal>
           ))}
@@ -38,7 +39,7 @@ export function Model() {
           <p className="text-[17px] leading-relaxed md:text-[19px]">{model.standard.text}</p>
         </Reveal>
 
-        <IndexDemo />
+        <IndexDemo indexDemo={c.indexDemo} ui={ui} />
       </div>
     </Section>
   );
