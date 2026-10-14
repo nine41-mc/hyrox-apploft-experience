@@ -126,8 +126,8 @@ export const year = {
     },
     {
       month: "Mär",
-      title: "Club Season",
-      text: "Hafen Athletics startet in der Liga Hamburg Nord. Jede Sim eines Mitglieds zählt für den Club.",
+      title: "Club Weekend",
+      text: "Ein Wochenende, eine Sim, jeder HYROX-Club weltweit. Hafen Athletics wird Dritter in Hamburg Nord – und die Club Season beginnt.",
       screen: "league",
     },
     {

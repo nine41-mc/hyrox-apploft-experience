@@ -170,11 +170,11 @@ function LeagueScreen() {
     ["5", "Altona Collective", "987"],
   ];
   return (
-    <Shell title="Club Season · Hamburg North">
+    <Shell title="Club Weekend · Hamburg North">
       <Card className="!p-0">
         <div className="flex items-center justify-between px-3 py-2.5">
-          <p className="text-[12px] font-medium uppercase">League table</p>
-          <Tag tone="grey">Week 6 / 12</Tag>
+          <p className="text-[12px] font-medium uppercase">Club ranking</p>
+          <Tag tone="grey">Season kick-off</Tag>
         </div>
         <ul>
           {rows.map(([pos, club, pts]) => {
@@ -198,7 +198,7 @@ function LeagueScreen() {
       <Card>
         <p className="text-[10px] uppercase text-grey-300">Your contribution</p>
         <p className="headline mt-1 text-[30px]">+42 pts</p>
-        <p className="text-[10px] text-grey-300">2 sims · 1 judged session as volunteer</p>
+        <p className="text-[10px] text-grey-300">Weekend sim · 214 clubs in the region</p>
       </Card>
       <Card className="flex items-center justify-between">
         <span className="text-[11px]">Next club sim · Thu 19:00</span>

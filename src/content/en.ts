@@ -126,8 +126,8 @@ export const year = {
     },
     {
       month: "Mar",
-      title: "Club Season",
-      text: "Hafen Athletics enters the Hamburg North league. Every member’s sim adds to the club’s score.",
+      title: "Club Weekend",
+      text: "One weekend, one sim, every HYROX club worldwide. Hafen Athletics finishes #3 in Hamburg North – and the Club Season begins.",
       screen: "league",
     },
     {
