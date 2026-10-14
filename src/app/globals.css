@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+/*
+ * HYROX Experience 2027 — design tokens.
+ * Follows the HYROX Brand Guidelines (Season 02): black base, white + yellow accents,
+ * grey for web surfaces, Brutal Type (Regular default, Medium as highlighter),
+ * monochrome event photography, modular boxes.
+ *
+ * ───────────── COLOUR ROLES ─────────────
+ * BLACK  = base of nearly everything (page, sections, phone screens).
+ * WHITE  = body text, city/date boxes, secondary buttons.
+ * YELLOW = #FFED00 accent ONLY: tagline boxes, highlighter words (.hl), primary CTA,
+ *          the 3 race days in the year grid, active states. One strong yellow moment per viewport.
+ * GREY   = web surfaces (cards, dividers) – never as text on black below grey-300.
+ */
+
+/* Brutal Type @font-face lives in layout.tsx (needs the basePath for the static export). */
+
+@theme {
+  --color-yellow: #ffed00;
+  --color-yellow-dim: #b3a600;
+  --color-ink: #000000;
+  --color-ink-900: #0a0a0a;
+  --color-ink-800: #121212;
+  --color-ink-700: #1b1b1b;
+  --color-ink-600: #262626;
+  --color-ink-500: #3a3a3a;
+  --color-grey-400: #6b6b6b;
+  --color-grey-300: #9a9a9a;
+  --color-grey-200: #c4c4c4;
+  --color-paper: #ffffff;
+
+  --font-brand: "Brutal Type", var(--font-barlow), "Helvetica Neue", Arial, sans-serif;
+
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1200px;
+
+  --animate-ticker: ticker 40s linear infinite;
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+  -webkit-text-size-adjust: 100%;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-brand);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-yellow);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-yellow);
+  outline-offset: 3px;
+}
+
+@layer components {
+  /* 16px gutter on phones, 32 on tablet, 56 on desktop; max 1440 */
+  .container-site {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 16px;
+  }
+  @media (min-width: 768px) {
+    .container-site { padding-inline: 32px; }
+  }
+  @media (min-width: 1200px) {
+    .container-site { padding-inline: 56px; }
+  }
+
+  /* Brand headline: all caps, Brutal Regular, tight */
+  .headline {
+    font-family: var(--font-brand);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+  }
+
+  /* Highlighter box (brand guide 02_TYPOGRAPHY): yellow box, black Medium text, box hugs the words */
+  .hl {
+    background: var(--color-yellow);
+    color: var(--color-ink);
+    font-weight: 500;
+    padding: 0 0.12em;
+    margin: 0 -0.04em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .hl-white {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-weight: 500;
+    padding: 0 0.12em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /* Eyebrow with the brand's "_" word spacing */
+  .eyebrow {
+    font-family: var(--font-brand);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* Letter-spaced HYROX wordmark (text stand-in for the logotype) */
+  .wordmark {
+    font-weight: 500;
+    letter-spacing: 0.42em;
+    text-transform: uppercase;
+  }
+
+  .grain {
+    position: relative;
+  }
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.08;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .no-scrollbar { scrollbar-width: none; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+}
+
+/* Executive summary prints as a clean A4 page */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  header, footer, .print\:hidden { display: none !important; }
+  body, .summary, .summary * { background: #fff !important; color: #000 !important; }
+  .summary { padding-top: 0 !important; }
+  .summary .hl { background: #ffed00 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .summary dl { gap: 0 !important; }
+  .summary dl > div { break-inside: avoid; border: 1px solid #ddd; padding: 10px 14px !important; }
+  .summary .headline { font-size: 22px !important; }
+  .summary h1.headline { font-size: 40px !important; }
+  .summary li { font-size: 11pt !important; }
+}

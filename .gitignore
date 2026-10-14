@@ -1,0 +1,25 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+.env*
+!.env.example
+*.tsbuildinfo
+next-env.d.ts
+
+# Licensed / third-party assets – this repo is PUBLIC. Never commit:
+# - Brutal Type (HYROX brand font, licensed)
+# - HYROX event photography
+# Copy them locally into these folders (see README).
+/public/fonts/licensed/
+/public/images/licensed/
+
+# local tooling
+/.claude/
