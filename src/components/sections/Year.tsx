@@ -9,6 +9,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Phone } from "@/components/ui/Phone";
 import { AppScreen } from "@/components/screens/AppScreens";
 import { cn } from "@/components/ui/cn";
+import { YearCard } from "@/components/mocks/YearCard";
 
 /** "A year as a racer": swipeable months, each with an app screen. */
 export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] }) {
@@ -132,9 +133,16 @@ export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] })
               <p className="mt-3 min-h-[96px] text-[15px] leading-relaxed text-paper/80 md:text-[16px]">{s.text}</p>
             </div>
             <div className="mt-auto bg-gradient-to-b from-ink-800 to-ink px-6 pb-8 pt-2">
-              <Phone className="w-[252px] md:w-[264px]">
-                <AppScreen screen={s.screen} />
-              </Phone>
+              <div className="relative">
+                <Phone className="w-[252px] md:w-[264px]">
+                  <AppScreen screen={s.screen} />
+                </Phone>
+                {s.screen === "record" && (
+                  <div className="absolute -bottom-3 -left-5 origin-bottom-left -rotate-6 scale-[0.85] md:-left-6">
+                    <YearCard />
+                  </div>
+                )}
+              </div>
             </div>
           </article>
         ))}

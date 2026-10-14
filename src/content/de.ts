@@ -193,6 +193,7 @@ export const wins = {
         "Umsatz zwischen den Race-Wochenenden",
         "Daten zurück: Login with HYROX",
         "Lizenzierte Mitglieder – das Rückgrat eines Verbands",
+        "Ein neuer B2B-Kanal: Firmen-Ligen über EGYM Wellpass",
       ],
     },
   ],
@@ -216,6 +217,7 @@ export const wins = {
       { k: "F45 PEAK500", v: "Ein Benchmark, am selben Tag, in jedem F45-Studio – gewertet in der F45-App. F45 ist globaler Gym-Partner von HYROX.", source: 10 },
       { k: "TRYKA & GymRace", v: "Race-Serien im HYROX-Stil mit eigenen Ligen für Racer, Gyms und Firmen.", source: 11 },
     ],
+    answer: "Die Antwort von HYROX: der Club Weekend – größer, offiziell, und er zählt für den Index.",
   },
 };
 
