@@ -117,7 +117,7 @@ export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] })
         role="region"
         aria-label={ui.carousel}
         tabIndex={0}
-        className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto motion-safe:scroll-smooth px-4 pb-4 md:gap-6 md:px-8 lg:px-[max(56px,calc((100vw-1440px)/2+56px))]"
+        className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto motion-safe:scroll-smooth px-4 pb-4 md:gap-6 md:px-8 lg:px-[max(56px,calc((100vw-1440px)/2+56px))] scroll-px-4 md:scroll-px-8 lg:scroll-px-[max(56px,calc((100vw-1440px)/2+56px))]"
       >
         {year.steps.map((s, i) => (
           <article
