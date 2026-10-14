@@ -20,7 +20,7 @@ export function ClubOsMock({ note }: { note: string }) {
         <span className="h-2.5 w-2.5 rounded-full bg-ink-500" />
         <span className="h-2.5 w-2.5 rounded-full bg-ink-500" />
         <span className="h-2.5 w-2.5 rounded-full bg-ink-500" />
-        <span className="ml-3 truncate text-[12px] text-grey-400">club.hyrox.com / hafen-athletics</span>
+        <span className="ml-3 truncate text-[12px] text-grey-300">club.hyrox.com / hafen-athletics</span>
       </div>
       <div className="p-5 md:p-7">
         <div className="flex flex-wrap items-center justify-between gap-3">
@@ -38,7 +38,7 @@ export function ClubOsMock({ note }: { note: string }) {
               <Icon className="h-4 w-4 text-yellow" />
               <p className="headline mt-3 text-[30px] md:text-[34px]">{v}</p>
               <p className="text-[12px] text-paper/80">{k}</p>
-              <p className="text-[11px] text-grey-400">{d}</p>
+              <p className="text-[11px] text-grey-300">{d}</p>
             </div>
           ))}
         </div>
@@ -54,7 +54,7 @@ export function ClubOsMock({ note }: { note: string }) {
             ))}
           </ul>
         </div>
-        <p className="mt-4 text-[11px] text-grey-400">{note}</p>
+        <p className="mt-4 text-[11px] text-grey-300">{note}</p>
       </div>
     </div>
   );
@@ -95,7 +95,7 @@ export function WallMock({ caption }: { caption: string }) {
         </div>
       </div>
       <div className="mx-auto h-6 w-24 bg-ink-700" aria-hidden />
-      <p className="mt-2 text-center text-[12px] text-grey-400">{caption}</p>
+      <p className="mt-2 text-center text-[12px] text-grey-300">{caption}</p>
     </div>
   );
 }

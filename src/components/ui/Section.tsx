@@ -30,9 +30,13 @@ export function Eyebrow({ children, className }: { children: ReactNode; classNam
 }
 
 /** Footnote marker linking to the sources list in the footer */
-export function Src({ n }: { n: number }) {
+export function Src({ n, label = "Source" }: { n: number; label?: string }) {
   return (
-    <a href={`#source-${n}`} className="ml-0.5 align-super text-[10px] text-grey-300 hover:text-yellow">
+    <a
+      href={`#source-${n}`}
+      aria-label={`${label} ${n}`}
+      className="-my-2 inline-block min-w-6 px-0.5 py-2 text-center align-super text-[10px] leading-none text-grey-300 hover:text-yellow"
+    >
       [{n}]
     </a>
   );

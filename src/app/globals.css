@@ -169,3 +169,47 @@ body {
   .summary h1.headline { font-size: 40px !important; }
   .summary li { font-size: 11pt !important; }
 }
+
+/* ───────────── Reveal + year grid animations (CSS only, JS just flips data-in) ───────────── */
+[data-reveal] {
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+}
+.js [data-reveal]:not([data-in]) {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.yg-cell {
+  transition:
+    opacity 0.25s ease-out var(--d, 0s),
+    transform 0.25s ease-out var(--d, 0s);
+}
+.yg-race {
+  transition-duration: 0.5s;
+}
+.js .yeargrid:not([data-in]) .yg-cell {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.js .yeargrid:not([data-in]) .yg-race {
+  transform: scale(2.4);
+}
+@media (prefers-reduced-motion: reduce) {
+  .js [data-reveal]:not([data-in]),
+  .js .yeargrid:not([data-in]) .yg-cell {
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal],
+  .yg-cell {
+    transition: none;
+  }
+}
+@media print {
+  [data-reveal],
+  .yg-cell {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

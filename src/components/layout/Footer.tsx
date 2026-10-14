@@ -22,6 +22,7 @@ export function Footer({ c, locale }: { c: Content; locale: Locale }) {
                 <span className="mr-2 text-paper">[{s.n}]</span>
                 <a href={s.url} target="_blank" rel="noreferrer" className="underline decoration-ink-500 underline-offset-4 hover:text-yellow">
                   {s.label}
+                  <span className="sr-only"> {ui.newTab}</span>
                 </a>
               </li>
             ))}

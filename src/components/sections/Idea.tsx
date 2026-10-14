@@ -26,7 +26,7 @@ export function Idea({ c }: { c: Content }) {
         <ol className="mt-14 grid gap-px bg-ink-600 md:grid-cols-2 lg:mt-16 lg:grid-cols-4">
           {idea.pillars.map((p, i) => (
             <Reveal as="li" key={p.name} delay={i * 0.06} className="group flex flex-col bg-ink-800 p-6 md:p-7">
-              <span className="headline text-[16px] text-grey-400">{p.n}</span>
+              <span className="headline text-[16px] text-grey-300">{p.n}</span>
               <h3 className="headline mt-6 text-[36px] md:text-[40px]">
                 <span className="transition-colors group-hover:text-yellow">{p.name}</span>
               </h3>
@@ -45,14 +45,18 @@ export function Idea({ c }: { c: Content }) {
         {/* Web + app: the record is the product */}
         <div className="mt-16 grid items-end gap-10 md:mt-24 lg:grid-cols-[1.55fr_1fr] lg:gap-14">
           <Reveal>
-            <RecordWeb />
-            <p className="mt-3 text-[13px] text-grey-400">{ui.webCaption}</p>
+            <div role="img" aria-label={ui.webCaption}>
+              <div aria-hidden>
+                <RecordWeb />
+              </div>
+            </div>
+            <p className="mt-3 text-[13px] text-grey-300" aria-hidden>{ui.webCaption}</p>
           </Reveal>
           <Reveal delay={0.1} className="flex flex-col items-center">
-            <Phone className="w-[252px] md:w-[264px]">
+            <Phone className="w-[252px] md:w-[264px]" label={ui.appCaption}>
               <AppScreen screen="record" />
             </Phone>
-            <p className="mt-3 text-[13px] text-grey-400">{ui.appCaption}</p>
+            <p className="mt-3 text-[13px] text-grey-300" aria-hidden>{ui.appCaption}</p>
           </Reveal>
         </div>
 

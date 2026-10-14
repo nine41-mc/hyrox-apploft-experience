@@ -15,11 +15,11 @@ export function RecordWeb() {
         <span className="h-2.5 w-2.5 rounded-full bg-ink-500" />
         <span className="h-2.5 w-2.5 rounded-full bg-ink-500" />
         <span className="h-2.5 w-2.5 rounded-full bg-ink-500" />
-        <span className="ml-3 truncate text-[12px] text-grey-400">hyrox.com/racer/lena-k</span>
+        <span className="ml-3 truncate text-[12px] text-grey-300">hyrox.com/racer/lena-k</span>
       </div>
       <div className="flex items-center justify-between border-b border-ink-600 px-5 py-3">
         <span className="wordmark text-[11px]">HYROX</span>
-        <span className="hidden gap-5 text-[11px] uppercase tracking-widest text-grey-400 md:flex">
+        <span className="hidden gap-5 text-[11px] uppercase tracking-widest text-grey-300 md:flex">
           <span>Races</span>
           <span>Clubs</span>
           <span className="text-paper">Racers</span>
@@ -50,7 +50,7 @@ export function RecordWeb() {
           <ul className="mt-3 divide-y divide-ink-600 border-y border-ink-600">
             {record.map(([d, k, place, t, score], i) => (
               <li key={d} className="flex items-center gap-3 py-2.5 text-[13px]">
-                <span className="w-[62px] shrink-0 text-grey-400">{d}</span>
+                <span className="w-[62px] shrink-0 text-grey-300">{d}</span>
                 <span className="min-w-0 flex-1">
                   <span className="block text-[10px] uppercase tracking-widest text-grey-300">{k}</span>
                   <span className="block truncate">{place}</span>

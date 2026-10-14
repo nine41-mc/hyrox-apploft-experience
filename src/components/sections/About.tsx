@@ -3,12 +3,12 @@ import { Src } from "@/components/ui/Section";
 
 /** Small closing block about apploft. – the full credentials live in a separate deck. */
 export function About({ c }: { c: Content }) {
-  const { about } = c;
+  const { about, ui } = c;
   return (
     <section className="border-t border-ink-600 bg-ink-800 py-12 text-paper md:py-14">
       <div className="container-site grid gap-8 md:grid-cols-3 md:gap-10">
         <div>
-          <p className="headline text-[28px]">{about.k}</p>
+          <h2 className="text-[28px] font-medium tracking-tight">{about.k}</h2>
           <p className="mt-3 text-[14px] leading-relaxed text-paper/75">{about.desc}</p>
         </div>
         <div>
@@ -25,7 +25,7 @@ export function About({ c }: { c: Content }) {
           <p className="eyebrow !text-[11px] text-grey-300">{about.partner.k}_</p>
           <p className="mt-3 text-[14px] leading-relaxed text-paper/85">
             <span className="hl mr-1">EGYM</span> {about.partner.v}
-            <Src n={about.partner.source} />
+            <Src label={ui.source} n={about.partner.source} />
           </p>
         </div>
       </div>

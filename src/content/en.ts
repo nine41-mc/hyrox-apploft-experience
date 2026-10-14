@@ -26,7 +26,12 @@ export const ui = {
   summaryNote: "Sources and details: see the full story on the main page. Screens and data in the concept are illustrative.",
   openMenu: "Open menu",
   closeMenu: "Close menu",
-  backToTop: "Back to top",
+  backToTop: "back to top",
+  skip: "Skip to content",
+  newTab: "(opens in a new tab)",
+  source: "Source",
+  carousel: "Lena’s year, month by month",
+  appScreen: "App screen",
   sections: "Sections",
   language: "Language",
   illustrativeData: "Illustrative data.",
@@ -49,7 +54,6 @@ export const nav = [
   { id: "idea", label: "The idea" },
   { id: "year", label: "Lena’s 2027" },
   { id: "wins", label: "Everybody wins" },
-  { id: "talk", label: "Start" },
 ];
 
 export const hero = {
@@ -191,7 +195,7 @@ export const wins = {
       items: [
         "A direct relationship with 2M+ racers",
         "Revenue between race weekends",
-        "Data back home: Login with HYROX",
+        "Data back home: Log in with HYROX",
         "Licensed members – the backbone of a federation",
         "A new B2B channel: corporate leagues via EGYM Wellpass",
       ],
@@ -205,7 +209,7 @@ export const wins = {
     title: "Proven: community is built offline first.",
     items: [
       { k: "Strava", v: "1M clubs – new clubs almost 4× in 2025", source: 4 },
-      { k: "Peloton", v: "1.8% monthly churn with hardware vs. ~7–8% app-only", source: 5 },
+      { k: "Peloton", v: "1.8% monthly churn with hardware vs ~7–8% app‑only", source: 5 },
       { k: "IRONMAN", v: "Rewards clubs for every member who races", source: 6 },
       { k: "CrossFit", v: "Open sign-ups −32% after affiliate fees rose", source: 7 },
     ],
@@ -257,17 +261,17 @@ export const footer = {
 };
 
 export const sources = [
-  { n: 1, label: "Infront press release, 08.09.2026", url: "https://www.infront.sport/news/participations-sports/consortium-led-by-l-catterton-in-partnership-with-hyrox-founders-acquires-infronts-majority-stake-in-hyrox-clone" },
-  { n: 2, label: "Endurance.biz, 02.12.2025", url: "https://endurance.biz/2025/industry-news/hyrox-prepares-for-largest-ever-race-at-london-excel-and-unveils-london-week-of-fitness-featuring-hyrox-youngstars-in-2026/" },
+  { n: 1, label: "Infront press release, 8 Sep 2026", url: "https://www.infront.sport/news/participations-sports/consortium-led-by-l-catterton-in-partnership-with-hyrox-founders-acquires-infronts-majority-stake-in-hyrox-clone" },
+  { n: 2, label: "Endurance.biz, 2 Dec 2025", url: "https://endurance.biz/2025/industry-news/hyrox-prepares-for-largest-ever-race-at-london-excel-and-unveils-london-week-of-fitness-featuring-hyrox-youngstars-in-2026/" },
   { n: 3, label: "hyrox.com – results searchable by name, no athlete profiles (Oct 2026)", url: "https://hyrox.com/" },
   { n: 4, label: "Strava Year in Sport 2025", url: "https://press.strava.com/articles/strava-releases-12th-annual-year-in-sport-trend-report-2025" },
   { n: 5, label: "Peloton Q4 FY25 shareholder letter", url: "https://www.sec.gov/Archives/edgar/data/1639825/000163982525000132/q42025shareholderletter.htm" },
   { n: 6, label: "Slowtwitch on IRONMAN TriClubs", url: "https://www.slowtwitch.com/triathlon/show-me-the-money-hardly-the-secret-to-ironman-and-zoots-successful-club-programs/" },
-  { n: 7, label: "Morning Chalk Up, 04.03.2025", url: "https://morningchalkup.com/2025/03/04/2025-crossfit-open-registrations-down-32-percent/" },
-  { n: 8, label: "Athletech News, 01.10.2026", url: "https://athletechnews.com/hyrox-pushes-deeper-into-gyms-hyrox-training-plus-abc-fitness-egym/" },
+  { n: 7, label: "Morning Chalk Up, 4 Mar 2025", url: "https://morningchalkup.com/2025/03/04/2025-crossfit-open-registrations-down-32-percent/" },
+  { n: 8, label: "Athletech News, 1 Oct 2026", url: "https://athletechnews.com/hyrox-pushes-deeper-into-gyms-hyrox-training-plus-abc-fitness-egym/" },
   { n: 9, label: "Spartan – DEKA Gym vs Gym", url: "https://cn.spartan.com/en/deka/gym-versus-gym" },
-  { n: 10, label: "Athletech News – F45 PEAK500, 03/2026", url: "https://athletechnews.com/f45-peak500-fitness-competition-red-bull/" },
-  { n: 11, label: "Hybrid Fitness Media – UK/EU race market, 07/2026", url: "https://hybridfitnessmedia.com/?p=4949" },
+  { n: 10, label: "Athletech News – F45 PEAK500, Mar 2026", url: "https://athletechnews.com/f45-peak500-fitness-competition-red-bull/" },
+  { n: 11, label: "Hybrid Fitness Media – UK/EU race market, Jul 2026", url: "https://hybridfitnessmedia.com/?p=4949" },
 ];
 
 export const summary = {

@@ -1,9 +1,8 @@
-import type { Metadata, Viewport } from "next";
+import type { Viewport } from "next";
 import { Barlow } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { ServiceWorker } from "@/components/layout/ServiceWorker";
 import { asset } from "@/lib/asset";
-import { en } from "@/content/meta";
 
 // Brutal Type is licensed → served from /public/fonts/licensed (gitignored).
 // When the files are missing the stack falls back to Barlow (next/font, OFL).
@@ -26,24 +25,21 @@ const barlow = Barlow({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: en.title,
-  description: en.description,
-  robots: { index: false, follow: false },
-  manifest: asset("/manifest.webmanifest"),
-};
-
-export const viewport: Viewport = {
+export const rootViewport: Viewport = {
   themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+/** Shared <html> document for both root layouts – `lang` is set server-side per locale. */
+export function RootDocument({ lang, children }: { lang: "en" | "de"; children: React.ReactNode }) {
   return (
-    <html lang="en" className={barlow.variable}>
+    <html lang={lang} className={barlow.variable}>
+      {/* eslint-disable-next-line @next/next/no-head-element -- shared root document for both locale layouts */}
       <head>
+        {/* Mark JS as available before first paint: reveal animations only hide content when JS can show it again */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         <style dangerouslySetInnerHTML={{ __html: brutalFaces }} />
       </head>
       <body>

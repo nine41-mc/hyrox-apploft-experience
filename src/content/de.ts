@@ -26,7 +26,12 @@ export const ui = {
   summaryNote: "Quellen und Details: siehe die ganze Story auf der Hauptseite. Screens und Daten im Konzept sind illustrativ.",
   openMenu: "Menü öffnen",
   closeMenu: "Menü schließen",
-  backToTop: "Nach oben",
+  backToTop: "nach oben",
+  skip: "Zum Inhalt springen",
+  newTab: "(öffnet in neuem Tab)",
+  source: "Quelle",
+  carousel: "Lenas Jahr, Monat für Monat",
+  appScreen: "App-Screen",
   sections: "Kapitel",
   language: "Sprache",
   illustrativeData: "Illustrative Daten.",
@@ -49,7 +54,6 @@ export const nav = [
   { id: "idea", label: "Die Idee" },
   { id: "year", label: "Lenas 2027" },
   { id: "wins", label: "Alle gewinnen" },
-  { id: "talk", label: "Start" },
 ];
 
 export const hero = {
@@ -205,9 +209,9 @@ export const wins = {
     title: "Belegt: Community entsteht offline zuerst.",
     items: [
       { k: "Strava", v: "1 Mio. Clubs – neue Clubs 2025 fast vervierfacht", source: 4 },
-      { k: "Peloton", v: "1,8 % Churn pro Monat mit Hardware vs. ~7–8 % nur App", source: 5 },
+      { k: "Peloton", v: "1,8 % Churn pro Monat mit Hardware vs. ~7–8 % nur App", source: 5 },
       { k: "IRONMAN", v: "Belohnt Clubs für jedes Mitglied, das startet", source: 6 },
-      { k: "CrossFit", v: "Open-Anmeldungen −32 % nach höheren Affiliate-Gebühren", source: 7 },
+      { k: "CrossFit", v: "Open-Anmeldungen −32 % nach höheren Affiliate-Gebühren", source: 7 },
     ],
   },
   rivals: {

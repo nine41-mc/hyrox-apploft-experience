@@ -2,15 +2,18 @@ import type { ReactNode } from "react";
 import { cn } from "./cn";
 
 /** iPhone-like device frame. Content is laid out for ~280px width. */
-export function Phone({ children, className }: { children: ReactNode; className?: string }) {
+export function Phone({ children, className, label }: { children: ReactNode; className?: string; label?: string }) {
   return (
     <div
+      role={label ? "img" : undefined}
+      aria-label={label}
+      aria-hidden={label ? undefined : true}
       className={cn(
         "relative mx-auto aspect-[9/19.2] w-[272px] shrink-0 rounded-[46px] border border-ink-500 bg-ink p-[9px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.9),0_0_0_1px_rgba(255,255,255,0.04)_inset]",
         className,
       )}
     >
-      <div className="relative h-full w-full overflow-hidden rounded-[38px] bg-ink">
+      <div className="relative h-full w-full overflow-hidden rounded-[38px] bg-ink" aria-hidden>
         {/* status bar */}
         <div className="flex h-[34px] items-center justify-between px-6 pt-1 text-[11px] font-medium text-paper">
           <span>9:41</span>

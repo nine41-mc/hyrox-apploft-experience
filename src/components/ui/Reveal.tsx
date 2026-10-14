@@ -1,31 +1,35 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
+import { useInView } from "./useInView";
 
-/** Fade-up on scroll. Respects prefers-reduced-motion. */
+/**
+ * Fade-up on scroll, driven by CSS (see globals.css `[data-reveal]`).
+ * Content is only hidden while JS runs (`html.js`), so it stays visible without JS,
+ * in print and for prefers-reduced-motion.
+ */
 export function Reveal({
   children,
   delay = 0,
   className,
-  as = "div",
+  as: Tag = "div",
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
   as?: "div" | "li" | "span";
 }) {
-  const reduce = useReducedMotion();
-  const Comp = motion[as];
+  const { ref, inView } = useInView<HTMLElement>();
   return (
-    <Comp
+    <Tag
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      ref={ref as any}
+      data-reveal=""
+      data-in={inView ? "" : undefined}
       className={className}
-      initial={reduce ? false : { opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -12% 0px" }}
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      style={{ "--reveal-delay": `${delay}s` } as CSSProperties}
     >
       {children}
-    </Comp>
+    </Tag>
   );
 }

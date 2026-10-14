@@ -22,14 +22,17 @@ export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] })
     const r = rail.current;
     const chip = r?.children[active] as HTMLElement | undefined;
     if (!r || !chip) return;
-    r.scrollTo({ left: chip.offsetLeft - 16, behavior: "smooth" });
+    r.scrollTo({ left: chip.offsetLeft - 16, behavior: smooth() });
   }, [active]);
+
+  const smooth = () =>
+    (typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth") as ScrollBehavior;
 
   const scrollTo = useCallback((i: number) => {
     const el = track.current?.children[i] as HTMLElement | undefined;
     if (!el || !track.current) return;
     const first = track.current.children[0] as HTMLElement;
-    track.current.scrollTo({ left: el.offsetLeft - first.offsetLeft, behavior: "smooth" });
+    track.current.scrollTo({ left: el.offsetLeft - first.offsetLeft, behavior: smooth() });
   }, []);
 
   useEffect(() => {
@@ -64,7 +67,7 @@ export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] })
           </div>
           <Reveal delay={0.1}>
             <p className="max-w-[520px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{year.body}</p>
-            <p className="mt-3 text-[12px] text-grey-400">{year.note}</p>
+            <p className="mt-3 text-[12px] text-grey-300">{year.note}</p>
           </Reveal>
         </div>
 
@@ -76,9 +79,9 @@ export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] })
                 key={s.month}
                 type="button"
                 onClick={() => scrollTo(i)}
-                aria-current={active === i}
+                aria-current={active === i ? "step" : undefined}
                 className={cn(
-                  "eyebrow shrink-0 px-3 py-2 !text-[12px] transition-colors",
+                  "eyebrow min-h-11 shrink-0 px-3 !text-[12px] transition-colors",
                   active === i ? "bg-yellow text-ink" : "text-grey-300 hover:text-paper",
                 )}
               >
@@ -111,7 +114,10 @@ export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] })
 
       <div
         ref={track}
-        className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-4 md:gap-6 md:px-8 lg:px-[max(56px,calc((100vw-1440px)/2+56px))]"
+        role="region"
+        aria-label={ui.carousel}
+        tabIndex={0}
+        className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto motion-safe:scroll-smooth px-4 pb-4 md:gap-6 md:px-8 lg:px-[max(56px,calc((100vw-1440px)/2+56px))]"
       >
         {year.steps.map((s, i) => (
           <article
@@ -125,7 +131,7 @@ export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] })
             <div className="p-6 md:p-7">
               <div className="flex items-baseline justify-between">
                 <span className="headline text-[56px] text-yellow md:text-[64px]">{s.month}</span>
-                <span className="eyebrow !text-[11px] text-grey-400">
+                <span className="eyebrow !text-[11px] text-grey-300">
                   {String(i + 1).padStart(2, "0")} / {String(year.steps.length).padStart(2, "0")}
                 </span>
               </div>
@@ -134,7 +140,7 @@ export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] })
             </div>
             <div className="mt-auto bg-gradient-to-b from-ink-800 to-ink px-6 pb-8 pt-2">
               <div className="relative">
-                <Phone className="w-[252px] md:w-[264px]">
+                <Phone className="w-[252px] md:w-[264px]" label={`${ui.appScreen}: ${s.title}`}>
                   <AppScreen screen={s.screen} />
                 </Phone>
                 {s.screen === "record" && (

@@ -16,7 +16,7 @@ export function HomeView({ locale }: { locale: Locale }) {
   return (
     <>
       <Header locale={locale} nav={c.nav} ui={c.ui} page="home" />
-      <main>
+      <main id="main">
         <Hero c={c} />
         <Statement c={c} />
         <Gap c={c} />

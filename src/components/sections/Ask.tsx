@@ -21,7 +21,7 @@ export function Ask({ c }: { c: Content }) {
           {ask.phases.map((p, i) => (
             <Reveal as="li" key={p.name} delay={i * 0.08} className={`p-5 md:p-6 ${i === 1 ? "bg-yellow text-ink" : "border border-paper/30 bg-ink/60"}`}>
               <p className={`eyebrow !text-[11px] ${i === 1 ? "" : "text-grey-300"}`}>{p.when}</p>
-              <p className="headline mt-4 text-[34px] md:text-[40px]">{p.name}</p>
+              <h3 className="headline mt-4 text-[34px] md:text-[40px]">{p.name}</h3>
               <p className={`mt-2 text-[15px] ${i === 1 ? "" : "text-paper/80"}`}>{p.text}</p>
             </Reveal>
           ))}
@@ -30,7 +30,7 @@ export function Ask({ c }: { c: Content }) {
           {ask.contacts.map((p) => (
             <div key={p.name} className="bg-paper px-5 py-4 text-ink md:min-w-[260px]">
               <p className="headline text-[24px]">{p.name}</p>
-              <p className="eyebrow mt-1 !text-[11px] !tracking-[0.12em]">{p.role}</p>
+              <p className="mt-1 text-[13px] font-medium">{p.role}</p>
             </div>
           ))}
           <a
@@ -40,7 +40,8 @@ export function Ask({ c }: { c: Content }) {
             aria-label={`${ui.talk} – ${ask.site}`}
             className="group flex items-center justify-between gap-6 bg-yellow px-5 py-4 text-ink md:min-w-[220px]"
           >
-            <span className="headline text-[24px]">{ask.site}</span>
+            <span className="text-[24px] font-medium tracking-tight">{ask.site}</span>
+            <span className="sr-only">{ui.newTab}</span>
             <ArrowUpRight className="h-6 w-6 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
           </a>
         </Reveal>

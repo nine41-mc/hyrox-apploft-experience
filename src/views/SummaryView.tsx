@@ -9,7 +9,7 @@ export function SummaryView({ locale }: { locale: Locale }) {
   return (
     <>
       <Header locale={locale} nav={c.nav} ui={ui} page="summary" />
-      <main className="summary bg-ink pb-20 pt-28 text-paper md:pt-36">
+      <main id="main" className="summary bg-ink pb-20 pt-28 text-paper md:pt-36">
         <div className="container-site">
           <div className="flex flex-wrap items-end justify-between gap-6 border-b border-ink-600 pb-8">
             <div>
@@ -40,7 +40,7 @@ export function SummaryView({ locale }: { locale: Locale }) {
               </div>
             ))}
           </dl>
-          <p className="mt-6 text-[13px] text-grey-400">{ui.summaryNote}</p>
+          <p className="mt-6 text-[13px] text-grey-300">{ui.summaryNote}</p>
         </div>
       </main>
       <Footer c={c} locale={locale} />

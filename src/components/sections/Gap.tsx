@@ -41,7 +41,7 @@ export function Gap({ c }: { c: Content }) {
               </p>
               <p className="mt-2 text-[14px] text-grey-300 md:text-[16px]">
                 {s.label}
-                <Src n={s.source} />
+                <Src label={ui.source} n={s.source} />
               </p>
             </Reveal>
           ))}

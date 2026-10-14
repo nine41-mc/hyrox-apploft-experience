@@ -6,7 +6,7 @@ export function YearCard({ className }: { className?: string }) {
     ["9", "judged sims"],
   ];
   return (
-    <div className={`aspect-[9/16] w-[150px] bg-yellow p-3 text-ink shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] ${className ?? ""}`}>
+    <div aria-hidden className={`aspect-[9/16] w-[150px] bg-yellow p-3 text-ink shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] ${className ?? ""}`}>
       <p className="wordmark text-[8px]">HYROX</p>
       <p className="headline mt-3 text-[20px] leading-[0.95]">
         Lena’s
