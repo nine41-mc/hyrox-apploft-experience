@@ -4,7 +4,7 @@
  * - Assets (JS, CSS, fonts, images): stale-while-revalidate → fast, refreshed in the background.
  * Bump CACHE to drop everything an older worker stored.
  */
-const CACHE = "hyrox-2027-v2";
+const CACHE = "hyrox-2027-v3";
 const scope = self.registration.scope;
 
 self.addEventListener("install", (event) => {
@@ -32,10 +32,14 @@ self.addEventListener("fetch", (event) => {
   const req = event.request;
   if (req.method !== "GET" || !req.url.startsWith(self.location.origin)) return;
 
-  const isPage = req.mode === "navigate" || (req.headers.get("accept") || "").includes("text/html");
+  // Pages and Next.js RSC payloads must never come from a stale HTTP cache: after a deploy the
+  // old HTML points at chunk files that no longer exist. Revalidate with the server every time.
+  const accept = req.headers.get("accept") || "";
+  const isPage =
+    req.mode === "navigate" || accept.includes("text/html") || accept.includes("text/x-component") || req.url.includes("_rsc=");
   if (isPage) {
     event.respondWith(
-      fetch(req)
+      fetch(req.url, { cache: "no-cache", credentials: "same-origin", headers: req.mode === "navigate" ? undefined : req.headers })
         .then((res) => put(req, res))
         .catch(() => caches.match(req).then((hit) => hit || caches.match(scope))),
     );
