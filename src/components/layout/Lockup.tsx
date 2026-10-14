@@ -15,7 +15,7 @@ export function Lockup({ className }: { className?: string }) {
         aria-hidden
       />
       <span
-        className="text-[14px] leading-none tracking-[-0.01em] md:text-[16px]"
+        className="-translate-y-[1.5px] text-[14px] leading-none tracking-[-0.01em] md:-translate-y-[2px] md:text-[16px]"
         style={{ fontFamily: "var(--font-barlow), Arial, sans-serif" }}
       >
         app<span className="font-semibold">loft.</span>

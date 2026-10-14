@@ -245,8 +245,8 @@ export const ask = {
     { when: "Season 27/28", name: "Rollout", text: "Region by region, along the race calendar." },
   ],
   contacts: [
-    { name: "Gary Boeing", role: "Managing Director, apploft." },
-    { name: "Manuel Cramer", role: "apploft." },
+    { name: "Gary Boeing", role: "CEO, apploft." },
+    { name: "Manuel Cramer", role: "CPO, apploft." },
   ],
   site: "apploft.de",
 };
