@@ -53,6 +53,7 @@ export const nav = [
   { id: "gap", label: "Die Lücke" },
   { id: "idea", label: "Die Idee" },
   { id: "year", label: "Lenas 2027" },
+  { id: "weekend", label: "Club Weekend" },
   { id: "wins", label: "Alle gewinnen" },
 ];
 
@@ -167,8 +168,46 @@ export const year = {
   ],
 };
 
+export const clubWeekend = {
+  eyebrow: "04_Der Club Weekend",
+  title: ["Ein Wochenende.", "Jeder Club."],
+  titleHl: "Jeder Club.",
+  body: "Zweimal pro Saison läuft jeder HYROX-Club weltweit am selben Wochenende dieselbe Sim – gejudgt, live im Leaderboard, und sie zählt für den Index jedes Racers. Der Saisonauftakt, in 11.000+ Gyms gleichzeitig.",
+  steps: [
+    { k: "Ankündigen", v: "Vier Wochen vorher: Clubs melden sich im Club OS an, Racer buchen einen Slot – zu Hause oder als Gast." },
+    { k: "Sim laufen", v: "Freitag bis Sonntag: überall dieselbe Sim, gejudgt von zertifizierten Coaches. Rookies starten in einer skalierten Division." },
+    { k: "Live mitfiebern", v: "Leaderboards nach Club, Stadt und Land – auf The Wall und in der App." },
+    { k: "Es zählt", v: "Ergebnisse landen in jedem Record und Index. Awards für Fastest Club und Highest Participation." },
+  ],
+  wins: [
+    { k: "Racer", v: "Ein echtes Ziel zwischen den Races – mit der eigenen Crew." },
+    { k: "Clubs", v: "Volles Haus, neue Leads und ein Revenue Share." },
+    { k: "HYROX", v: "Alle Clubs auf einmal aktiviert – und eine Bühne für Sponsoren." },
+  ],
+  mock: {
+    caption: "Live-Leaderboard – Web und The Wall",
+    title: "Club Weekend · Season kick-off",
+    live: "Live",
+    stats: [
+      ["4.212", "Clubs"],
+      ["48", "Länder"],
+      ["196.580", "Racer"],
+    ],
+    tabs: ["Fastest Club", "Highest Participation"],
+  },
+  rivals: {
+    title: "Und andere bewegen sich schon.",
+    items: [
+      { k: "DEKA Gym vs Gym", v: "Alle Affiliates laufen am selben Wochenende dasselbe Workout – weltweites Gym-Leaderboard.", source: 9 },
+      { k: "F45 PEAK500", v: "Ein Benchmark, am selben Tag, in jedem F45-Studio – gewertet in der F45-App. F45 ist globaler Gym-Partner von HYROX.", source: 10 },
+      { k: "TRYKA & GymRace", v: "Race-Serien im HYROX-Stil mit eigenen Ligen für Racer, Gyms und Firmen.", source: 11 },
+    ],
+    answer: "Die Antwort von HYROX: der Club Weekend – größer, offiziell, und er zählt für den Index.",
+  },
+};
+
 export const wins = {
-  eyebrow: "04_Alle gewinnen",
+  eyebrow: "05_Alle gewinnen",
   title: ["Racer. Clubs.", "HYROX."],
   titleHl: "HYROX.",
   columns: [
@@ -214,15 +253,6 @@ export const wins = {
       { k: "CrossFit", v: "Open-Anmeldungen −32 % nach höheren Affiliate-Gebühren", source: 7 },
     ],
   },
-  rivals: {
-    title: "Und andere bewegen sich schon.",
-    items: [
-      { k: "DEKA Gym vs Gym", v: "Alle Affiliates laufen am selben Wochenende dasselbe Workout – weltweites Gym-Leaderboard.", source: 9 },
-      { k: "F45 PEAK500", v: "Ein Benchmark, am selben Tag, in jedem F45-Studio – gewertet in der F45-App. F45 ist globaler Gym-Partner von HYROX.", source: 10 },
-      { k: "TRYKA & GymRace", v: "Race-Serien im HYROX-Stil mit eigenen Ligen für Racer, Gyms und Firmen.", source: 11 },
-    ],
-    answer: "Die Antwort von HYROX: der Club Weekend – größer, offiziell, und er zählt für den Index.",
-  },
 };
 
 export const about = {
@@ -240,7 +270,7 @@ export const about = {
 };
 
 export const ask = {
-  eyebrow: "05_Los geht’s",
+  eyebrow: "06_Los geht’s",
   title: ["Lasst uns den", "Record bauen."],
   titleHl: "Record bauen.",
   phases: [

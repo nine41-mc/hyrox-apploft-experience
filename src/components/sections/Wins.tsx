@@ -60,23 +60,6 @@ export function Wins({ c }: { c: Content }) {
           </ul>
         </Reveal>
 
-        <Reveal className="mt-10 border border-yellow/60 p-6 md:p-8">
-          <p className="eyebrow text-yellow">{wins.rivals.title}</p>
-          <ul className="mt-6 grid gap-6 md:grid-cols-3">
-            {wins.rivals.items.map((r) => (
-              <li key={r.k}>
-                <h3 className="headline text-[24px]">{r.k}</h3>
-                <p className="mt-2 text-[14px] leading-snug text-paper/75">
-                  {r.v}
-                  <Src label={ui.source} n={r.source} />
-                </p>
-              </li>
-            ))}
-          </ul>
-          <p className="headline mt-8 border-t border-paper/15 pt-6 text-[24px] leading-[1.05] md:text-[32px]">
-            <span className="hl">{wins.rivals.answer}</span>
-          </p>
-        </Reveal>
       </div>
     </Section>
   );

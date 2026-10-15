@@ -96,7 +96,7 @@ export function Header({
           <Lockup />
           <span className="sr-only"> – {ui.backToTop}</span>
         </a>
-        <nav className="hidden items-center gap-6 lg:flex" aria-label={ui.sections}>
+        <nav className="hidden items-center gap-6 whitespace-nowrap xl:flex" aria-label={ui.sections}>
           {nav.map((item) => (
             <a key={item.id} href={to(item.id)} className="eyebrow !text-[12px] text-paper/80 transition-colors hover:text-yellow">
               {item.label}
@@ -113,7 +113,7 @@ export function Header({
           </a>
           <LangSwitch locale={locale} page={page} label={ui.language} />
         </nav>
-        <div className="flex items-center gap-2 lg:hidden">
+        <div className="flex items-center gap-2 xl:hidden">
           <LangSwitch locale={locale} page={page} label={ui.language} />
           <button
             ref={menuButton}
@@ -132,7 +132,7 @@ export function Header({
         <nav
           id="mobile-menu"
           ref={menu}
-          className="container-site flex max-h-[calc(100svh-64px)] flex-col gap-1 overflow-y-auto pb-6 lg:hidden"
+          className="container-site flex max-h-[calc(100svh-64px)] flex-col gap-1 overflow-y-auto pb-6 xl:hidden"
           aria-label={ui.sections}
         >
           {nav.map((item) => (

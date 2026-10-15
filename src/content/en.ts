@@ -53,6 +53,7 @@ export const nav = [
   { id: "gap", label: "The gap" },
   { id: "idea", label: "The idea" },
   { id: "year", label: "Lena’s 2027" },
+  { id: "weekend", label: "Club Weekend" },
   { id: "wins", label: "Everybody wins" },
 ];
 
@@ -167,8 +168,46 @@ export const year = {
   ],
 };
 
+export const clubWeekend = {
+  eyebrow: "04_The Club Weekend",
+  title: ["One weekend.", "Every club."],
+  titleHl: "Every club.",
+  body: "Twice a season, every HYROX club in the world runs the same sim on the same weekend – judged, live on the leaderboard, counting for every racer’s Index. The season kick-off, in 11,000+ gyms at once.",
+  steps: [
+    { k: "Announce", v: "Four weeks out: clubs sign up in Club OS, racers book a slot – at home or as a guest." },
+    { k: "Race the sim", v: "Friday to Sunday: the same sim everywhere, judged by certified coaches. Rookies race a scaled division." },
+    { k: "Watch it live", v: "Leaderboards by club, city and country – on The Wall and in the app." },
+    { k: "Make it count", v: "Results land in every record and Index. Awards for Fastest Club and Highest Participation." },
+  ],
+  wins: [
+    { k: "Racers", v: "A real goal between races – with their crew." },
+    { k: "Clubs", v: "A full house, new leads and a revenue share." },
+    { k: "HYROX", v: "Every club activated at once – and a stage for sponsors." },
+  ],
+  mock: {
+    caption: "Live leaderboard – web and The Wall",
+    title: "Club Weekend · Season kick-off",
+    live: "Live",
+    stats: [
+      ["4,212", "clubs"],
+      ["48", "countries"],
+      ["196,580", "racers"],
+    ],
+    tabs: ["Fastest Club", "Highest Participation"],
+  },
+  rivals: {
+    title: "And others are already moving.",
+    items: [
+      { k: "DEKA Gym vs Gym", v: "All affiliates race the same workout on one weekend – global gym leaderboard.", source: 9 },
+      { k: "F45 PEAK500", v: "One benchmark, the same day, in every F45 studio – scored in the F45 app. F45 is HYROX’s global gym partner.", source: 10 },
+      { k: "TRYKA & GymRace", v: "HYROX-style race series with their own leagues for racers, gyms and companies.", source: 11 },
+    ],
+    answer: "HYROX’s answer: the Club Weekend – bigger, official, and it counts for the Index.",
+  },
+};
+
 export const wins = {
-  eyebrow: "04_Everybody wins",
+  eyebrow: "05_Everybody wins",
   title: ["Racers. Clubs.", "HYROX."],
   titleHl: "HYROX.",
   columns: [
@@ -214,15 +253,6 @@ export const wins = {
       { k: "CrossFit", v: "Open sign-ups −32% after affiliate fees rose", source: 7 },
     ],
   },
-  rivals: {
-    title: "And others are already moving.",
-    items: [
-      { k: "DEKA Gym vs Gym", v: "All affiliates race the same workout on one weekend – global gym leaderboard.", source: 9 },
-      { k: "F45 PEAK500", v: "One benchmark, the same day, in every F45 studio – scored in the F45 app. F45 is HYROX’s global gym partner.", source: 10 },
-      { k: "TRYKA & GymRace", v: "HYROX-style race series with their own leagues for racers, gyms and companies.", source: 11 },
-    ],
-    answer: "HYROX’s answer: the Club Weekend – bigger, official, and it counts for the Index.",
-  },
 };
 
 export const about = {
@@ -240,7 +270,7 @@ export const about = {
 };
 
 export const ask = {
-  eyebrow: "05_Let’s start",
+  eyebrow: "06_Let’s start",
   title: ["Let’s build", "the record."],
   titleHl: "the record.",
   phases: [
