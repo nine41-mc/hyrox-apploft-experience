@@ -17,6 +17,9 @@ export function Ask({ c }: { c: Content }) {
         <Reveal>
           <Headline lines={ask.title} hl={ask.titleHl} />
         </Reveal>
+        <Reveal delay={0.05}>
+          <p className="mt-6 max-w-[640px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{ask.lead}</p>
+        </Reveal>
         <ol className="mt-12 grid gap-3 md:grid-cols-3">
           {ask.phases.map((p, i) => (
             <Reveal as="li" key={p.name} delay={i * 0.08} className={`p-5 md:p-6 ${i === 1 ? "bg-yellow text-ink" : "border border-paper/30 bg-ink/60"}`}>
@@ -26,7 +29,18 @@ export function Ask({ c }: { c: Content }) {
             </Reveal>
           ))}
         </ol>
-        <Reveal delay={0.1} className="mt-8 flex flex-col gap-3 md:flex-row">
+        <Reveal delay={0.05} className="mt-10">
+          <p className="eyebrow text-grey-300">{ask.principles.k}_</p>
+          <ul className="mt-4 grid gap-px bg-paper/20 md:grid-cols-3">
+            {ask.principles.items.map((p) => (
+              <li key={p.k} className="bg-ink/80 p-5 md:p-6">
+                <h3 className="headline text-[22px] md:text-[24px]">{p.k}</h3>
+                <p className="mt-2 text-[15px] text-paper/80">{p.v}</p>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+        <Reveal delay={0.1} className="mt-10 flex flex-col gap-3 md:flex-row">
           {ask.contacts.map((p) => (
             <div key={p.name} className="bg-paper px-5 py-4 text-ink md:min-w-[260px]">
               <p className="headline text-[24px]">{p.name}</p>

@@ -31,7 +31,7 @@ export function LeaderboardMock({ mock }: { mock: Content["clubWeekend"]["mock"]
         <div className="mt-5 grid grid-cols-3 gap-3">
           {mock.stats.map(([v, k]) => (
             <div key={k} className="bg-ink-700 p-3 md:p-4">
-              <p className="headline text-[24px] md:text-[32px]">{v}</p>
+              <p className="headline text-[20px] min-[400px]:text-[24px] md:text-[32px]">{v}</p>
               <p className="text-[11px] uppercase tracking-wider text-grey-300">{k}</p>
             </div>
           ))}

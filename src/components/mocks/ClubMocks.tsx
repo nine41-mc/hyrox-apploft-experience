@@ -4,9 +4,9 @@ import { Photo } from "@/components/ui/Photo";
 /** Browser-framed dashboard for a club owner (illustrative data) */
 export function ClubOsMock({ note }: { note: string }) {
   const kpis = [
-    { icon: TrendingUp, k: "Active racers", v: "184", d: "+23 this season" },
+    { icon: TrendingUp, k: "Active athletes", v: "184", d: "+23 this season" },
     { icon: Timer, k: "Judged sims", v: "46", d: "this month" },
-    { icon: UserPlus, k: "New via network", v: "12", d: "members · Q3" },
+    { icon: UserPlus, k: "First-time racers", v: "9", d: "from your club · Q3" },
     { icon: Euro, k: "Revenue share", v: "€ 3.2k", d: "tickets + events · Q3" },
   ];
   const sims = [

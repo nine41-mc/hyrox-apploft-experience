@@ -19,7 +19,8 @@ export function Idea({ c }: { c: Content }) {
             </Reveal>
           </div>
           <Reveal delay={0.1}>
-            <p className="max-w-[560px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{idea.body}</p>
+            <p className="eyebrow text-yellow">{idea.kicker}_</p>
+            <p className="mt-4 max-w-[560px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{idea.body}</p>
           </Reveal>
         </div>
 
@@ -31,7 +32,7 @@ export function Idea({ c }: { c: Content }) {
                 <span className="transition-colors group-hover:text-yellow">{p.name}</span>
               </h3>
               <p className="eyebrow mt-2 !text-[11px] text-grey-300">
-                {ui.golf} {p.golf}
+                {ui.builtOn} {p.tag}
               </p>
               <p className="mt-4 text-[15px] leading-relaxed text-paper/80">{p.text}</p>
             </Reveal>

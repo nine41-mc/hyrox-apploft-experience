@@ -3,14 +3,16 @@ import { Check, ChevronRight, MapPin, Radio, Users, Bell, Lock } from "lucide-re
 import { cn } from "@/components/ui/cn";
 
 /**
- * Illustrative HYROX app screens for the "A year as a racer" story.
+ * Illustrative HYROX app screens for Lena’s year – from first workout to first race.
  * All people, clubs and numbers are fictional.
  */
 
-export type ScreenKey = "licence" | "sim" | "league" | "race" | "pass" | "rewards" | "perks" | "record";
+export type ScreenKey = "forecast" | "licence" | "sim" | "league" | "race" | "pass" | "rewards" | "perks" | "record";
 
 export function AppScreen({ screen }: { screen: ScreenKey }) {
   switch (screen) {
+    case "forecast":
+      return <ForecastScreen />;
     case "licence":
       return <LicenceScreen />;
     case "sim":
@@ -60,7 +62,48 @@ function Tag({ children, tone = "yellow" }: { children: ReactNode; tone?: "yello
   );
 }
 
-/* ───────────── Jan: Licence ───────────── */
+/* ───────────── Jan: HYROX Pass, day one ───────────── */
+function ForecastScreen() {
+  return (
+    <Shell title="My HYROX Pass">
+      <div className="relative overflow-hidden bg-yellow p-4 text-ink">
+        <p className="wordmark text-[10px]">HYROX</p>
+        <p className="headline mt-5 text-[30px]">Pass_</p>
+        <p className="mt-3 text-[15px] font-medium uppercase">Lena K.</p>
+        <div className="mt-3 grid grid-cols-2 gap-y-2 text-[10px] uppercase">
+          <div>
+            <p className="opacity-60">Home club</p>
+            <p className="font-medium">Hafen Athletics</p>
+          </div>
+          <div>
+            <p className="opacity-60">Athlete since</p>
+            <p className="font-medium">Jan 2027</p>
+          </div>
+        </div>
+        <QrPattern className="absolute right-3 top-3 h-11 w-11" />
+      </div>
+      <Card>
+        <div className="flex items-center justify-between">
+          <p className="text-[10px] uppercase text-grey-300">This week</p>
+          <span className="text-[10px] text-grey-300">Official programming</span>
+        </div>
+        <p className="mt-1 text-[12px] font-medium">3 of 3 sessions</p>
+        <Progress value={3} steps={3} />
+      </Card>
+      <Card>
+        <p className="text-[10px] uppercase text-grey-300">Index forecast</p>
+        <p className="headline mt-1 text-[30px]">~64</p>
+        <p className="text-[10px] text-grey-300">From 12 workouts · a judged sim makes it real</p>
+      </Card>
+      <Card className="flex items-center justify-between">
+        <span className="text-[12px]">Book your first sim · Thu 19:00</span>
+        <ChevronRight className="h-4 w-4 text-yellow" />
+      </Card>
+    </Shell>
+  );
+}
+
+/* ───────────── Licence (not in the current story) ───────────── */
 function LicenceScreen() {
   return (
     <Shell title="My Licence">
@@ -131,7 +174,7 @@ function SimScreen() {
             <Check className="h-2.5 w-2.5" /> Judged
           </Tag>
         </div>
-        <p className="mt-1 text-[10px] text-grey-300">Sim Standard ✓ · Judge: Coach Ana M.</p>
+        <p className="mt-1 text-[10px] text-grey-300">Rookie division · Sim Standard ✓ · Judge: Coach Ana M.</p>
       </Card>
       <Card className="flex-1">
         <p className="mb-2 text-[10px] uppercase text-grey-300">Stations</p>
@@ -148,7 +191,7 @@ function SimScreen() {
       </Card>
       <div className="flex items-center justify-between bg-yellow px-3 py-2.5 text-ink">
         <div>
-          <p className="text-[9px] uppercase">Your first HYROX Index</p>
+          <p className="text-[9px] uppercase">Forecast ~64 → your first Index</p>
           <p className="headline text-[28px]">65.8</p>
         </div>
         <span className="text-right text-[9px] uppercase leading-tight">
@@ -208,20 +251,20 @@ function LeagueScreen() {
   );
 }
 
-/* ───────────── Apr: Race day ───────────── */
+/* ───────────── Oct: Race day ───────────── */
 function RaceScreen() {
   return (
     <Shell title="HYROX Event App · Hamburg">
       <div className="flex items-center gap-2 bg-paper px-3 py-2 text-[10px] text-ink">
         <Bell className="h-3 w-3 shrink-0" />
-        Signed in with your HYROX ID · Wave 14 · 14:30
+        Signed in with your HYROX ID · Your first race
       </div>
       <Card>
         <div className="flex items-center justify-between">
           <Tag>
             <Radio className="h-2.5 w-2.5" /> Live
           </Tag>
-          <span className="text-[10px] text-grey-300">Women Open · Wave 14</span>
+          <span className="text-[10px] text-grey-300">Women Doubles · Wave 14</span>
         </div>
         <p className="headline mt-3 text-[40px]">52:18</p>
         <p className="text-[11px]">Station 5 / 8 · Rowing</p>
@@ -239,8 +282,8 @@ function RaceScreen() {
       </Card>
       <Card>
         <p className="text-[10px] uppercase text-grey-300">After the finish</p>
-        <p className="mt-1 text-[12px] font-medium">Result syncs to your record + Index</p>
-        <p className="mt-1 text-[10px] text-grey-300">2:10 ahead of your best club sim</p>
+        <p className="mt-1 text-[12px] font-medium">Result syncs to your Pass + Index</p>
+        <p className="mt-1 text-[10px] text-grey-300">Your record starts here</p>
       </Card>
     </Shell>
   );
@@ -274,33 +317,34 @@ function PassScreen() {
   );
 }
 
-/* ───────────── Sep: Rewards ───────────── */
+/* ───────────── Jun: Rewards ───────────── */
 function RewardsScreen() {
   return (
     <Shell title="Status & rewards">
       <div className="bg-gradient-to-br from-grey-200 to-grey-400 p-4 text-ink">
         <p className="wordmark text-[10px]">HYROX</p>
-        <p className="headline mt-4 text-[34px]">Silver_</p>
-        <p className="text-[10px] uppercase">Top 10% consistency · Women 30–34</p>
+        <p className="headline mt-4 text-[34px]">Regular_</p>
+        <p className="text-[10px] uppercase">2 sims · Club Weekend · 48 sessions</p>
       </div>
       <Card>
         <div className="flex items-center justify-between text-[10px] uppercase text-grey-300">
-          <span>Silver</span>
-          <span>Gold</span>
+          <span>Regular</span>
+          <span>All-in</span>
         </div>
-        <Progress value={7} steps={10} />
-        <p className="mt-2 text-[10px] text-grey-300">3 more judged sims to Gold</p>
+        <Progress value={6} steps={10} />
+        <p className="mt-2 text-[10px] text-grey-300">Occasional → Regular → All-in</p>
       </Card>
       <div className="bg-yellow p-3 text-ink">
         <p className="text-[9px] uppercase">Unlocked</p>
-        <p className="mt-1 text-[13px] font-medium uppercase leading-tight">Priority access · HYROX Berlin</p>
+        <p className="mt-1 text-[13px] font-medium uppercase leading-tight">−20 % on your first race</p>
+        <p className="mt-1 text-[10px] uppercase">HYROX Hamburg · club code HAFEN</p>
         <p className="mt-2 inline-flex items-center gap-1 bg-ink px-2 py-1 text-[10px] uppercase text-paper">
-          Book before general sale <ChevronRight className="h-3 w-3" />
+          Book with your crew <ChevronRight className="h-3 w-3" />
         </p>
       </div>
       <Card className="flex items-center justify-between text-[11px]">
         <span className="flex items-center gap-2">
-          <Lock className="h-3.5 w-3.5 text-grey-300" /> Gold: Experience draw
+          <Lock className="h-3.5 w-3.5 text-grey-300" /> All-in: priority access
         </span>
         <span className="text-[10px] text-grey-300">soon</span>
       </Card>
@@ -308,31 +352,31 @@ function RewardsScreen() {
   );
 }
 
-/* ───────────── Nov: Race weekend perks ───────────── */
+/* ───────────── Sep: Race weekend perks ───────────── */
 function PerksScreen() {
   const perks = [
-    ["Ticket HYROX Berlin", "−15 %", "applied"],
+    ["Ticket HYROX Hamburg", "−20 %", "applied"],
     ["Merch voucher", "€ 10", "at the shop"],
     ["Recovery zone", "Free", "Sat + Sun"],
   ] as const;
   return (
-    <Shell title="Race weekend · HYROX Berlin">
+    <Shell title="Race weekend · HYROX Hamburg">
       <div className="flex items-center gap-3 bg-paper p-3 text-ink">
         <QrPattern className="h-14 w-14 shrink-0" />
         <div className="text-[10px] uppercase leading-snug">
           <p className="font-medium">Check-in · HYROX ID</p>
-          <p>Women Open · Wave 9</p>
+          <p>Women Doubles · Wave 14</p>
           <p className="opacity-60">One scan at the entrance</p>
         </div>
       </div>
       <div className="flex items-center justify-between bg-yellow px-3 py-2.5 text-ink">
         <div>
           <p className="text-[9px] uppercase">Your points</p>
-          <p className="headline text-[28px]">1,240</p>
+          <p className="headline text-[28px]">860</p>
         </div>
         <span className="text-right text-[9px] uppercase leading-tight">
-          Earned in 9 club sims
-          <br />+ 2 races
+          Earned in 3 sims
+          <br />+ 74 sessions
         </span>
       </div>
       <Card className="!p-0">
@@ -359,10 +403,10 @@ function PerksScreen() {
 
 /* ───────────── Dec: Record ───────────── */
 function RecordScreen() {
-  const patches = ["HAM", "BCN", "BER", "CPH", "SIM×9", "LVL 2"];
-  const pts = [65.8, 67.1, 69.0, 68.4, 70.9, 72.4];
-  const max = 74;
-  const min = 64;
+  const patches = ["ROOKIE", "SIM×4", "CLUB WKND", "HAM", "1ST RACE", "NEXT: BER"];
+  const pts = [64.0, 65.8, 66.4, 67.3, 68.1, 69.6];
+  const max = 71;
+  const min = 62;
   const path = pts
     .map((p, i) => `${i === 0 ? "M" : "L"}${(i / (pts.length - 1)) * 236} ${46 - ((p - min) / (max - min)) * 42}`)
     .join(" ");
@@ -371,18 +415,18 @@ function RecordScreen() {
       <div>
         <p className="text-[10px] uppercase text-grey-300">HYROX Index</p>
         <p className="headline text-[56px] leading-none">
-          <span className="hl">72.4</span>
+          <span className="hl">69.6</span>
         </p>
-        <p className="mt-1 text-[10px] text-grey-300">+6.6 this year · reliable</p>
+        <p className="mt-1 text-[10px] text-grey-300">+3.8 since her first sim · reliable</p>
       </div>
       <svg viewBox="0 0 236 50" className="h-12 w-full" aria-hidden>
         <path d={path} fill="none" stroke="#FFED00" strokeWidth="2" />
       </svg>
       <div className="grid grid-cols-3 gap-2">
         {[
-          ["2", "Races"],
-          ["9", "Sims"],
-          ["4", "Cities"],
+          ["1", "Race"],
+          ["4", "Sims"],
+          ["86", "Workouts"],
         ].map(([v, k]) => (
           <Card key={k} className="!p-2 text-center">
             <p className="headline text-[24px]">{v}</p>

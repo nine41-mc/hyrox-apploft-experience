@@ -11,7 +11,7 @@ import { AppScreen } from "@/components/screens/AppScreens";
 import { cn } from "@/components/ui/cn";
 import { YearCard } from "@/components/mocks/YearCard";
 
-/** "A year as a racer": swipeable months, each with an app screen. */
+/** "Lena’s 2027" – from first workout to first race: swipeable months, each with an app screen. */
 export function Year({ year, ui }: { year: Content["year"]; ui: Content["ui"] }) {
   const track = useRef<HTMLDivElement>(null);
   const rail = useRef<HTMLDivElement>(null);

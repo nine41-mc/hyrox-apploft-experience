@@ -1,13 +1,13 @@
 import { MapPin, UserPlus } from "lucide-react";
 
-/** Browser-framed public racer profile on hyrox.com (illustrative data). */
+/** Browser-framed public athlete profile on hyrox.com (illustrative data). */
 export function RecordWeb() {
   const record = [
-    ["Nov 2027", "Race", "HYROX Berlin", "1:20:41", "74.4"],
-    ["Sep 2027", "Club Sim", "Hafen Athletics", "1:22:58", "72.3"],
-    ["Jun 2027", "Guest Sim", "Box Poblenou, Barcelona", "1:26:30", "69.4"],
-    ["Apr 2027", "Race", "HYROX Hamburg", "1:24:05", "71.4"],
-    ["Feb 2027", "Club Sim", "Hafen Athletics", "1:31:12", "65.8"],
+    ["Oct 2027", "First race", "HYROX Hamburg · Doubles", "1:24:05", "69.6"],
+    ["Aug 2027", "Club Sim", "Hafen Athletics", "1:26:40", "68.1"],
+    ["May 2027", "Club Sim", "Hafen Athletics", "1:28:44", "67.3"],
+    ["Mar 2027", "Club Weekend", "Hafen Athletics · Rookie", "1:30:02", "66.4"],
+    ["Feb 2027", "Club Sim", "Hafen Athletics · Rookie", "1:31:12", "65.8"],
   ];
   return (
     <div className="overflow-hidden rounded-[14px] border border-ink-500 bg-ink shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)]">
@@ -15,14 +15,14 @@ export function RecordWeb() {
         <span className="h-2.5 w-2.5 rounded-full bg-ink-500" />
         <span className="h-2.5 w-2.5 rounded-full bg-ink-500" />
         <span className="h-2.5 w-2.5 rounded-full bg-ink-500" />
-        <span className="ml-3 truncate text-[12px] text-grey-300">hyrox.com/racer/lena-k</span>
+        <span className="ml-3 truncate text-[12px] text-grey-300">hyrox.com/athletes/lena-k</span>
       </div>
       <div className="flex items-center justify-between border-b border-ink-600 px-5 py-3">
         <span className="wordmark text-[11px]">HYROX</span>
         <span className="hidden gap-5 text-[11px] uppercase tracking-widest text-grey-300 md:flex">
           <span>Races</span>
           <span>Clubs</span>
-          <span className="text-paper">Racers</span>
+          <span className="text-paper">Athletes</span>
         </span>
       </div>
       <div className="grid gap-6 p-5 md:grid-cols-[1fr_1.3fr] md:p-7">
@@ -33,13 +33,13 @@ export function RecordWeb() {
             <MapPin className="h-3.5 w-3.5" /> Hafen Athletics · Hamburg · Women 30–34
           </p>
           <div className="mt-5 flex flex-wrap gap-2">
-            <span className="bg-paper px-2 py-1 text-[11px] font-medium uppercase text-ink">Licence L2</span>
-            <span className="bg-grey-300 px-2 py-1 text-[11px] font-medium uppercase text-ink">Silver</span>
-            <span className="border border-paper/40 px-2 py-1 text-[11px] uppercase">4 cities</span>
+            <span className="bg-paper px-2 py-1 text-[11px] font-medium uppercase text-ink">1st race</span>
+            <span className="bg-grey-300 px-2 py-1 text-[11px] font-medium uppercase text-ink">Regular</span>
+            <span className="border border-paper/40 px-2 py-1 text-[11px] uppercase">4 sims</span>
           </div>
           <p className="eyebrow mt-6 !text-[11px] text-grey-300">HYROX Index</p>
           <p className="headline mt-1 text-[64px] leading-none">
-            <span className="hl">72.4</span>
+            <span className="hl">69.6</span>
           </p>
           <span className="eyebrow mt-6 inline-flex items-center gap-2 bg-yellow px-3 py-2 !text-[11px] text-ink">
             <UserPlus className="h-3.5 w-3.5" /> Follow

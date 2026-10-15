@@ -10,7 +10,7 @@ type YearStep = { month: string; title: string; text: string; screen: ScreenKey 
 export const meta = {
   title: "HYROX Experience 2027 – A vision by apploft.",
   description:
-    "Every day counts: a year-round platform that connects every racer and every club to HYROX. A vision concept by apploft.",
+    "From the first workout to the first race: a year-round platform that connects everyone who trains HYROX with their club and with HYROX. A vision concept by apploft.",
   summaryTitle: "Executive summary – HYROX Experience 2027",
 };
 
@@ -38,13 +38,13 @@ export const ui = {
   wallCaption: "The Wall – a screen for the gym floor",
   prevMonth: "Previous month",
   nextMonth: "Next month",
-  golf: "Golf:",
+  builtOn: "Built on:",
   gridAria: "A year of 365 days: 3 race days in yellow, 362 training days in grey",
   months: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
   heroImgAlt: "Two athletes throwing wall balls, seen from above",
   statementAlt: "An athlete bent over a sled after giving everything",
   sledAlt: "An athlete pushing a sled, head down",
-  webCaption: "Web: the public racer profile on hyrox.com",
+  webCaption: "Web: the public athlete profile on hyrox.com",
   appCaption: "App: the same record in your pocket",
   clubCaption: "Web for clubs: Club OS",
 };
@@ -62,107 +62,102 @@ export const hero = {
   lines: ["Every", "day", "counts."],
   highlight: "counts.",
   box: { title: "A vision", sub: "by apploft." },
-  lead: "Racers give everything on race day – then disappear into their gyms for months. 2027 is the year every training day, every club and every racer becomes part of HYROX.",
+  lead: "Most people who train HYROX have never raced. 2027 is the year HYROX shows them the way in – from the first workout in their club to the first race, and back.",
   cta: "See the vision",
 };
 
-export const ticker = ["Every day counts", "Be the record", "Every body", "Every club", "One record", "For life"];
+export const ticker = ["Every day counts", "Every body", "Every club", "First sim", "First race", "Be the record"];
 
 export const statement = {
-  lines: ["Racers give", "everything.", "They get a number.", "No account."],
-  hl: ["everything.", "No account."],
-  note: "Results on hyrox.com: search by name. No profile, no history, no status.",
+  lines: ["They train HYROX.", "Every week.", "They’ve never raced.", "No one shows them how."],
+  hl: ["Every week.", "No one shows them how."],
+  note: "Before the first ticket there is no profile, no progress, no goal. Results exist only after a race – searchable by name.",
   source: 3,
 };
 
 export const gap = {
   eyebrow: "01_The gap",
-  title: ["HYROX owns", "3 days a year."],
+  title: ["HYROX sees", "3 days a year."],
   titleHl: "3 days",
-  sub: "The clubs own the other 362.",
-  body: "In between, racers train in gyms that run their own programme, their own sims, their own community. Third-party apps sell them profiles built on HYROX data. HYROX is nowhere in the conversation.",
-  legend: { race: "Race weekends", club: "Training days in the club – invisible to HYROX" },
+  sub: "And only of those who already race.",
+  body: "Everyone else trains all year – in clubs with their own programme, their own sims, their own community, logging workouts in third-party apps. Nobody shows them the way to their first race. HYROX only meets them once they buy a ticket – if they ever do.",
+  legend: { race: "Race weekends – for those who already race", club: "Training days in the club – invisible to HYROX" },
   stats: [
     { value: "1.4M+", label: "racers in season 25/26", source: 1 },
     { value: "11,000+", label: "HYROX Training Clubs", source: 2 },
-    { value: "0", label: "public racer profiles", source: 3 },
+    { value: "0", label: "public athlete profiles", source: 3 },
   ],
 };
 
 export const idea = {
   eyebrow: "02_The idea",
-  title: ["You already built it.", "Now open it."],
-  titleHl: "Now open it.",
-  body: "HYROX has a licence and a rolling points ranking – for a few thousand elites. Golf shows how it works for every body: one licence, one handicap, a home club, welcome everywhere.",
+  title: ["The pieces exist.", "Connect them."],
+  titleHl: "Connect them.",
+  kicker: "What the HYROX Pass could become",
+  body: "Training clubs, official programming, race sims, the HYROX Account – they are all there. What’s missing is the thread that connects them and makes progress visible long before the first ticket: from the first workout to the first race, and back.",
   pillars: [
-    { n: "01", name: "HYROX ID", golf: "Membership card", text: "Your existing HYROX Account, turned into a record for life – the same ID in the Event App." },
-    { n: "02", name: "Licence", golf: "Course licence", text: "Signed off in your club by a certified coach. Rookie to Elite." },
-    { n: "03", name: "Index", golf: "Handicap", text: "Fed by races and judged club sims. Comparable everywhere." },
-    { n: "04", name: "Home Club", golf: "Home club + green fee", text: "Your crew, your league – and guest access to every HYROX club." },
+    { n: "01", name: "Train", tag: "Home Club · official programming", text: "Train in your club with the programming you already use. Every session lands in your Pass – no extra training app." },
+    { n: "02", name: "First sim", tag: "Sim Standard · Club Weekend", text: "A doable first goal: an official, judged sim in your own gym, with your crew. Rookies welcome." },
+    { n: "03", name: "Pass", tag: "Index · rewards · status", text: "An Index forecast from day one, a real Index after your first sim – and points from occasional to all-in." },
+    { n: "04", name: "First race", tag: "HYROX Event App", text: "Points become ticket perks, your crew becomes your Doubles partner – and the Event App takes over with the same ID." },
   ],
   standard: {
     k: "The one hard part",
     v: "The Sim Standard: defined equipment, a certified judge, a rated club. Then a sim in Hamburg counts like a sim in Barcelona.",
   },
   quote: {
-    lines: ["The account is the story:", "pain, pride, cities.", "Over years."],
-    hl: "Over years.",
+    lines: ["After the first race,", "the record begins:", "pain, pride, cities."],
+    hl: "the record begins:",
   },
 };
 
 export const year = {
   eyebrow: "03_Lena’s 2027",
-  title: ["Meet Lena.", "Her 2027."],
-  titleHl: "Her 2027.",
-  body: "34, Hamburg, two HYROX races behind her. This is what changes when HYROX is with her every week – not just on race day.",
+  title: ["Meet Lena.", "Her first race."],
+  titleHl: "Her first race.",
+  body: "34, Hamburg, HYROX classes twice a week – never raced. This is how HYROX takes her from the gym floor to the start line in one year.",
   note: "Illustrative persona, club and data.",
   steps: <YearStep[]>[
     {
       month: "Jan",
-      title: "Licence day",
-      text: "Coach Ana signs off Lena’s Licence at her home club. She is now a Level 1 Racer – her record starts here.",
-      screen: "licence",
+      title: "Day one",
+      text: "Lena joins the HYROX Pass through her home club. Her workouts from the official programming land in it – and a first Index forecast appears.",
+      screen: "forecast",
     },
     {
       month: "Feb",
       title: "First judged sim",
-      text: "A full race sim on a Thursday night, judged to the Sim Standard. It counts: her first Index appears.",
+      text: "Thursday night, rookie division, her own gym. Judged to the Sim Standard – her forecast turns into a real HYROX Index.",
       screen: "sim",
     },
     {
       month: "Mar",
       title: "Club Weekend",
-      text: "One weekend, one sim, every HYROX club worldwide. Hafen Athletics finishes #3 in Hamburg North – and the Club Season begins.",
+      text: "One weekend, one sim, every HYROX club worldwide. Lena races with her crew – Hafen Athletics finishes #3 in Hamburg North.",
       screen: "league",
     },
     {
-      month: "Apr",
-      title: "Race day",
-      text: "HYROX Hamburg runs in the official HYROX Event App – same HYROX ID, no new sign-up. The result flows straight back into her record.",
-      screen: "race",
-    },
-    {
       month: "Jun",
-      title: "Away, still home",
-      text: "Work trip to Barcelona. The Network Pass gets her into a local HYROX club as a guest – and a guest sim on the board.",
-      screen: "pass",
-    },
-    {
-      month: "Sep",
-      title: "Silver status",
-      text: "Consistency pays: Silver status unlocks priority access to the next sold-out race. No queue, no bots.",
+      title: "Points that pay",
+      text: "Sims, sessions, Club Weekend: Lena is now a Regular. Her points unlock 20% off her first race – booked with her club code.",
       screen: "rewards",
     },
     {
-      month: "Nov",
+      month: "Sep",
       title: "Race weekend, rewarded",
-      text: "HYROX Berlin. Check-in is one scan with her HYROX ID – and the points from her club sims pay off on site.",
+      text: "HYROX Hamburg, Doubles with Mia from her class. Check-in is one scan – and her points pay off on site.",
       screen: "perks",
+    },
+    {
+      month: "Oct",
+      title: "Race day",
+      text: "Her first race runs in the official HYROX Event App – same ID, no new sign-up. The result flows straight back into her record.",
+      screen: "race",
     },
     {
       month: "Dec",
       title: "Her record",
-      text: "Four cities, two races, nine judged sims, one Index that tells the story. Be the record.",
+      text: "One race, four judged sims, 86 workouts – and the next race already booked. Be the record.",
       screen: "record",
     },
   ],
@@ -172,17 +167,17 @@ export const clubWeekend = {
   eyebrow: "04_The Club Weekend",
   title: ["One weekend.", "Every club."],
   titleHl: "Every club.",
-  body: "Twice a season, every HYROX club in the world runs the same sim on the same weekend – judged, live on the leaderboard, counting for every racer’s Index. The season kick-off, in 11,000+ gyms at once.",
+  body: "Twice a season, every HYROX club in the world runs the same sim on the same weekend – judged, live on the leaderboard, counting for every athlete’s Index. For many, it’s their first HYROX ‘race’ – in their own gym.",
   steps: [
-    { k: "Announce", v: "Four weeks out: clubs sign up in Club OS, racers book a slot – at home or as a guest." },
-    { k: "Race the sim", v: "Friday to Sunday: the same sim everywhere, judged by certified coaches. Rookies race a scaled division." },
+    { k: "Announce", v: "Four weeks out: clubs sign up in Club OS, athletes book a slot – at home or as a guest." },
+    { k: "Race the sim", v: "Friday to Sunday: the same sim everywhere, judged by certified coaches. First-timers race a scaled rookie division." },
     { k: "Watch it live", v: "Leaderboards by club, city and country – on The Wall and in the app." },
-    { k: "Make it count", v: "Results land in every record and Index. Awards for Fastest Club and Highest Participation." },
+    { k: "Make it count", v: "Results land in every Pass and Index. Awards for Fastest Club and Highest Participation." },
   ],
   wins: [
-    { k: "Racers", v: "A real goal between races – with their crew." },
+    { k: "Athletes", v: "A first official result – or a real goal between races." },
     { k: "Clubs", v: "A full house, new leads and a revenue share." },
-    { k: "HYROX", v: "Every club activated at once – and a stage for sponsors." },
+    { k: "HYROX", v: "Every club activated at once – and the first step to a ticket." },
   ],
   mock: {
     caption: "Live leaderboard – web and The Wall",
@@ -191,7 +186,7 @@ export const clubWeekend = {
     stats: [
       ["4,212", "clubs"],
       ["48", "countries"],
-      ["196,580", "racers"],
+      ["196,580", "athletes"],
     ],
     tabs: ["Fastest Club", "Highest Participation"],
   },
@@ -202,22 +197,22 @@ export const clubWeekend = {
       { k: "F45 PEAK500", v: "One benchmark, the same day, in every F45 studio – scored in the F45 app. F45 is HYROX’s global gym partner.", source: 10 },
       { k: "TRYKA & GymRace", v: "HYROX-style race series with their own leagues for racers, gyms and companies.", source: 11 },
     ],
-    answer: "HYROX’s answer: the Club Weekend – bigger, official, and it counts for the Index.",
+    answer: "HYROX’s answer: the Club Weekend – bigger, official, and the first step to a race.",
   },
 };
 
 export const wins = {
   eyebrow: "05_Everybody wins",
-  title: ["Racers. Clubs.", "HYROX."],
+  title: ["Athletes. Clubs.", "HYROX."],
   titleHl: "HYROX.",
   columns: [
     {
-      k: "Racers",
+      k: "Athletes",
       items: [
-        "Never prepare alone: crews, partners, sim nights",
-        "Official splits, Index and status – no third-party subscription",
-        "A way into sold-out races",
-        "One ID into the HYROX Event App",
+        "A doable first goal: an official sim in their own gym",
+        "Progress they can see: Index, status, rewards",
+        "Never prepare alone: training and sim partners",
+        "A way into the first race – and the next",
       ],
     },
     {
@@ -232,17 +227,17 @@ export const wins = {
     {
       k: "HYROX",
       items: [
-        "A direct relationship with 2M+ racers",
-        "Revenue between race weekends",
+        "More first-time racers – and more second races",
+        "A direct relationship before the first ticket",
+        "Clubs as a channel, not just licensees",
         "Data back home: Log in with HYROX",
-        "Licensed members – the backbone of a federation",
         "A new B2B channel: corporate leagues via EGYM Wellpass",
       ],
     },
   ],
   growth: {
-    k: "And the next million?",
-    v: "They don’t race yet. They take HYROX classes. The Club Sim is their first race – in their own gym, with their crew.",
+    k: "And the racers?",
+    v: "Their record, status and a way into sold-out races are where the journey leads. They become the role models in every club.",
   },
   proof: {
     title: "Proven: community is built offline first.",
@@ -271,13 +266,22 @@ export const about = {
 
 export const ask = {
   eyebrow: "06_Let’s start",
-  title: ["Let’s build", "the record."],
-  titleHl: "the record.",
+  title: ["Let’s build", "the way in."],
+  titleHl: "the way in.",
+  lead: "A vision for H2 2027 and beyond – built on the foundation you’re laying now. We start where your roadmap ends.",
   phases: [
-    { when: "Q1 2027", name: "Discovery", text: "6 weeks with racers, coaches, clubs. Validated prototypes." },
-    { when: "Q2–Q3 2027", name: "Pilot", text: "One city, 10 clubs, one Club Season – live and measured." },
-    { when: "Season 27/28", name: "Rollout", text: "Region by region, along the race calendar." },
+    { when: "Now – H1 2027", name: "Explore", text: "Together and light-touch: funnel data, athletes who have never raced, clubs, coaches. Validated prototypes." },
+    { when: "From H2 2027", name: "Build", text: "One city, 10 clubs, the first Club Weekend – live and measured, from first sim to first ticket." },
+    { when: "Season 27/28+", name: "Run & scale", text: "Region by region, along the race calendar – run by us or handed over to your team." },
   ],
+  principles: {
+    k: "How we build and run",
+    items: [
+      { k: "You own the core", v: "ID, Pass, Index and data belong to HYROX – whoever builds them." },
+      { k: "Start small, scale on proof", v: "One pilot per step, clear numbers, then roll out." },
+      { k: "Built to hand over", v: "Documented and automated, so your team can take over at any time." },
+    ],
+  },
   contacts: [
     { name: "Gary Boeing", role: "CEO, apploft." },
     { name: "Manuel Cramer", role: "CPO, apploft." },
@@ -311,34 +315,34 @@ export const summary = {
     {
       k: "The problem",
       v: [
-        "HYROX owns 3 days of a racer’s year; the clubs own the other 362.",
-        "1.4M+ racers and 11,000+ Training Clubs – barely connected to each other or to HYROX.",
-        "Third-party apps monetise HYROX data; clubs run their own sims and certificates; rival brands court the same gyms.",
+        "Most people who train HYROX have never raced – and nobody shows them the way in.",
+        "They train in 11,000+ Training Clubs, chat groups and third-party apps; HYROX only meets them once they buy a ticket.",
+        "Clubs run their own programmes and sims; rival brands court the same gyms all year round.",
       ],
     },
     {
       k: "The insight",
       v: [
-        "HYROX already built Licence and a rolling points ranking – for the elite only.",
-        "Every racer already has a HYROX Account (needed for every ticket) – the foundation exists, it just does nothing between races.",
-        "Golf shows how to open it up: licence, handicap, home club, play anywhere.",
+        "The pieces of the way in already exist: official programming, race sims, the HYROX Account, Licence and ranking for the elite.",
+        "What’s missing is the thread that connects them and makes progress visible before the first race.",
+        "The two numbers that matter: how many race for the first time – and how many come back for a second.",
       ],
     },
     {
       k: "The idea",
       v: [
-        "HYROX ID: the existing HYROX Account turned into a record for life – the same one the HYROX Event App uses.",
-        "Licence + HYROX Index: fed by races and judged club sims (Sim Standard).",
-        "Home Club + Network Pass, Club Season leagues, The Wall.",
-        "Rewards that pay off at race weekends; Club OS free for every club.",
+        "Train: in the home club, connected to the official programming – no extra training app.",
+        "First sim: an official, judged sim to the Sim Standard, e.g. at the worldwide HYROX Club Weekend.",
+        "Pass: what the HYROX Pass could become – Index forecast, a real Index, rewards and status.",
+        "First race and back: points become ticket perks, the Event App takes over, the record begins.",
       ],
     },
     {
       k: "Value",
       v: [
-        "Racers: community, official analytics, status, a way into sold-out races.",
+        "Athletes: a doable first goal, visible progress, partners and a way into the first race.",
         "Clubs: free tools, new members, revenue share – no new rules.",
-        "HYROX: a direct relationship with 2M+ racers, year-round revenue, data back home, conversion into the Event App, a backbone for a federation.",
+        "HYROX: more first-time and second-time racers, a relationship before the first ticket, clubs as a channel.",
       ],
     },
     {
@@ -350,7 +354,10 @@ export const summary = {
     },
     {
       k: "The ask",
-      v: ["Discovery in Q1 2027 (6 weeks) → pilot with 10 clubs in one city → rollout with season 27/28. Built by apploft."],
+      v: [
+        "A vision for H2 2027 and beyond: explore together until H1 2027 → build from H2 2027 (pilot with 10 clubs in one city) → run and scale from season 27/28.",
+        "Three principles: HYROX owns the core, start small and scale on proof, built to hand over.",
+      ],
     },
   ],
 };
