@@ -528,27 +528,43 @@ export const pass = {
   titleHl: "Every race.",
   lead: "What the HYROX Pass could become: identity, access and benefit in one card – check in at clubs worldwide, train, pay, earn credits and race. Built on the HYROX account, open to everyone who trains.",
   back: "Back to the vision",
-  ecosystem: {
+  hub: {
     k: "The Pass at the centre",
-    desc: "The HYROX Pass connects athletes, partners and HYROX: training, partner gyms, race sims and travel on the partner side; payment, loyalty and credits in the Pass; official record, ticketing and check-in on the HYROX side.",
-    left: "Athletes & partners",
-    right: "HYROX",
-    athlete: "Athlete",
-    pass: ["HYROX", "Pass"],
-    partner: [
-      { icon: "gym", t: ["Partner", "gyms"] },
-      { icon: "activity", t: ["Training &", "tracking"] },
-      { icon: "timer", t: ["Race sims"] },
-      { icon: "travel", t: ["Travel", "packages"] },
-    ],
-    wallet: [
-      { icon: "card", t: ["Payment"] },
-      { icon: "coins", t: ["Loyalty &", "credits"] },
-    ],
-    hyrox: [
-      { icon: "trophy", t: ["Official", "record (ID)"] },
-      { icon: "ticket", t: ["Ticketing"] },
-      { icon: "qr", t: ["Check-in", "events", "& clubs"] },
+    title: ["Identity.", "Access.", "Benefit."],
+    lead: "One card at the centre – everything an athlete does with HYROX connects to it.",
+    hint: "Hover over or tap a topic to see what's inside.",
+    reset: "Back to the overview",
+    nodes: [
+      {
+        id: "identity",
+        k: "Identity",
+        v: "One account for every club, sim and race – the HYROX account as a membership card.",
+        chips: ["HYROX account", "Membership card", "Record & Index", "Club & community profile"],
+      },
+      {
+        id: "access",
+        k: "Access",
+        v: "Check in wherever HYROX happens – with fast track on race day.",
+        chips: ["Check-in at races", "Clubs worldwide, like Wellpass", "Training stations", "Fast track on race day"],
+      },
+      {
+        id: "benefit",
+        k: "Benefit",
+        v: "Rewards that feel earned – and can be funded by the employer.",
+        chips: ["Loyalty status", "Badges for real moments", "Partner offers", "Employer-funded via Wellpass"],
+      },
+      {
+        id: "wallet",
+        k: "Wallet & Shop",
+        v: "Pay with the Pass – in the club, online and at events.",
+        chips: ["Euro balance on the Pass", "HYROX Credits", "bunq x HYROX card linked", "Pay for PT, sims and events", "Merch shop"],
+      },
+      {
+        id: "train",
+        k: "Train & Track",
+        v: "Programming in, data back.",
+        chips: ["Official programming", "HYROX workout tracking", "Splits & analytics", "Wearables", "On-demand & live classes"],
+      },
     ],
   },
   story: {
@@ -564,14 +580,6 @@ export const pass = {
     pause: "Pause animation",
     play: "Play animation",
     alt: "An athlete resting on a bench between dumbbell racks",
-  },
-  meanings: {
-    k: "Three meanings of Pass",
-    items: [
-      { k: "Identity", v: "Record and Index – one account for every club, sim and race." },
-      { k: "Access", v: "Check-in at clubs worldwide, bookings and events – with fast track on race day." },
-      { k: "Benefit", v: "Employer-funded, with HYROX Credits, loyalty status and partner offers." },
-    ],
   },
   gap: {
     k: "What every other pass is missing",

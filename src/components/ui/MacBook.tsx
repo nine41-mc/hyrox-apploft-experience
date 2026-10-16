@@ -20,7 +20,9 @@ export function MacBook({ children, label, url }: { children: ReactNode; label: 
   }, []);
 
   return (
-    <div role="img" aria-label={label} className="w-full">
+    <div className="w-full">
+      {/* described in text, not as role="img": the screen holds a pointer-only shortcut button */}
+      <span className="sr-only">{label}</span>
       <div className="rounded-t-[18px] border border-ink-500 bg-[#0b0b0b] p-[2%] pb-[2.6%] shadow-[0_40px_70px_-35px_rgba(0,0,0,0.55)]">
         <div ref={screen} className="relative aspect-[16/10] overflow-hidden rounded-[3px] bg-ink" aria-hidden>
           <div

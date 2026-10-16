@@ -22,7 +22,7 @@ import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 import { PassFieldsCard } from "@/components/ui/PassFieldsCard";
 import { PassGallery } from "@/components/sections/PassGallery";
-import { PassEcosystem } from "@/components/sections/PassEcosystem";
+import { PassHub } from "@/components/sections/PassHub";
 import { PassStory } from "@/components/sections/PassStory";
 import { cn } from "@/components/ui/cn";
 import { asset } from "@/lib/asset";
@@ -42,7 +42,7 @@ const ICONS: Record<string, LucideIcon> = {
   card: CreditCard,
 };
 
-/** The HYROX Pass page: what the Pass is, the ecosystem, the story, what's inside, Lena's 24 hours, the prototype and two ways to launch. */
+/** The HYROX Pass page: what the Pass is, the Pass at the centre, the story, what's inside, Lena's 24 hours, the prototype and two ways to launch. */
 export function PassView({ locale }: { locale: Locale }) {
   const c = content[locale];
   const p = c.pass;
@@ -70,40 +70,17 @@ export function PassView({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        {/* the Pass at the centre */}
+        {/* the Pass at the centre: identity, access, benefit + wallet and training, and what other passes miss */}
         <section className="container-site mt-20 md:mt-28">
-          <PassEcosystem e={p.ecosystem} />
-        </section>
-
-        {/* statement: the Pass is the story */}
-        <PassStory s={p.story} />
-
-        {/* three meanings + the gap */}
-        <section className="container-site mt-20 md:mt-28">
-          <p className="eyebrow text-grey-300">{p.meanings.k}_</p>
-          <ul className="mt-5 grid gap-3 md:grid-cols-3">
-            {p.meanings.items.map((m, i) => (
-              <Reveal
-                as="li"
-                key={m.k}
-                delay={i * 0.06}
-                className={cn(
-                  "rounded-[24px] p-6 md:p-8",
-                  i === 0 && "bg-yellow text-ink",
-                  i === 1 && "border border-ink-600 bg-ink-800",
-                  i === 2 && "bg-paper text-ink",
-                )}
-              >
-                <h2 className="headline text-[40px] md:text-[32px] lg:text-[48px]">{m.k}</h2>
-                <p className={cn("mt-3 text-[16px] leading-relaxed", i === 1 ? "text-paper/80" : "text-ink/80")}>{m.v}</p>
-              </Reveal>
-            ))}
-          </ul>
-          <Reveal className="mt-3 rounded-[24px] border border-yellow/50 p-6 md:flex md:items-baseline md:gap-8 md:p-8">
+          <PassHub h={p.hub} />
+          <Reveal className="mt-10 rounded-[24px] border border-yellow/50 p-6 md:flex md:items-baseline md:gap-8 md:p-8">
             <p className="headline shrink-0 text-[24px] text-yellow md:text-[28px]">{p.gap.k}_</p>
             <p className="mt-3 text-[16px] leading-relaxed text-paper/85 md:mt-0 md:text-[18px]">{p.gap.v}</p>
           </Reveal>
         </section>
+
+        {/* statement: the Pass is the story */}
+        <PassStory s={p.story} />
 
         {/* inside the Pass */}
         <section className="container-site mt-20 md:mt-28">

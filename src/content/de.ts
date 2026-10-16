@@ -528,27 +528,43 @@ export const pass = {
   titleHl: "Jedes Rennen.",
   lead: "Was der HYROX Pass werden könnte: Identität, Zugang und Benefit auf einer Karte – einchecken in Clubs weltweit, trainieren, bezahlen, Credits sammeln und Rennen laufen. Gebaut auf dem HYROX Account, offen für alle, die trainieren.",
   back: "Zurück zur Vision",
-  ecosystem: {
+  hub: {
     k: "Der Pass im Zentrum",
-    desc: "Der HYROX Pass verbindet Athletes, Partner und HYROX: Training, Partner-Gyms, Race Sims und Travel auf der Partnerseite; Payment, Loyalty und Credits im Pass; offizieller Record, Ticketing und Check-in auf der HYROX-Seite.",
-    left: "Athletes & Partner",
-    right: "HYROX",
-    athlete: "Athlete",
-    pass: ["HYROX", "Pass"],
-    partner: [
-      { icon: "gym", t: ["Partner-", "Gyms"] },
-      { icon: "activity", t: ["Training &", "Tracking"] },
-      { icon: "timer", t: ["Race Sims"] },
-      { icon: "travel", t: ["Travel-", "Pakete"] },
-    ],
-    wallet: [
-      { icon: "card", t: ["Payment"] },
-      { icon: "coins", t: ["Loyalty &", "Credits"] },
-    ],
-    hyrox: [
-      { icon: "trophy", t: ["Offizieller", "Record (ID)"] },
-      { icon: "ticket", t: ["Ticketing"] },
-      { icon: "qr", t: ["Check-in", "Events", "& Clubs"] },
+    title: ["Identität.", "Zugang.", "Benefit."],
+    lead: "Eine Karte im Zentrum – alles, was ein Athlete mit HYROX macht, hängt daran.",
+    hint: "Fahr über ein Thema oder tipp darauf, um zu sehen, was drinsteckt.",
+    reset: "Zurück zur Übersicht",
+    nodes: [
+      {
+        id: "identity",
+        k: "Identität",
+        v: "Ein Konto für jeden Club, jede Sim und jedes Rennen – der HYROX Account als Kundenkarte.",
+        chips: ["HYROX Account", "Kundenkarte", "Record & Index", "Club- & Community-Profil"],
+      },
+      {
+        id: "access",
+        k: "Zugang",
+        v: "Einchecken, wo HYROX passiert – mit Fast Track am Race Day.",
+        chips: ["Check-in bei Rennen", "Clubs weltweit, wie Wellpass", "Training Stations", "Fast Track am Race Day"],
+      },
+      {
+        id: "benefit",
+        k: "Benefit",
+        v: "Belohnungen, die sich verdient anfühlen – auf Wunsch vom Arbeitgeber finanziert.",
+        chips: ["Loyalty-Status", "Badges für echte Momente", "Partner-Angebote", "Arbeitgeberfinanziert über Wellpass"],
+      },
+      {
+        id: "wallet",
+        k: "Wallet & Shop",
+        v: "Bezahlen mit dem Pass – im Club, online und am Event.",
+        chips: ["Euro-Guthaben im Pass", "HYROX Credits", "bunq x HYROX Card verknüpft", "Personal Training, Sims und Events bezahlen", "Merch-Shop"],
+      },
+      {
+        id: "train",
+        k: "Train & Track",
+        v: "Programming rein, Daten zurück.",
+        chips: ["Offizielles Programming", "Tracking von HYROX-Workouts", "Splits & Analysen", "Wearables", "On-Demand- & Live-Kurse"],
+      },
     ],
   },
   story: {
@@ -564,14 +580,6 @@ export const pass = {
     pause: "Animation pausieren",
     play: "Animation abspielen",
     alt: "Ein Athlet sitzt erschöpft auf einer Bank zwischen Hantelablagen",
-  },
-  meanings: {
-    k: "Drei Bedeutungen von Pass",
-    items: [
-      { k: "Identität", v: "Record und Index – ein Konto für jeden Club, jede Sim und jedes Rennen." },
-      { k: "Zugang", v: "Check-in in Clubs weltweit, Buchungen und Events – mit Fast Track am Race Day." },
-      { k: "Benefit", v: "Vom Arbeitgeber finanziert, mit HYROX Credits, Loyalty-Status und Partner-Angeboten." },
-    ],
   },
   gap: {
     k: "Was allen anderen Pässen fehlt",
