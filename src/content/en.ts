@@ -442,7 +442,7 @@ export const backlog = {
       name: "Wallet & shop",
       desc: "Pay with the Pass – in the club, online and at events.",
       size: "md",
-      tone: "yellow",
+      tone: "paper",
       features: [
         { t: "Euro balance on the Pass" },
         { t: "HYROX Credits" },
