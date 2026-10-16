@@ -21,7 +21,7 @@ export function MacBook({ children, label, url }: { children: ReactNode; label: 
 
   return (
     <div role="img" aria-label={label} className="w-full">
-      <div className="rounded-t-[18px] border border-ink-500 bg-[#0b0b0b] p-[2%] pb-[2.6%] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)]">
+      <div className="rounded-t-[18px] border border-ink-500 bg-[#0b0b0b] p-[2%] pb-[2.6%] shadow-[0_40px_70px_-35px_rgba(0,0,0,0.55)]">
         <div ref={screen} className="relative aspect-[16/10] overflow-hidden rounded-[3px] bg-ink" aria-hidden>
           <div
             className="absolute left-0 top-0 flex flex-col bg-ink text-paper"
@@ -38,8 +38,8 @@ export function MacBook({ children, label, url }: { children: ReactNode; label: 
         </div>
       </div>
       {/* base */}
-      <div className="relative -mx-[5%] h-[10px] rounded-b-[10px] bg-gradient-to-b from-grey-400 to-ink-600 md:h-[14px]">
-        <span className="absolute left-1/2 top-0 h-[4px] w-[14%] -translate-x-1/2 rounded-b-[6px] bg-ink-500" />
+      <div className="relative -mx-[5%] h-[10px] rounded-b-[10px] bg-gradient-to-b from-[#e8e8e8] to-[#8f8f8f] shadow-[0_18px_30px_-16px_rgba(0,0,0,0.5)] md:h-[14px]">
+        <span className="absolute left-1/2 top-0 h-[4px] w-[14%] -translate-x-1/2 rounded-b-[6px] bg-[#b3b3b3]" />
       </div>
     </div>
   );

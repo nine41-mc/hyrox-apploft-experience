@@ -85,7 +85,8 @@ export function Prototype({ p }: { p: Content["prototype"] }) {
       </div>
 
       {/* devices */}
-      <div className="mt-10 grid items-center gap-12 lg:grid-cols-[1fr_auto] lg:gap-14">
+      {/* light "studio" stage so the black devices stand out from the black page */}
+      <div className="mt-10 grid items-center gap-10 bg-[radial-gradient(ellipse_at_50%_35%,#fafafa_0%,#e6e6e6_55%,#cfcfcf_100%)] px-4 py-10 md:px-10 md:py-14 lg:grid-cols-[1fr_auto] lg:gap-14 lg:px-14 lg:py-16">
         <div className="px-[5%] lg:px-[3%]">
           <MacBook label={`${p.macLabel} – ${p.views[view]}: ${s.name}`} url={webUrl[view]}>
             <div key={`${view}-${step}`} className="h-full motion-safe:animate-[fade-in_0.35s_ease-out]">
@@ -93,7 +94,7 @@ export function Prototype({ p }: { p: Content["prototype"] }) {
             </div>
           </MacBook>
         </div>
-        <Phone className="w-[252px] md:w-[272px]" label={`${p.phoneLabel}: ${s.name}`}>
+        <Phone className="w-[252px] !shadow-[0_40px_70px_-30px_rgba(0,0,0,0.55)] md:w-[272px]" label={`${p.phoneLabel}: ${s.name}`}>
           <div key={step} className="h-full motion-safe:animate-[fade-in_0.35s_ease-out]">
             <PhoneStep step={step} onNext={next} />
           </div>
