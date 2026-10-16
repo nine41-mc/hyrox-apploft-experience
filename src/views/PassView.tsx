@@ -22,6 +22,8 @@ import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 import { PassFieldsCard } from "@/components/ui/PassFieldsCard";
 import { PassGallery } from "@/components/sections/PassGallery";
+import { PassEcosystem } from "@/components/sections/PassEcosystem";
+import { PassStory } from "@/components/sections/PassStory";
 import { cn } from "@/components/ui/cn";
 import { asset } from "@/lib/asset";
 
@@ -40,7 +42,7 @@ const ICONS: Record<string, LucideIcon> = {
   card: CreditCard,
 };
 
-/** The HYROX Pass page: what the Pass is, what's inside, Lena's 24 hours, the prototype and two ways to launch. */
+/** The HYROX Pass page: what the Pass is, the ecosystem, the story, what's inside, Lena's 24 hours, the prototype and two ways to launch. */
 export function PassView({ locale }: { locale: Locale }) {
   const c = content[locale];
   const p = c.pass;
@@ -67,6 +69,14 @@ export function PassView({ locale }: { locale: Locale }) {
             </Reveal>
           </div>
         </section>
+
+        {/* the Pass at the centre */}
+        <section className="container-site mt-20 md:mt-28">
+          <PassEcosystem e={p.ecosystem} />
+        </section>
+
+        {/* statement: the Pass is the story */}
+        <PassStory s={p.story} />
 
         {/* three meanings + the gap */}
         <section className="container-site mt-20 md:mt-28">

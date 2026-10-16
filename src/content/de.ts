@@ -528,6 +528,43 @@ export const pass = {
   titleHl: "Jedes Rennen.",
   lead: "Was der HYROX Pass werden könnte: Identität, Zugang und Benefit auf einer Karte – einchecken in Clubs weltweit, trainieren, bezahlen, Credits sammeln und Rennen laufen. Gebaut auf dem HYROX Account, offen für alle, die trainieren.",
   back: "Zurück zur Vision",
+  ecosystem: {
+    k: "Der Pass im Zentrum",
+    desc: "Der HYROX Pass verbindet Athletes, Partner und HYROX: Training, Partner-Gyms, Race Sims und Travel auf der Partnerseite; Payment, Loyalty und Credits im Pass; offizieller Record, Ticketing und Check-in auf der HYROX-Seite.",
+    left: "Athletes & Partner",
+    right: "HYROX",
+    athlete: "Athlete",
+    pass: ["HYROX", "Pass"],
+    partner: [
+      { icon: "gym", t: ["Partner-", "Gyms"] },
+      { icon: "activity", t: ["Training &", "Tracking"] },
+      { icon: "timer", t: ["Race Sims"] },
+      { icon: "travel", t: ["Travel-", "Pakete"] },
+    ],
+    wallet: [
+      { icon: "card", t: ["Payment"] },
+      { icon: "coins", t: ["Loyalty &", "Credits"] },
+    ],
+    hyrox: [
+      { icon: "trophy", t: ["Offizieller", "Record (ID)"] },
+      { icon: "ticket", t: ["Ticketing"] },
+      { icon: "qr", t: ["Check-in", "Events", "& Clubs"] },
+    ],
+  },
+  story: {
+    lead: ["Der Pass", "ist die Story:"],
+    leadHl: "Story:",
+    variants: [
+      ["Schmerzen,", "Stolz,", "Städte."],
+      ["Jede Einheit,", "jeder Club,", "jedes Rennen."],
+      ["Vom ersten", "Workout", "bis ins Ziel."],
+    ],
+    end: "Über Jahre.",
+    endHl: "Jahre.",
+    pause: "Animation pausieren",
+    play: "Animation abspielen",
+    alt: "Ein Athlet sitzt erschöpft auf einer Bank zwischen Hantelablagen",
+  },
   meanings: {
     k: "Drei Bedeutungen von Pass",
     items: [
