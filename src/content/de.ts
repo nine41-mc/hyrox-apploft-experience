@@ -17,7 +17,7 @@ export const meta = {
 
 export const ui = {
   summaryBtn: "Summary",
-  talk: "Lass uns reden",
+  talk: "Lasst uns reden",
   summaryLong: "Executive Summary",
   sources: "Quellen_",
   summaryLink: "Executive Summary →",
@@ -63,7 +63,7 @@ export const hero = {
   lines: ["Jeder", "Tag", "zählt."],
   highlight: "zählt.",
   box: { title: "Eine Vision", sub: "von apploft." },
-  lead: "Die meisten, die HYROX trainieren, sind noch nie gestartet. 2027 wird das Jahr, in dem HYROX ihnen den Weg zeigt – vom ersten Workout im Club zum ersten Rennen und wieder zurück.",
+  lead: "Viele, die HYROX trainieren, sind noch nie gestartet. 2027 wird das Jahr, in dem HYROX ihnen den Weg zeigt – vom ersten Workout im Club zum ersten Rennen und wieder zurück.",
   cta: "Zur Vision",
 };
 
@@ -78,10 +78,10 @@ export const statement = {
 
 export const gap = {
   eyebrow: "01_Die Lücke",
-  title: ["HYROX sieht", "3 Tage im Jahr."],
-  titleHl: "3 Tage",
+  title: ["365 Tage Training.", "HYROX sieht 3."],
+  titleHl: "HYROX sieht 3.",
   sub: "Und nur von denen, die schon starten.",
-  body: "Alle anderen trainieren das ganze Jahr – in Clubs mit eigenem Programm, eigenen Sims, eigener Community, ihre Workouts in Dritt-Apps. Niemand zeigt ihnen den Weg zum ersten Rennen. HYROX lernt sie erst kennen, wenn sie ein Ticket kaufen – falls sie es je tun.",
+  body: "Alle anderen trainieren das ganze Jahr – in Clubs mit eigenem Programm, eigenen Sims, eigener Community, und loggen ihre Workouts in Dritt-Apps. Niemand zeigt ihnen den Weg zum ersten Rennen. HYROX lernt sie erst kennen, wenn sie ein Ticket kaufen – falls sie es je tun.",
   legend: { race: "Race-Wochenenden – für alle, die schon starten", club: "Trainingstage im Club – für HYROX unsichtbar" },
   stats: [
     { value: "1,4 Mio.+", label: "Racer in der Saison 25/26", source: 1 },
@@ -140,13 +140,13 @@ export const year = {
     {
       month: "Jun",
       title: "Punkte, die sich lohnen",
-      text: "Sims, Einheiten, Club Weekend: Lena ist jetzt Regular. Ihre Punkte bringen 20 % auf ihr erstes Rennen – gebucht mit dem Code ihres Clubs.",
+      text: "Sims, Einheiten, Club Weekend: Lena ist jetzt Regular. Ihre Punkte bringen 20 % Rabatt auf ihr erstes Rennen – gebucht mit dem Code ihres Clubs.",
       screen: "rewards",
     },
     {
       month: "Sep",
       title: "Race-Wochenende mit Rewards",
-      text: "HYROX Hamburg, Doubles mit Mia aus ihrer Klasse. Der Check-in ist ein Scan – und ihre Punkte zahlen sich vor Ort aus.",
+      text: "Ticket gebucht: HYROX Hamburg im Oktober, Doubles mit Mia aus ihrer Klasse. Der Check-in wird ein Scan – und ihre Punkte zahlen sich vor Ort aus.",
       screen: "perks",
     },
     {
@@ -317,7 +317,7 @@ export const prototype = {
     {
       name: "Pass",
       month: "Jun",
-      athlete: "Sims, Einheiten und der Club Weekend machen Lena zum Regular. Ihre Punkte bringen 20 % auf ihr erstes Rennen.",
+      athlete: "Sims, Einheiten und der Club Weekend machen Lena zum Regular. Ihre Punkte bringen 20 % Rabatt auf ihr erstes Rennen.",
       club: "Der Club sieht seinen Funnel – von der Klasse über die Sim bis zum Ticket – und verdient an jedem Rennen, das mit seinem Code gebucht wird.",
     },
     {
@@ -360,7 +360,7 @@ export const summary = {
     {
       k: "Das Problem",
       v: [
-        "Die meisten, die HYROX trainieren, sind noch nie gestartet – und niemand zeigt ihnen den Weg.",
+        "Viele, die HYROX trainieren, sind noch nie gestartet – und niemand zeigt ihnen den Weg.",
         "Sie trainieren in 11.000+ Training Clubs, Chatgruppen und Dritt-Apps; HYROX lernt sie erst beim Ticketkauf kennen.",
         "Clubs machen eigene Programme und Sims; Konkurrenz-Marken werben das ganze Jahr um dieselben Gyms.",
       ],
@@ -393,7 +393,7 @@ export const summary = {
     {
       k: "Warum jetzt, warum apploft.",
       v: [
-        "Gründer wieder am Steuer mit L Catterton und WNDR (Sep 2026); 2 Mio.+ Racer erwartet; XENOM als zweites Format.",
+        "Neue Eigentümer seit Sep 2026: ein Konsortium unter Führung von L Catterton mit den Gründern und WNDR; 2 Mio.+ Racer erwartet; XENOM als zweites Format.",
         "apploft. ist zertifizierter Premium-Entwicklungspartner von EGYM, wo HYROX Training+ bereits läuft.",
       ],
     },

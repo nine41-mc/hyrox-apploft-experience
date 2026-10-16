@@ -209,7 +209,7 @@ function AthleteSim({ onNext }: { onNext: () => void }) {
 }
 
 function AthletePass({ onNext }: { onNext: () => void }) {
-  const pts = [64.0, 65.8, 66.4, 66.9, 67.3];
+  const pts = [64.0, 65.8, 66.4, 67.3];
   const path = pts.map((p, i) => `${i === 0 ? "M" : "L"}${(i / (pts.length - 1)) * 300} ${70 - ((p - 63) / 5) * 64}`).join(" ");
   const t = useScreenText();
   const w = t.web.pass;

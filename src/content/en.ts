@@ -63,7 +63,7 @@ export const hero = {
   lines: ["Every", "day", "counts."],
   highlight: "counts.",
   box: { title: "A vision", sub: "by apploft." },
-  lead: "Most people who train HYROX have never raced. 2027 is the year HYROX shows them the way in – from the first workout in their club to the first race, and back.",
+  lead: "Many people who train HYROX have never raced. 2027 is the year HYROX shows them the way in – from the first workout in their club to the first race, and back.",
   cta: "See the vision",
 };
 
@@ -78,8 +78,8 @@ export const statement = {
 
 export const gap = {
   eyebrow: "01_The gap",
-  title: ["HYROX sees", "3 days a year."],
-  titleHl: "3 days",
+  title: ["365 days of training.", "HYROX sees 3."],
+  titleHl: "HYROX sees 3.",
   sub: "And only of those who already race.",
   body: "Everyone else trains all year – in clubs with their own programme, their own sims, their own community, logging workouts in third-party apps. Nobody shows them the way to their first race. HYROX only meets them once they buy a ticket – if they ever do.",
   legend: { race: "Race weekends – for those who already race", club: "Training days in the club – invisible to HYROX" },
@@ -146,7 +146,7 @@ export const year = {
     {
       month: "Sep",
       title: "Race weekend, rewarded",
-      text: "HYROX Hamburg, Doubles with Mia from her class. Check-in is one scan – and her points pay off on site.",
+      text: "Ticket booked: HYROX Hamburg in October, Doubles with Mia from her class. Check-in will be one scan – and her points pay off on site.",
       screen: "perks",
     },
     {
@@ -231,7 +231,7 @@ export const wins = {
         "More first-time racers – and more second races",
         "A direct relationship before the first ticket",
         "Clubs as a channel, not just licensees",
-        "Data back home: Log in with HYROX",
+        "Data back home: Login with HYROX",
         "A new B2B channel: corporate leagues via EGYM Wellpass",
       ],
     },
@@ -360,7 +360,7 @@ export const summary = {
     {
       k: "The problem",
       v: [
-        "Most people who train HYROX have never raced – and nobody shows them the way in.",
+        "Many people who train HYROX have never raced – and nobody shows them the way in.",
         "They train in 11,000+ Training Clubs, chat groups and third-party apps; HYROX only meets them once they buy a ticket.",
         "Clubs run their own programmes and sims; rival brands court the same gyms all year round.",
       ],
@@ -393,7 +393,7 @@ export const summary = {
     {
       k: "Why now, why apploft.",
       v: [
-        "Founders back in control with L Catterton and WNDR (Sep 2026); 2M+ racers expected; XENOM as a second format.",
+        "New owners since Sep 2026: a consortium led by L Catterton with the founders and WNDR; 2M+ racers expected; XENOM as a second format.",
         "apploft. is a certified Premium development partner of EGYM, where HYROX Training+ already runs.",
       ],
     },

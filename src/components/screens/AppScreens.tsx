@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Check, ChevronRight, MapPin, Radio, Users, Bell, Lock } from "lucide-react";
+import { Check, ChevronRight, Radio, Users, Bell, Lock } from "lucide-react";
 import { cn } from "@/components/ui/cn";
 import { useScreenText } from "./ScreenLocale";
 import type { ScreenText } from "./screenText";
@@ -11,23 +11,19 @@ import type { ScreenText } from "./screenText";
  * All people, clubs and numbers are fictional.
  */
 
-export type ScreenKey = "forecast" | "licence" | "sim" | "league" | "race" | "pass" | "rewards" | "perks" | "record";
+export type ScreenKey = "forecast" | "sim" | "league" | "race" | "rewards" | "perks" | "record";
 
 /** `action` replaces the screen's last row – used by the concept prototype for its call to action. */
 export function AppScreen({ screen, action }: { screen: ScreenKey; action?: ReactNode }) {
   switch (screen) {
     case "forecast":
       return <ForecastScreen action={action} />;
-    case "licence":
-      return <LicenceScreen />;
     case "sim":
       return <SimScreen action={action} />;
     case "league":
       return <LeagueScreen />;
     case "race":
       return <RaceScreen action={action} />;
-    case "pass":
-      return <PassScreen />;
     case "rewards":
       return <RewardsScreen action={action} />;
     case "perks":
@@ -151,53 +147,6 @@ export const passFields = (t: ScreenText): [string, string][] => [
   [t.pass.homeClub, "Hafen Athletics"],
   [t.pass.athleteSince, t.pass.since],
 ];
-
-/* ───────────── Licence (not in the current story) ───────────── */
-function LicenceScreen() {
-  return (
-    <Shell title="My Licence">
-      <div className="relative overflow-hidden bg-yellow p-4 text-ink">
-        <p className="wordmark text-[10px]">HYROX</p>
-        <p className="headline mt-5 text-[30px]">Licence_</p>
-        <p className="mt-3 text-[15px] font-medium uppercase">Lena K.</p>
-        <div className="mt-3 grid grid-cols-2 gap-y-2 text-[10px] uppercase">
-          <div>
-            <p className="opacity-60">Level</p>
-            <p className="font-medium">1 · Racer</p>
-          </div>
-          <div>
-            <p className="opacity-60">No.</p>
-            <p className="font-medium">HX-27-004213</p>
-          </div>
-          <div>
-            <p className="opacity-60">Home club</p>
-            <p className="font-medium">Hafen Athletics</p>
-          </div>
-          <div>
-            <p className="opacity-60">Season</p>
-            <p className="font-medium">26/27</p>
-          </div>
-        </div>
-        <QrPattern className="absolute right-3 top-3 h-11 w-11" />
-      </div>
-      <Card>
-        <div className="flex items-center gap-2 text-[11px]">
-          <Check className="h-3.5 w-3.5 text-yellow" />
-          Signed off by Coach Ana M. · 12 Jan
-        </div>
-      </Card>
-      <Card>
-        <p className="text-[11px] text-grey-300">Next: Level 2</p>
-        <p className="mt-1 text-[12px] font-medium">Complete 3 judged sims</p>
-        <Progress value={0} steps={3} />
-      </Card>
-      <Card className="flex items-center justify-between">
-        <span className="text-[12px]">Book your first sim</span>
-        <ChevronRight className="h-4 w-4 text-yellow" />
-      </Card>
-    </Shell>
-  );
-}
 
 /* ───────────── Feb: Club Sim ───────────── */
 function SimScreen({ action }: { action?: ReactNode }) {
@@ -348,34 +297,6 @@ function RaceScreen({ action }: { action?: ReactNode }) {
   );
 }
 
-/* ───────────── Jun: Network Pass ───────────── */
-function PassScreen() {
-  return (
-    <Shell title="Network Pass">
-      <Photoless />
-      <Card>
-        <p className="text-[13px] font-medium uppercase">Box Poblenou</p>
-        <p className="mt-1 flex items-center gap-1 text-[10px] text-grey-300">
-          <MapPin className="h-3 w-3" /> Barcelona · HYROX Training Club
-        </p>
-        <div className="mt-3 flex items-center justify-between">
-          <Tag>Guest · Free</Tag>
-          <span className="text-[10px]">Rated club ★ Sim Standard</span>
-        </div>
-      </Card>
-      <div className="flex items-center gap-3 bg-paper p-3 text-ink">
-        <QrPattern className="h-14 w-14 shrink-0" />
-        <div className="text-[10px] uppercase leading-snug">
-          <p className="font-medium">Check-in</p>
-          <p>Sim night tonight · 19:00</p>
-          <p className="opacity-60">You’re on the list</p>
-        </div>
-      </div>
-      <Card className="text-[10px] text-grey-300">Your result counts for your Index and for Hafen Athletics.</Card>
-    </Shell>
-  );
-}
-
 /* ───────────── Jun: Rewards ───────────── */
 function RewardsScreen({ action }: { action?: ReactNode }) {
   const t = useScreenText();
@@ -410,7 +331,8 @@ function RewardsScreen({ action }: { action?: ReactNode }) {
 
 /* ───────────── Sep: Race weekend perks ───────────── */
 function PerksScreen() {
-  const k = useScreenText().perks;
+  const t = useScreenText();
+  const k = t.perks;
   const perks = k.items;
   return (
     <Shell title={k.title}>
@@ -425,7 +347,7 @@ function PerksScreen() {
       <div className="flex items-center justify-between bg-yellow px-3 py-2.5 text-ink">
         <div>
           <p className="text-[9px] uppercase">{k.yourPoints}</p>
-          <p className="headline text-[28px]">860</p>
+          <p className="headline text-[28px]">{t.num("1,020")}</p>
         </div>
         <span className="text-right text-[9px] uppercase leading-tight">
           {k.earned}
@@ -534,16 +456,5 @@ export function QrPattern({ className }: { className?: string }) {
       <Finder x={n - 7} y={0} />
       <Finder x={0} y={n - 7} />
     </svg>
-  );
-}
-
-function Photoless() {
-  // Abstract club "photo" so the screen works without assets
-  return (
-    <div className="relative h-[88px] overflow-hidden bg-ink-700">
-      <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.06)_0_2px,transparent_2px_22px)]" />
-      <div className="absolute bottom-2 left-3 text-[9px] uppercase tracking-widest text-grey-300">Club floor · live</div>
-      <div className="absolute right-3 top-3 h-2 w-2 rounded-full bg-yellow" />
-    </div>
   );
 }

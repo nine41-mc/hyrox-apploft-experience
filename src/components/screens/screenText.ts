@@ -57,7 +57,7 @@ const en = {
     title: "Status & rewards",
     ladder: "Occasional → Regular → All-in",
     unlocked: "Unlocked",
-    firstRace: "−20 % on your first race",
+    firstRace: "−20% on your first race",
     clubCode: "HYROX Hamburg · club code HAFEN",
     priority: "All-in: priority access",
     soon: "soon",
@@ -67,19 +67,19 @@ const en = {
     checkin: "Check-in · HYROX ID",
     scan: "One scan at the entrance",
     yourPoints: "Your points",
-    earned: "Earned in 3 sims",
+    earned: "Earned in 4 sims",
     sessions: "+ 74 sessions",
     list: "Your race weekend perks",
     items: [
-      ["Ticket HYROX Hamburg", "−20 %", "applied"],
-      ["Merch voucher", "€ 10", "at the shop"],
+      ["Ticket HYROX Hamburg", "−20%", "applied"],
+      ["Merch voucher", "€10", "at the shop"],
       ["Recovery zone", "Free", "Sat + Sun"],
     ] as [string, string, string][],
     village: "Partner village offers",
   },
   record: {
     title: "My record",
-    delta: "+3.8 since her first sim · reliable",
+    delta: "+3.8 since your first sim · reliable",
     stats: [
       ["1", "Race"],
       ["4", "Sims"],
@@ -125,8 +125,8 @@ const en = {
       title: "Your HYROX Pass_",
       rewards: "Rewards",
       items: [
-        ["−20 % on your first race", "HYROX Hamburg · club code HAFEN"],
-        ["Merch voucher € 10", "At the race weekend shop"],
+        ["−20% on your first race", "HYROX Hamburg · club code HAFEN"],
+        ["Merch voucher €10", "At the race weekend shop"],
         ["Recovery zone", "Free on race weekend"],
       ] as [string, string][],
       unlocked: "Unlocked",
@@ -139,6 +139,7 @@ const en = {
       rows: [
         ["Oct 2027", "First race", "HYROX Hamburg · Doubles", "1:24:05", "69.6"],
         ["Aug 2027", "Club Sim", "Hafen Athletics", "1:26:40", "68.1"],
+        ["May 2027", "Club Sim", "Hafen Athletics", "1:28:44", "67.3"],
         ["Mar 2027", "Club Weekend", "Hafen Athletics · Rookie", "1:30:02", "66.4"],
         ["Feb 2027", "Club Sim", "Hafen Athletics · Rookie", "1:31:12", "65.8"],
       ] as [string, string, string, string, string][],
@@ -175,7 +176,7 @@ const en = {
       code: "Club code HAFEN",
       bookings: "race bookings · HYROX Hamburg",
       share: "Revenue share · Q2",
-      shareValue: "€ 1.1k",
+      shareValue: "€1.1k",
       cta: "Race weekend",
     },
     clubRace: {
@@ -184,7 +185,7 @@ const en = {
       wall: "On The Wall · first race, finished",
       more: "+4 more · #3 in Hamburg North for first-time starters",
       share: "Revenue share · season",
-      shareValue: "€ 2.4k",
+      shareValue: "€2.4k",
       shareNote: "tickets + sims",
       next: "Next: Club Weekend in March – 31 members signed up.",
     },
@@ -216,8 +217,8 @@ const en = {
       kpis: [
         ["Active athletes", "184", "+23 this season"],
         ["Judged sims", "46", "this month"],
-        ["First-time racers", "9", "from your club · Q3"],
-        ["Revenue share", "€ 3.2k", "tickets + events · Q3"],
+        ["First-time racers", "9", "from your club · this season"],
+        ["Revenue share", "€2.4k", "tickets + sims · this season"],
       ] as [string, string, string][],
       rated: "Rated club · Sim Standard",
       upcoming: "Upcoming judged sessions",
@@ -302,7 +303,7 @@ const de: ScreenText = {
     checkin: "Check-in · HYROX ID",
     scan: "Ein Scan am Eingang",
     yourPoints: "Deine Punkte",
-    earned: "Gesammelt in 3 Sims",
+    earned: "Gesammelt in 4 Sims",
     sessions: "+ 74 Einheiten",
     list: "Deine Vorteile am Race-Wochenende",
     items: [
@@ -314,7 +315,7 @@ const de: ScreenText = {
   },
   record: {
     title: "Mein Record",
-    delta: "+3,8 seit der ersten Sim · verlässlich",
+    delta: "+3,8 seit deiner ersten Sim · verlässlich",
     stats: [
       ["1", "Rennen"],
       ["4", "Sims"],
@@ -374,6 +375,7 @@ const de: ScreenText = {
       rows: [
         ["Okt 2027", "Erstes Rennen", "HYROX Hamburg · Doubles", "1:24:05", "69.6"],
         ["Aug 2027", "Club-Sim", "Hafen Athletics", "1:26:40", "68.1"],
+        ["Mai 2027", "Club-Sim", "Hafen Athletics", "1:28:44", "67.3"],
         ["Mär 2027", "Club Weekend", "Hafen Athletics · Rookie", "1:30:02", "66.4"],
         ["Feb 2027", "Club-Sim", "Hafen Athletics · Rookie", "1:31:12", "65.8"],
       ],
@@ -451,8 +453,8 @@ const de: ScreenText = {
       kpis: [
         ["Aktive Athletes", "184", "+23 diese Saison"],
         ["Gejudgte Sims", "46", "diesen Monat"],
-        ["Erst-Starter", "9", "aus deinem Club · Q3"],
-        ["Revenue Share", "3,2 Tsd. €", "Tickets + Events · Q3"],
+        ["Erst-Starter", "9", "aus deinem Club · diese Saison"],
+        ["Revenue Share", "2,4 Tsd. €", "Tickets + Sims · diese Saison"],
       ],
       rated: "Gerateter Club · Sim Standard",
       upcoming: "Nächste gejudgte Sessions",
