@@ -9,22 +9,23 @@ import { cn } from "@/components/ui/cn";
 
 export type ScreenKey = "forecast" | "licence" | "sim" | "league" | "race" | "pass" | "rewards" | "perks" | "record";
 
-export function AppScreen({ screen }: { screen: ScreenKey }) {
+/** `action` replaces the screen's last row – used by the concept prototype for its call to action. */
+export function AppScreen({ screen, action }: { screen: ScreenKey; action?: ReactNode }) {
   switch (screen) {
     case "forecast":
-      return <ForecastScreen />;
+      return <ForecastScreen action={action} />;
     case "licence":
       return <LicenceScreen />;
     case "sim":
-      return <SimScreen />;
+      return <SimScreen action={action} />;
     case "league":
       return <LeagueScreen />;
     case "race":
-      return <RaceScreen />;
+      return <RaceScreen action={action} />;
     case "pass":
       return <PassScreen />;
     case "rewards":
-      return <RewardsScreen />;
+      return <RewardsScreen action={action} />;
     case "perks":
       return <PerksScreen />;
     case "record":
@@ -62,26 +63,55 @@ export function Tag({ children, tone = "yellow" }: { children: ReactNode; tone?:
   );
 }
 
+/* ───────────── The HYROX Pass card (wallet style) – same card on phone and web ───────────── */
+export function PassCard({
+  name = "Lena K.",
+  status,
+  fields,
+  size = "sm",
+}: {
+  name?: string;
+  status?: string;
+  fields: [string, string][];
+  size?: "sm" | "lg";
+}) {
+  const lg = size === "lg";
+  return (
+    <div
+      className={cn(
+        "relative overflow-hidden bg-yellow text-ink shadow-[0_18px_40px_-18px_rgba(255,237,0,0.45)]",
+        lg ? "rounded-[18px] p-6" : "rounded-[14px] p-4",
+      )}
+    >
+      <div className="flex items-start justify-between">
+        <p className={cn("wordmark", lg ? "text-[12px]" : "text-[10px]")}>HYROX</p>
+        {status && (
+          <div className={cn("text-right uppercase leading-tight", lg ? "mr-[72px] text-[11px]" : "mr-12 text-[9px]")}>
+            <p className="opacity-60">Status</p>
+            <p className="font-medium">{status}</p>
+          </div>
+        )}
+      </div>
+      <p className={cn("headline", lg ? "mt-6 text-[44px]" : "mt-4 text-[30px]")}>Pass_</p>
+      <p className={cn("font-medium uppercase", lg ? "mt-3 text-[18px]" : "mt-2 text-[15px]")}>{name}</p>
+      <div className={cn("grid grid-cols-2 gap-y-2 uppercase", lg ? "mt-4 text-[12px]" : "mt-3 text-[10px]")}>
+        {fields.map(([k, v]) => (
+          <div key={k}>
+            <p className="opacity-60">{k}</p>
+            <p className="font-medium">{v}</p>
+          </div>
+        ))}
+      </div>
+      <QrPattern className={cn("absolute", lg ? "right-5 top-5 h-14 w-14" : "right-3 top-3 h-11 w-11")} />
+    </div>
+  );
+}
+
 /* ───────────── Jan: HYROX Pass, day one ───────────── */
-function ForecastScreen() {
+function ForecastScreen({ action }: { action?: ReactNode }) {
   return (
     <Shell title="My HYROX Pass">
-      <div className="relative overflow-hidden bg-yellow p-4 text-ink">
-        <p className="wordmark text-[10px]">HYROX</p>
-        <p className="headline mt-5 text-[30px]">Pass_</p>
-        <p className="mt-3 text-[15px] font-medium uppercase">Lena K.</p>
-        <div className="mt-3 grid grid-cols-2 gap-y-2 text-[10px] uppercase">
-          <div>
-            <p className="opacity-60">Home club</p>
-            <p className="font-medium">Hafen Athletics</p>
-          </div>
-          <div>
-            <p className="opacity-60">Athlete since</p>
-            <p className="font-medium">Jan 2027</p>
-          </div>
-        </div>
-        <QrPattern className="absolute right-3 top-3 h-11 w-11" />
-      </div>
+      <PassCard fields={PASS_FIELDS} />
       <Card>
         <div className="flex items-center justify-between">
           <p className="text-[10px] uppercase text-grey-300">This week</p>
@@ -95,13 +125,20 @@ function ForecastScreen() {
         <p className="headline mt-1 text-[30px]">~64</p>
         <p className="text-[10px] text-grey-300">From 12 workouts · a judged sim makes it real</p>
       </Card>
-      <Card className="flex items-center justify-between">
-        <span className="text-[12px]">Book your first sim · Thu 19:00</span>
-        <ChevronRight className="h-4 w-4 text-yellow" />
-      </Card>
+      {action ?? (
+        <Card className="flex items-center justify-between">
+          <span className="text-[12px]">Book your first sim · Thu 19:00</span>
+          <ChevronRight className="h-4 w-4 text-yellow" />
+        </Card>
+      )}
     </Shell>
   );
 }
+
+export const PASS_FIELDS: [string, string][] = [
+  ["Home club", "Hafen Athletics"],
+  ["Athlete since", "Jan 2027"],
+];
 
 /* ───────────── Licence (not in the current story) ───────────── */
 function LicenceScreen() {
@@ -151,7 +188,7 @@ function LicenceScreen() {
 }
 
 /* ───────────── Feb: Club Sim ───────────── */
-function SimScreen() {
+function SimScreen({ action }: { action?: ReactNode }) {
   const splits = [
     ["SkiErg", 72],
     ["Sled Push", 88],
@@ -174,9 +211,9 @@ function SimScreen() {
             <Check className="h-2.5 w-2.5" /> Judged
           </Tag>
         </div>
-        <p className="mt-1 text-[10px] text-grey-300">Rookie division · Sim Standard ✓ · Judge: Coach Ana M.</p>
+        <p className="mt-1 text-[10px] text-grey-300">Rookie · Sim Standard ✓ · Judge: Coach Ana M.</p>
       </Card>
-      <Card className="flex-1">
+      <Card className="min-h-0 flex-1 overflow-hidden">
         <p className="mb-2 text-[10px] uppercase text-grey-300">Stations</p>
         <ul className="space-y-1.5">
           {splits.map(([name, w]) => (
@@ -199,6 +236,7 @@ function SimScreen() {
           <br />1 of 3 results
         </span>
       </div>
+      {action}
     </Shell>
   );
 }
@@ -252,7 +290,7 @@ function LeagueScreen() {
 }
 
 /* ───────────── Oct: Race day ───────────── */
-function RaceScreen() {
+function RaceScreen({ action }: { action?: ReactNode }) {
   return (
     <Shell title="HYROX Event App · Hamburg">
       <div className="flex items-center gap-2 bg-paper px-3 py-2 text-[10px] text-ink">
@@ -274,17 +312,20 @@ function RaceScreen() {
           ))}
         </div>
       </Card>
-      <Card className="flex items-center justify-between">
-        <span className="flex items-center gap-2 text-[11px]">
-          <Users className="h-3.5 w-3.5 text-yellow" /> 6 supporters following
-        </span>
-        <ChevronRight className="h-4 w-4 text-grey-300" />
-      </Card>
+      {!action && (
+        <Card className="flex items-center justify-between">
+          <span className="flex items-center gap-2 text-[11px]">
+            <Users className="h-3.5 w-3.5 text-yellow" /> 6 supporters following
+          </span>
+          <ChevronRight className="h-4 w-4 text-grey-300" />
+        </Card>
+      )}
       <Card>
         <p className="text-[10px] uppercase text-grey-300">After the finish</p>
         <p className="mt-1 text-[12px] font-medium">Result syncs to your Pass + Index</p>
         <p className="mt-1 text-[10px] text-grey-300">Your record starts here</p>
       </Card>
+      {action}
     </Shell>
   );
 }
@@ -318,14 +359,10 @@ function PassScreen() {
 }
 
 /* ───────────── Jun: Rewards ───────────── */
-function RewardsScreen() {
+function RewardsScreen({ action }: { action?: ReactNode }) {
   return (
     <Shell title="Status & rewards">
-      <div className="bg-gradient-to-br from-grey-200 to-grey-400 p-4 text-ink">
-        <p className="wordmark text-[10px]">HYROX</p>
-        <p className="headline mt-4 text-[34px]">Regular_</p>
-        <p className="text-[10px] uppercase">2 sims · Club Weekend · 48 sessions</p>
-      </div>
+      <PassCard status="Regular" fields={[["Points", "860"], ["Sims", "2 + Club Weekend"]]} />
       <Card>
         <div className="flex items-center justify-between text-[10px] uppercase text-grey-300">
           <span>Regular</span>
@@ -334,20 +371,19 @@ function RewardsScreen() {
         <Progress value={6} steps={10} />
         <p className="mt-2 text-[10px] text-grey-300">Occasional → Regular → All-in</p>
       </Card>
-      <div className="bg-yellow p-3 text-ink">
-        <p className="text-[9px] uppercase">Unlocked</p>
+      <div className="rounded-[14px] border border-yellow p-3">
+        <p className="text-[9px] uppercase text-yellow">Unlocked</p>
         <p className="mt-1 text-[13px] font-medium uppercase leading-tight">−20 % on your first race</p>
-        <p className="mt-1 text-[10px] uppercase">HYROX Hamburg · club code HAFEN</p>
-        <p className="mt-2 inline-flex items-center gap-1 bg-ink px-2 py-1 text-[10px] uppercase text-paper">
-          Book with your crew <ChevronRight className="h-3 w-3" />
-        </p>
+        <p className="mt-1 text-[10px] uppercase text-grey-300">HYROX Hamburg · club code HAFEN</p>
       </div>
-      <Card className="flex items-center justify-between text-[11px]">
-        <span className="flex items-center gap-2">
-          <Lock className="h-3.5 w-3.5 text-grey-300" /> All-in: priority access
-        </span>
-        <span className="text-[10px] text-grey-300">soon</span>
-      </Card>
+      {action ?? (
+        <Card className="flex items-center justify-between text-[11px]">
+          <span className="flex items-center gap-2">
+            <Lock className="h-3.5 w-3.5 text-grey-300" /> All-in: priority access
+          </span>
+          <span className="text-[10px] text-grey-300">soon</span>
+        </Card>
+      )}
     </Shell>
   );
 }

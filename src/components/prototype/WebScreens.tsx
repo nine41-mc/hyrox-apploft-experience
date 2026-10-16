@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { Check, ChevronRight, Star } from "lucide-react";
 import { cn } from "@/components/ui/cn";
+import { PASS_FIELDS, PassCard } from "@/components/screens/AppScreens";
 
 /**
  * Web views shown in the MacBook of the concept prototype (laid out for 1024×604).
@@ -109,8 +110,21 @@ function AthleteTrain({ onNext }: { onNext: () => void }) {
   ];
   return (
     <>
-      <H k="January · week 3" title="Hi Lena_" />
       <div className="grid grid-cols-3 gap-4">
+        <div className="col-span-2 flex items-end">
+          <H k="January · week 3" title="Hi Lena_" />
+        </div>
+        <div className="row-span-2">
+          <PassCard fields={PASS_FIELDS} />
+          <Box className="mt-4">
+            <Label>Index forecast</Label>
+            <div className="mt-2 flex items-baseline gap-3">
+              <p className="headline text-[48px] leading-none">~64</p>
+              <p className="text-[12px] text-grey-300">range 60–68</p>
+            </div>
+            <p className="mt-2 text-[12px] text-grey-300">Based on 12 workouts. A judged sim makes it real.</p>
+          </Box>
+        </div>
         <Box className="col-span-2">
           <Label>Training this week · official programming</Label>
           <ul className="mt-3 divide-y divide-ink-600">
@@ -124,19 +138,6 @@ function AthleteTrain({ onNext }: { onNext: () => void }) {
               </li>
             ))}
           </ul>
-        </Box>
-        <Box>
-          <Label>Index forecast</Label>
-          <p className="headline mt-3 text-[64px] leading-none">~64</p>
-          <div className="relative mt-5 h-[6px] bg-ink-600">
-            <span className="absolute left-[30%] top-0 h-full w-[40%] bg-paper/40" />
-            <span className="absolute left-[50%] top-[-5px] h-4 w-[3px] bg-yellow" />
-          </div>
-          <p className="mt-2 flex justify-between text-[11px] text-grey-300">
-            <span>60</span>
-            <span>68</span>
-          </p>
-          <p className="mt-3 text-[12px] text-grey-300">Based on 12 workouts. A judged sim makes it real.</p>
         </Box>
         <div className="col-span-3 flex items-center justify-between bg-ink-700 p-5">
           <div>
@@ -212,27 +213,30 @@ function AthletePass({ onNext }: { onNext: () => void }) {
   ] as const;
   return (
     <>
-      <H k="June · your HYROX Pass" title="Regular_" right={<p className="headline text-[40px] text-yellow">860 pts</p>} />
+      <H k="June · status & rewards" title="Your HYROX Pass_" />
       <div className="grid grid-cols-[1fr_1.2fr] gap-4">
         <div className="flex flex-col gap-4">
+          <PassCard status="Regular" fields={[["Points", "860"], ["Sims", "2 + Club Weekend"]]} />
           <Box>
-            <Label>Status</Label>
-            <div className="mt-3 grid grid-cols-3 gap-1 text-center text-[12px] uppercase">
-              <span className="bg-ink-600 py-2 text-grey-300">Occasional</span>
-              <span className="bg-paper py-2 font-medium text-ink">Regular</span>
-              <span className="bg-ink-600 py-2 text-grey-300">All-in</span>
+            <div className="flex items-baseline justify-between">
+              <Label>HYROX Index</Label>
+              <p className="headline text-[36px] leading-none">67.3</p>
             </div>
-          </Box>
-          <Box>
-            <Label>HYROX Index</Label>
-            <p className="headline mt-2 text-[48px] leading-none">67.3</p>
-            <svg viewBox="0 0 300 72" className="mt-3 h-[72px] w-full" aria-hidden>
+            <svg viewBox="0 0 300 72" className="mt-3 h-[56px] w-full" aria-hidden>
               <path d={path} fill="none" stroke="#FFED00" strokeWidth="2.5" />
             </svg>
           </Box>
         </div>
         <Box>
-          <Label>Rewards</Label>
+          <Label>Status · Occasional → Regular → All-in</Label>
+          <div className="mt-3 grid grid-cols-3 gap-1 text-center text-[12px] uppercase">
+            <span className="bg-ink-600 py-2 text-grey-300">Occasional</span>
+            <span className="bg-paper py-2 font-medium text-ink">Regular</span>
+            <span className="bg-ink-600 py-2 text-grey-300">All-in</span>
+          </div>
+          <div className="mt-5">
+            <Label>Rewards</Label>
+          </div>
           <ul className="mt-3 divide-y divide-ink-600">
             {rewards.map(([k, d, hot]) => (
               <li key={k} className="flex items-center justify-between gap-4 py-3">
@@ -240,7 +244,7 @@ function AthletePass({ onNext }: { onNext: () => void }) {
                   <span className={cn("block text-[15px]", hot && "text-yellow")}>{k}</span>
                   <span className="block text-[12px] text-grey-300">{d}</span>
                 </span>
-                {hot ? <Go onClick={onNext}>Book with Mia</Go> : <span className="text-[12px] text-grey-300">Unlocked</span>}
+                {hot ? <Go onClick={onNext}>Book with your crew</Go> : <span className="text-[12px] text-grey-300">Unlocked</span>}
               </li>
             ))}
           </ul>
