@@ -545,7 +545,7 @@ export const pass = {
         id: "access",
         k: "Access",
         v: "Check in wherever HYROX happens – with fast track on race day.",
-        chips: ["Check-in at races", "Clubs worldwide, like Wellpass", "Training stations", "Fast track on race day"],
+        chips: ["Check-in at races", "Check-in at clubs worldwide", "Training stations", "Fast track on race day"],
       },
       {
         id: "benefit",
