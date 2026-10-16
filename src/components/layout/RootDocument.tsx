@@ -1,4 +1,5 @@
 import type { Viewport } from "next";
+import { ScreenLocale } from "@/components/screens/ScreenLocale";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { Barlow } from "next/font/google";
@@ -62,7 +63,7 @@ export function RootDocument({ lang, children }: { lang: "en" | "de"; children: 
         <style dangerouslySetInnerHTML={{ __html: brutalFaces }} />
       </head>
       <body>
-        {children}
+        <ScreenLocale locale={lang}>{children}</ScreenLocale>
         <ServiceWorker />
       </body>
     </html>

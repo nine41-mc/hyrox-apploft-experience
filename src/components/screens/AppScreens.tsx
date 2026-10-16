@@ -1,6 +1,10 @@
+"use client";
+
 import type { ReactNode } from "react";
 import { Check, ChevronRight, MapPin, Radio, Users, Bell, Lock } from "lucide-react";
 import { cn } from "@/components/ui/cn";
+import { useScreenText } from "./ScreenLocale";
+import type { ScreenText } from "./screenText";
 
 /**
  * Illustrative HYROX app screens for Lena’s year – from first workout to first race.
@@ -76,6 +80,7 @@ export function PassCard({
   size?: "sm" | "lg";
 }) {
   const lg = size === "lg";
+  const t = useScreenText();
   return (
     <div
       className={cn(
@@ -87,7 +92,7 @@ export function PassCard({
         <p className={cn("wordmark", lg ? "text-[12px]" : "text-[10px]")}>HYROX</p>
         {status && (
           <div className={cn("text-right uppercase leading-tight", lg ? "mr-[72px] text-[11px]" : "mr-12 text-[9px]")}>
-            <p className="opacity-60">Status</p>
+            <p className="opacity-60">{t.pass.status}</p>
             <p className="font-medium">{status}</p>
           </div>
         )}
@@ -109,25 +114,27 @@ export function PassCard({
 
 /* ───────────── Jan: HYROX Pass, day one ───────────── */
 function ForecastScreen({ action }: { action?: ReactNode }) {
+  const t = useScreenText();
+  const f = t.forecast;
   return (
-    <Shell title="My HYROX Pass">
-      <PassCard fields={PASS_FIELDS} />
+    <Shell title={f.title}>
+      <PassCard fields={passFields(t)} />
       <Card>
         <div className="flex items-center justify-between">
-          <p className="text-[10px] uppercase text-grey-300">This week</p>
-          <span className="text-[10px] text-grey-300">Official programming</span>
+          <p className="text-[10px] uppercase text-grey-300">{f.thisWeek}</p>
+          <span className="text-[10px] text-grey-300">{f.programming}</span>
         </div>
-        <p className="mt-1 text-[12px] font-medium">3 of 3 sessions</p>
+        <p className="mt-1 text-[12px] font-medium">{f.sessions}</p>
         <Progress value={3} steps={3} />
       </Card>
       <Card>
-        <p className="text-[10px] uppercase text-grey-300">Index forecast</p>
+        <p className="text-[10px] uppercase text-grey-300">{f.forecast}</p>
         <p className="headline mt-1 text-[30px]">~64</p>
-        <p className="text-[10px] text-grey-300">From 12 workouts · a judged sim makes it real</p>
+        <p className="text-[10px] text-grey-300">{f.note}</p>
       </Card>
       {action ?? (
         <Card className="flex items-center justify-between">
-          <span className="text-[12px]">Book your first sim · Thu 19:00</span>
+          <span className="text-[12px]">{f.book}</span>
           <ChevronRight className="h-4 w-4 text-yellow" />
         </Card>
       )}
@@ -135,9 +142,14 @@ function ForecastScreen({ action }: { action?: ReactNode }) {
   );
 }
 
-export const PASS_FIELDS: [string, string][] = [
-  ["Home club", "Hafen Athletics"],
-  ["Athlete since", "Jan 2027"],
+export const statusFields = (t: ScreenText): [string, string][] => [
+  [t.pass.points, "860"],
+  [t.pass.sims, t.pass.simsValue],
+];
+
+export const passFields = (t: ScreenText): [string, string][] => [
+  [t.pass.homeClub, "Hafen Athletics"],
+  [t.pass.athleteSince, t.pass.since],
 ];
 
 /* ───────────── Licence (not in the current story) ───────────── */
@@ -189,6 +201,8 @@ function LicenceScreen() {
 
 /* ───────────── Feb: Club Sim ───────────── */
 function SimScreen({ action }: { action?: ReactNode }) {
+  const t = useScreenText();
+  const m = t.sim;
   const splits = [
     ["SkiErg", 72],
     ["Sled Push", 88],
@@ -200,21 +214,21 @@ function SimScreen({ action }: { action?: ReactNode }) {
     ["Wall Balls", 92],
   ] as const;
   return (
-    <Shell title="Club Sim · Hafen Athletics">
+    <Shell title={m.title}>
       <Card>
         <div className="flex items-start justify-between">
           <div>
-            <p className="text-[10px] uppercase text-grey-300">Total time</p>
+            <p className="text-[10px] uppercase text-grey-300">{m.total}</p>
             <p className="headline text-[38px]">1:31:12</p>
           </div>
           <Tag>
-            <Check className="h-2.5 w-2.5" /> Judged
+            <Check className="h-2.5 w-2.5" /> {m.judged}
           </Tag>
         </div>
-        <p className="mt-1 text-[10px] text-grey-300">Rookie · Sim Standard ✓ · Judge: Coach Ana M.</p>
+        <p className="mt-1 text-[10px] text-grey-300">{m.judgeLine}</p>
       </Card>
       <Card className="min-h-0 flex-1 overflow-hidden">
-        <p className="mb-2 text-[10px] uppercase text-grey-300">Stations</p>
+        <p className="mb-2 text-[10px] uppercase text-grey-300">{m.stations}</p>
         <ul className="space-y-1.5">
           {splits.map(([name, w]) => (
             <li key={name} className="flex items-center gap-2 text-[10px]">
@@ -228,12 +242,13 @@ function SimScreen({ action }: { action?: ReactNode }) {
       </Card>
       <div className="flex items-center justify-between bg-yellow px-3 py-2.5 text-ink">
         <div>
-          <p className="text-[9px] uppercase">Forecast ~64 → your first Index</p>
-          <p className="headline text-[28px]">65.8</p>
+          <p className="text-[9px] uppercase">{m.firstIndex}</p>
+          <p className="headline text-[28px]">{t.num("65.8")}</p>
         </div>
         <span className="text-right text-[9px] uppercase leading-tight">
-          Provisional
-          <br />1 of 3 results
+          {m.provisional}
+          <br />
+          {m.ofResults}
         </span>
       </div>
       {action}
@@ -243,6 +258,8 @@ function SimScreen({ action }: { action?: ReactNode }) {
 
 /* ───────────── Mar: League ───────────── */
 function LeagueScreen() {
+  const t = useScreenText();
+  const l = t.league;
   const rows = [
     ["1", "Elbe Engine", "1,284"],
     ["2", "Ottensen Hybrid", "1,231"],
@@ -251,11 +268,11 @@ function LeagueScreen() {
     ["5", "Altona Collective", "987"],
   ];
   return (
-    <Shell title="Club Weekend · Hamburg North">
+    <Shell title={l.title}>
       <Card className="!p-0">
         <div className="flex items-center justify-between px-3 py-2.5">
-          <p className="text-[12px] font-medium uppercase">Club ranking</p>
-          <Tag tone="grey">Season kick-off</Tag>
+          <p className="text-[12px] font-medium uppercase">{l.ranking}</p>
+          <Tag tone="grey">{l.kickoff}</Tag>
         </div>
         <ul>
           {rows.map(([pos, club, pts]) => {
@@ -270,20 +287,20 @@ function LeagueScreen() {
               >
                 <span className="w-3 font-medium">{pos}</span>
                 <span className="flex-1">{club}</span>
-                <span className="font-medium">{pts}</span>
+                <span className="font-medium">{t.num(pts)}</span>
               </li>
             );
           })}
         </ul>
       </Card>
       <Card>
-        <p className="text-[10px] uppercase text-grey-300">Your contribution</p>
-        <p className="headline mt-1 text-[30px]">+42 pts</p>
-        <p className="text-[10px] text-grey-300">Weekend sim · 214 clubs in the region</p>
+        <p className="text-[10px] uppercase text-grey-300">{l.contribution}</p>
+        <p className="headline mt-1 text-[30px]">{l.pts}</p>
+        <p className="text-[10px] text-grey-300">{l.note}</p>
       </Card>
       <Card className="flex items-center justify-between">
-        <span className="text-[11px]">Next club sim · Thu 19:00</span>
-        <span className="text-[10px] text-yellow">18 going</span>
+        <span className="text-[11px]">{l.next}</span>
+        <span className="text-[10px] text-yellow">{l.going}</span>
       </Card>
     </Shell>
   );
@@ -291,21 +308,22 @@ function LeagueScreen() {
 
 /* ───────────── Oct: Race day ───────────── */
 function RaceScreen({ action }: { action?: ReactNode }) {
+  const r = useScreenText().race;
   return (
     <Shell title="HYROX Event App · Hamburg">
       <div className="flex items-center gap-2 bg-paper px-3 py-2 text-[10px] text-ink">
         <Bell className="h-3 w-3 shrink-0" />
-        Signed in with your HYROX ID · Your first race
+        {r.signedIn}
       </div>
       <Card>
         <div className="flex items-center justify-between">
           <Tag>
-            <Radio className="h-2.5 w-2.5" /> Live
+            <Radio className="h-2.5 w-2.5" /> {r.live}
           </Tag>
-          <span className="text-[10px] text-grey-300">Women Doubles · Wave 14</span>
+          <span className="text-[10px] text-grey-300">{r.division}</span>
         </div>
         <p className="headline mt-3 text-[40px]">52:18</p>
-        <p className="text-[11px]">Station 5 / 8 · Rowing</p>
+        <p className="text-[11px]">{r.station}</p>
         <div className="mt-3 flex gap-1">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i} className={cn("h-[6px] flex-1", i < 4 ? "bg-yellow" : i === 4 ? "bg-paper" : "bg-ink-500")} />
@@ -315,15 +333,15 @@ function RaceScreen({ action }: { action?: ReactNode }) {
       {!action && (
         <Card className="flex items-center justify-between">
           <span className="flex items-center gap-2 text-[11px]">
-            <Users className="h-3.5 w-3.5 text-yellow" /> 6 supporters following
+            <Users className="h-3.5 w-3.5 text-yellow" /> {r.supporters}
           </span>
           <ChevronRight className="h-4 w-4 text-grey-300" />
         </Card>
       )}
       <Card>
-        <p className="text-[10px] uppercase text-grey-300">After the finish</p>
-        <p className="mt-1 text-[12px] font-medium">Result syncs to your Pass + Index</p>
-        <p className="mt-1 text-[10px] text-grey-300">Your record starts here</p>
+        <p className="text-[10px] uppercase text-grey-300">{r.after}</p>
+        <p className="mt-1 text-[12px] font-medium">{r.syncs}</p>
+        <p className="mt-1 text-[10px] text-grey-300">{r.recordStarts}</p>
       </Card>
       {action}
     </Shell>
@@ -360,28 +378,30 @@ function PassScreen() {
 
 /* ───────────── Jun: Rewards ───────────── */
 function RewardsScreen({ action }: { action?: ReactNode }) {
+  const t = useScreenText();
+  const w = t.rewards;
   return (
-    <Shell title="Status & rewards">
-      <PassCard status="Regular" fields={[["Points", "860"], ["Sims", "2 + Club Weekend"]]} />
+    <Shell title={w.title}>
+      <PassCard status="Regular" fields={statusFields(t)} />
       <Card>
         <div className="flex items-center justify-between text-[10px] uppercase text-grey-300">
           <span>Regular</span>
           <span>All-in</span>
         </div>
         <Progress value={6} steps={10} />
-        <p className="mt-2 text-[10px] text-grey-300">Occasional → Regular → All-in</p>
+        <p className="mt-2 text-[10px] text-grey-300">{w.ladder}</p>
       </Card>
       <div className="rounded-[14px] border border-yellow p-3">
-        <p className="text-[9px] uppercase text-yellow">Unlocked</p>
-        <p className="mt-1 text-[13px] font-medium uppercase leading-tight">−20 % on your first race</p>
-        <p className="mt-1 text-[10px] uppercase text-grey-300">HYROX Hamburg · club code HAFEN</p>
+        <p className="text-[9px] uppercase text-yellow">{w.unlocked}</p>
+        <p className="mt-1 text-[13px] font-medium uppercase leading-tight">{w.firstRace}</p>
+        <p className="mt-1 text-[10px] uppercase text-grey-300">{w.clubCode}</p>
       </div>
       {action ?? (
         <Card className="flex items-center justify-between text-[11px]">
           <span className="flex items-center gap-2">
-            <Lock className="h-3.5 w-3.5 text-grey-300" /> All-in: priority access
+            <Lock className="h-3.5 w-3.5 text-grey-300" /> {w.priority}
           </span>
-          <span className="text-[10px] text-grey-300">soon</span>
+          <span className="text-[10px] text-grey-300">{w.soon}</span>
         </Card>
       )}
     </Shell>
@@ -390,33 +410,31 @@ function RewardsScreen({ action }: { action?: ReactNode }) {
 
 /* ───────────── Sep: Race weekend perks ───────────── */
 function PerksScreen() {
-  const perks = [
-    ["Ticket HYROX Hamburg", "−20 %", "applied"],
-    ["Merch voucher", "€ 10", "at the shop"],
-    ["Recovery zone", "Free", "Sat + Sun"],
-  ] as const;
+  const k = useScreenText().perks;
+  const perks = k.items;
   return (
-    <Shell title="Race weekend · HYROX Hamburg">
+    <Shell title={k.title}>
       <div className="flex items-center gap-3 bg-paper p-3 text-ink">
         <QrPattern className="h-14 w-14 shrink-0" />
         <div className="text-[10px] uppercase leading-snug">
-          <p className="font-medium">Check-in · HYROX ID</p>
+          <p className="font-medium">{k.checkin}</p>
           <p>Women Doubles · Wave 14</p>
-          <p className="opacity-60">One scan at the entrance</p>
+          <p className="opacity-60">{k.scan}</p>
         </div>
       </div>
       <div className="flex items-center justify-between bg-yellow px-3 py-2.5 text-ink">
         <div>
-          <p className="text-[9px] uppercase">Your points</p>
+          <p className="text-[9px] uppercase">{k.yourPoints}</p>
           <p className="headline text-[28px]">860</p>
         </div>
         <span className="text-right text-[9px] uppercase leading-tight">
-          Earned in 3 sims
-          <br />+ 74 sessions
+          {k.earned}
+          <br />
+          {k.sessions}
         </span>
       </div>
       <Card className="!p-0">
-        <p className="px-3 pb-1 pt-2.5 text-[10px] uppercase text-grey-300">Your race weekend perks</p>
+        <p className="px-3 pb-1 pt-2.5 text-[10px] uppercase text-grey-300">{k.list}</p>
         <ul>
           {perks.map(([k, v, d]) => (
             <li key={k} className="flex items-center gap-3 border-t border-ink-600 px-3 py-2 text-[11px]">
@@ -430,7 +448,7 @@ function PerksScreen() {
         </ul>
       </Card>
       <Card className="flex items-center justify-between text-[11px]">
-        <span>Partner village offers</span>
+        <span>{k.village}</span>
         <ChevronRight className="h-4 w-4 text-yellow" />
       </Card>
     </Shell>
@@ -439,7 +457,9 @@ function PerksScreen() {
 
 /* ───────────── Dec: Record ───────────── */
 function RecordScreen() {
-  const patches = ["ROOKIE", "SIM×4", "CLUB WKND", "HAM", "1ST RACE", "NEXT: BER"];
+  const t = useScreenText();
+  const r = t.record;
+  const patches = r.patchList;
   const pts = [64.0, 65.8, 66.4, 67.3, 68.1, 69.6];
   const max = 71;
   const min = 62;
@@ -447,30 +467,26 @@ function RecordScreen() {
     .map((p, i) => `${i === 0 ? "M" : "L"}${(i / (pts.length - 1)) * 236} ${46 - ((p - min) / (max - min)) * 42}`)
     .join(" ");
   return (
-    <Shell title="My record">
+    <Shell title={r.title}>
       <div>
         <p className="text-[10px] uppercase text-grey-300">HYROX Index</p>
         <p className="headline text-[56px] leading-none">
-          <span className="hl">69.6</span>
+          <span className="hl">{t.num("69.6")}</span>
         </p>
-        <p className="mt-1 text-[10px] text-grey-300">+3.8 since her first sim · reliable</p>
+        <p className="mt-1 text-[10px] text-grey-300">{r.delta}</p>
       </div>
       <svg viewBox="0 0 236 50" className="h-12 w-full" aria-hidden>
         <path d={path} fill="none" stroke="#FFED00" strokeWidth="2" />
       </svg>
       <div className="grid grid-cols-3 gap-2">
-        {[
-          ["1", "Race"],
-          ["4", "Sims"],
-          ["86", "Workouts"],
-        ].map(([v, k]) => (
+        {r.stats.map(([v, k]) => (
           <Card key={k} className="!p-2 text-center">
             <p className="headline text-[24px]">{v}</p>
             <p className="text-[9px] uppercase text-grey-300">{k}</p>
           </Card>
         ))}
       </div>
-      <p className="text-[10px] uppercase text-grey-300">Patches</p>
+      <p className="text-[10px] uppercase text-grey-300">{r.patches}</p>
       <div className="grid grid-cols-3 gap-2">
         {patches.map((p) => (
           <span key={p} className="grid aspect-square place-items-center border border-paper/30 text-[11px] font-medium">

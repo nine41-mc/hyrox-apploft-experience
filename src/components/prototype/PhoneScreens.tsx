@@ -1,28 +1,32 @@
+"use client";
+
 import type { ReactNode } from "react";
 import { ChevronRight } from "lucide-react";
 import { AppScreen, type ScreenKey } from "@/components/screens/AppScreens";
 import { cn } from "@/components/ui/cn";
+import { useScreenText } from "@/components/screens/ScreenLocale";
 
 /**
  * Lena's app in the concept prototype – the same screens as "Lena's 2027" on the main page,
  * with a call to action that advances the prototype. The button is a pointer shortcut only
  * (tabIndex -1); the accessible controls live outside the device frame.
  */
-const STEPS: { screen: ScreenKey; cta: string }[] = [
-  { screen: "forecast", cta: "Book your first sim · Thu" },
-  { screen: "sim", cta: "See your Pass" },
-  { screen: "rewards", cta: "Book with your crew" },
-  { screen: "race", cta: "Start again" },
+const STEPS: { screen: ScreenKey; cta: "bookSim" | "seePass" | "bookCrew" | "restart" }[] = [
+  { screen: "forecast", cta: "bookSim" },
+  { screen: "sim", cta: "seePass" },
+  { screen: "rewards", cta: "bookCrew" },
+  { screen: "race", cta: "restart" },
 ];
 
 export function PhoneStep({ step, onNext }: { step: number; onNext: () => void }) {
   const s = STEPS[step];
+  const t = useScreenText();
   return (
     <AppScreen
       screen={s.screen}
       action={
         <Cta onClick={onNext} tone={step === STEPS.length - 1 ? "paper" : "yellow"}>
-          {s.cta}
+          {t.cta[s.cta]}
         </Cta>
       }
     />

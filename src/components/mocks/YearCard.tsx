@@ -1,19 +1,21 @@
+"use client";
+
+import { useScreenText } from "@/components/screens/ScreenLocale";
+
 /** Shareable "Your HYROX Year" recap card (story format) – illustrative. */
 export function YearCard({ className }: { className?: string }) {
-  const stats = [
-    ["1", "first race"],
-    ["4", "judged sims"],
-    ["86", "workouts"],
-  ];
+  const t = useScreenText();
+  const y = t.mocks.year;
+  const stats = y.stats;
   return (
     <div aria-hidden className={`aspect-[9/16] w-[150px] bg-yellow p-3 text-ink shadow-[0_30px_60px_-20px_rgba(0,0,0,0.9)] ${className ?? ""}`}>
       <p className="wordmark text-[8px]">HYROX</p>
       <p className="headline mt-3 text-[20px] leading-[0.95]">
-        Lena’s
+        {y.title[0]}
         <br />
-        HYROX
+        {y.title[1]}
         <br />
-        Year_
+        {y.title[2]}
       </p>
       <p className="mt-1 text-[8px] font-medium uppercase tracking-widest">2027</p>
       <ul className="mt-3 space-y-1.5">
@@ -26,7 +28,7 @@ export function YearCard({ className }: { className?: string }) {
       </ul>
       <div className="mt-3 bg-ink px-2 py-1.5 text-paper">
         <p className="text-[7px] uppercase tracking-widest text-grey-300">Index</p>
-        <p className="headline text-[16px] leading-none">~64 → 69.6</p>
+        <p className="headline text-[16px] leading-none">~64 → {t.num("69.6")}</p>
       </div>
       <p className="mt-2 text-[8px] font-medium uppercase tracking-wider">#BeTheRecord</p>
     </div>
