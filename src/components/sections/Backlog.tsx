@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import type { Content } from "@/content";
 import { Section, Eyebrow } from "@/components/ui/Section";
 import { Headline } from "@/components/ui/Headline";
@@ -12,9 +15,10 @@ const SPAN: Record<string, string> = {
 
 type Tone = "yellow" | "paper" | "ink" | "outline";
 
-/** Vision backlog: epics as a bento grid, features as chips – all with the same priority. */
+/** Vision backlog (epics as a bento grid) and the full idea pool, in two tabs. */
 export function Backlog({ c }: { c: Content }) {
   const { backlog } = c;
+  const [tab, setTab] = useState<"vision" | "pool">("vision");
   return (
     <Section id="backlog" tone="ink">
       <div className="container-site">
@@ -30,7 +34,60 @@ export function Backlog({ c }: { c: Content }) {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid grid-flow-dense gap-3 md:grid-cols-2 lg:grid-cols-4">
+        <div role="tablist" aria-label={backlog.eyebrow} className="mt-10 flex gap-2">
+          {(["vision", "pool"] as const).map((t) => (
+            <button
+              key={t}
+              type="button"
+              role="tab"
+              id={`backlog-tab-${t}`}
+              aria-selected={tab === t}
+              aria-controls={`backlog-panel-${t}`}
+              onClick={() => setTab(t)}
+              className={cn(
+                "eyebrow inline-flex min-h-11 items-center rounded-full border px-5 !text-[12px] transition-colors",
+                tab === t ? "border-yellow bg-yellow text-ink" : "border-paper/30 text-paper/80 hover:border-yellow hover:text-yellow",
+              )}
+            >
+              {backlog.tabs[t]}
+              {t === "pool" && <span className="ml-2 opacity-60">{backlog.pool.reduce((n, g) => n + g.items.length, 0)}</span>}
+            </button>
+          ))}
+        </div>
+
+        {tab === "pool" && (
+          <div role="tabpanel" id="backlog-panel-pool" aria-labelledby="backlog-tab-pool" className="mt-8">
+            <p className="max-w-[640px] text-[16px] leading-relaxed text-paper/75">{backlog.poolIntro}</p>
+            <div className="mt-8 space-y-10">
+              {backlog.pool.map((g) => (
+                <div key={g.k}>
+                  <h3 className="eyebrow flex items-center gap-3 text-yellow">
+                    {g.k}_ <span className="text-grey-300">{g.items.length}</span>
+                  </h3>
+                  <ul className="mt-4 grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+                    {g.items.map(([k, v]) => (
+                      <li key={k} className="flex gap-3 rounded-[16px] border border-ink-600 bg-ink-800 p-4">
+                        <span aria-hidden className="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-yellow" />
+                        <span>
+                          <span className="block text-[15px] font-medium">{k}</span>
+                          <span className="mt-0.5 block text-[14px] leading-snug text-paper/65">{v}</span>
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <div
+          role="tabpanel"
+          id="backlog-panel-vision"
+          aria-labelledby="backlog-tab-vision"
+          hidden={tab !== "vision"}
+          className="mt-8 grid grid-flow-dense gap-3 md:grid-cols-2 lg:grid-cols-4"
+        >
           {backlog.epics.map((e, i) => {
             const tone = e.tone as Tone;
             const light = tone === "yellow" || tone === "paper";
