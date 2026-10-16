@@ -544,8 +544,8 @@ export const pass = {
       {
         id: "access",
         k: "Zugang",
-        v: "Einchecken, wo HYROX passiert – mit Fast Track am Race Day.",
-        chips: ["Check-in bei Rennen", "Check-in in Clubs weltweit", "Training Stations", "Fast Track am Race Day"],
+        v: "Einchecken, wo HYROX passiert – bei Rennen, in Clubs und an Training Stations.",
+        chips: ["Check-in bei Rennen", "Check-in in Clubs weltweit", "Check-in @ Training Stations"],
       },
       {
         id: "benefit",
