@@ -21,6 +21,7 @@ import { Prototype } from "@/components/prototype/Prototype";
 import { Headline } from "@/components/ui/Headline";
 import { Reveal } from "@/components/ui/Reveal";
 import { PassFieldsCard } from "@/components/ui/PassFieldsCard";
+import { PassGallery } from "@/components/sections/PassGallery";
 import { cn } from "@/components/ui/cn";
 import { asset } from "@/lib/asset";
 
@@ -117,6 +118,11 @@ export function PassView({ locale }: { locale: Locale }) {
           </ul>
         </section>
 
+        {/* gallery */}
+        <section className="container-site mt-20 md:mt-28">
+          <PassGallery k={p.gallery.k} items={p.gallery.items} labels={{ close: p.gallery.close, prev: p.gallery.prev, next: p.gallery.next }} />
+        </section>
+
         {/* Lena's 24 hours */}
         <section className="container-site mt-20 md:mt-28">
           <div className="grid gap-8 lg:grid-cols-[1.15fr_1fr] lg:items-end lg:gap-20">
@@ -126,32 +132,31 @@ export function PassView({ locale }: { locale: Locale }) {
             </div>
             <p className="max-w-[520px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{p.day.body}</p>
           </div>
-          <ol className="mt-12 grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+          {/* timeline: a line with one dot per time – horizontal on desktop, vertical on phones */}
+          <ol className="relative mt-14 grid gap-8 lg:grid-cols-7 lg:gap-4">
+            <span aria-hidden className="absolute bottom-3 left-[7px] top-3 w-px bg-yellow/40 lg:bottom-auto lg:left-0 lg:right-0 lg:top-[45px] lg:h-px lg:w-auto" />
             {p.day.steps.map((s, i) => {
               const raceDay = i >= 4;
               return (
-                <Reveal
-                  as="li"
-                  key={s.k}
-                  delay={(i % 4) * 0.05}
-                  className={cn(
-                    "flex flex-col rounded-[20px] p-5",
-                    raceDay ? "border border-yellow/60 bg-ink-800" : "border border-ink-600 bg-ink-900",
-                  )}
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="headline text-[26px] text-yellow">{s.time}</span>
-                    <span className="eyebrow rounded-full bg-ink-700 px-2.5 py-1 !text-[10px] text-paper/80">{s.tag}</span>
-                  </div>
-                  <h3 className="headline mt-4 text-[24px]">{s.k}</h3>
+                <Reveal as="li" key={s.k} delay={i * 0.05} className="relative pl-9 lg:pl-0">
+                  <p className="headline text-[22px] text-yellow lg:h-[28px] lg:text-[20px]">{s.time}</p>
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute left-0 top-1.5 block h-[15px] w-[15px] rounded-full ring-[5px] ring-ink lg:static lg:mt-2",
+                      raceDay ? "bg-yellow" : "border-2 border-yellow bg-ink",
+                    )}
+                  />
+                  <span className="eyebrow mt-3 inline-block rounded-full bg-ink-700 px-2.5 py-1 !text-[10px] text-paper/80 lg:mt-5">{s.tag}</span>
+                  <h3 className="headline mt-3 text-[22px] md:text-[24px]">{s.k}</h3>
                   <p className="mt-2 text-[15px] leading-relaxed text-paper/75">{s.v}</p>
                 </Reveal>
               );
             })}
-            <Reveal as="li" className="flex items-end rounded-[20px] bg-yellow p-5 text-ink">
-              <p className="text-[15px] leading-relaxed">{p.day.note}</p>
-            </Reveal>
           </ol>
+          <Reveal className="mt-10 rounded-[20px] bg-yellow p-5 text-ink md:p-6">
+            <p className="text-[16px] leading-relaxed md:text-[17px]">{p.day.note}</p>
+          </Reveal>
         </section>
 
         {/* interactive prototype */}

@@ -24,7 +24,7 @@ export function Statement({ c }: { c: Content }) {
         <Reveal delay={0.1}>
           <p className="mt-8 max-w-[520px] text-[16px] text-paper/80 md:text-[18px]">
             {statement.note}
-            <Src label={ui.source} n={statement.source} />
+            {statement.source > 0 && <Src label={ui.source} n={statement.source} />}
           </p>
         </Reveal>
       </div>

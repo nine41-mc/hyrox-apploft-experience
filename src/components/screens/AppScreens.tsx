@@ -334,7 +334,7 @@ function LeagueScreen() {
 function RaceScreen({ action }: { action?: ReactNode }) {
   const r = useScreenText().race;
   return (
-    <Shell title="HYROX Event App · Hamburg">
+    <Shell title="HYROX Event App · Berlin">
       <div className="flex items-center gap-2 bg-paper px-3 py-2 text-[10px] text-ink">
         <Bell className="h-3 w-3 shrink-0" />
         {r.signedIn}

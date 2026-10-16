@@ -12,7 +12,7 @@ import { Ask } from "@/components/sections/Ask";
 import { About } from "@/components/sections/About";
 import { Backlog } from "@/components/sections/Backlog";
 
-/** The pitch: hero · punch · gap · idea · Club Weekend · everybody wins · start · backlog · apploft. The HYROX Pass has its own page. */
+/** The pitch: hero · punch · gap · idea · Club Weekend · everybody wins · backlog · start · apploft. The HYROX Pass has its own page. */
 export function HomeView({ locale }: { locale: Locale }) {
   const c = content[locale];
   return (
@@ -25,8 +25,8 @@ export function HomeView({ locale }: { locale: Locale }) {
         <Idea c={c} passHref={asset(passPath[locale])} />
         <ClubWeekend c={c} />
         <Wins c={c} />
-        <Ask c={c} />
         <Backlog c={c} />
+        <Ask c={c} />
         <About c={c} />
       </main>
       <Footer c={c} locale={locale} />
