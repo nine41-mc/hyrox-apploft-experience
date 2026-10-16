@@ -59,6 +59,8 @@ export function Header({
   const menuButton = useRef<HTMLButtonElement>(null);
   const menu = useRef<HTMLElement>(null);
   const to = (id: string) => (page === "home" ? `#${id}` : `${asset(home[locale])}#${id}`);
+  // "pass" is its own page; every other nav entry is a section on the home page
+  const hrefFor = (id: string) => (id === "pass" ? asset(passPath[locale]) : to(id));
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -99,9 +101,17 @@ export function Header({
           <Lockup />
           <span className="sr-only"> – {ui.backToTop}</span>
         </a>
-        <nav className="hidden items-center gap-6 whitespace-nowrap xl:flex" aria-label={ui.sections}>
+        <nav className="hidden items-center gap-[18px] whitespace-nowrap xl:flex" aria-label={ui.sections}>
           {nav.map((item) => (
-            <a key={item.id} href={to(item.id)} className="eyebrow !text-[12px] text-paper/80 transition-colors hover:text-yellow">
+            <a
+              key={item.id}
+              href={hrefFor(item.id)}
+              aria-current={item.id === page ? "page" : undefined}
+              className={cn(
+                "eyebrow !text-[12px] transition-colors hover:text-yellow",
+                item.id === "pass" ? "text-yellow" : "text-paper/80",
+              )}
+            >
               {item.label}
             </a>
           ))}
@@ -141,9 +151,10 @@ export function Header({
           {nav.map((item) => (
             <a
               key={item.id}
-              href={to(item.id)}
+              href={hrefFor(item.id)}
               onClick={() => setOpen(false)}
-              className="headline border-b border-ink-600 py-3 text-[32px] md:text-[40px]"
+              aria-current={item.id === page ? "page" : undefined}
+              className={cn("headline border-b border-ink-600 py-3 text-[32px] md:text-[40px]", item.id === "pass" && "text-yellow")}
             >
               {item.label}
             </a>

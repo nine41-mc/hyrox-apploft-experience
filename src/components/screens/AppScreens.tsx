@@ -11,11 +11,15 @@ import type { ScreenText } from "./screenText";
  * All people, clubs and numbers are fictional.
  */
 
-export type ScreenKey = "forecast" | "sim" | "league" | "race" | "rewards" | "perks" | "record";
+export type ScreenKey = "checkin" | "wallet" | "forecast" | "sim" | "league" | "race" | "rewards" | "perks" | "record";
 
 /** `action` replaces the screen's last row – used by the concept prototype for its call to action. */
 export function AppScreen({ screen, action }: { screen: ScreenKey; action?: ReactNode }) {
   switch (screen) {
+    case "checkin":
+      return <CheckinScreen action={action} />;
+    case "wallet":
+      return <WalletScreen action={action} />;
     case "forecast":
       return <ForecastScreen action={action} />;
     case "sim":
@@ -27,7 +31,7 @@ export function AppScreen({ screen, action }: { screen: ScreenKey; action?: Reac
     case "rewards":
       return <RewardsScreen action={action} />;
     case "perks":
-      return <PerksScreen />;
+      return <PerksScreen action={action} />;
     case "record":
       return <RecordScreen />;
   }
@@ -105,6 +109,77 @@ export function PassCard({
       </div>
       <QrPattern className={cn("absolute", lg ? "right-5 top-5 h-14 w-14" : "right-3 top-3 h-11 w-11")} />
     </div>
+  );
+}
+
+/* ───────────── Pass: check-in at the club and at the station ───────────── */
+function CheckinScreen({ action }: { action?: ReactNode }) {
+  const t = useScreenText();
+  const c = t.checkin;
+  return (
+    <Shell title={c.title}>
+      <PassCard fields={passFields(t)} />
+      <div className="flex items-center gap-2 rounded-[14px] bg-paper px-3 py-2.5 text-[11px] text-ink">
+        <Check className="h-4 w-4 shrink-0" />
+        <span className="flex-1 font-medium">{c.checkedIn}</span>
+        <span className="text-[10px] opacity-60">{c.time}</span>
+      </div>
+      <Card className="!p-0">
+        <p className="px-3 pb-1 pt-2.5 text-[10px] uppercase text-grey-300">{c.history}</p>
+        <ul>
+          {c.items.map(([d, club, time]) => (
+            <li key={d + club} className="flex items-center gap-3 border-t border-ink-600 px-3 py-2 text-[11px]">
+              <span className="w-9 text-grey-300">{d}</span>
+              <span className="flex-1 truncate">{club}</span>
+              <span className="text-grey-300">{time}</span>
+            </li>
+          ))}
+        </ul>
+      </Card>
+      {action ?? (
+        <Card className="flex items-center justify-between text-[11px]">
+          <span>{c.station}</span>
+          <ChevronRight className="h-4 w-4 text-yellow" />
+        </Card>
+      )}
+    </Shell>
+  );
+}
+
+/* ───────────── Pass: wallet with HYROX Credits and the linked card ───────────── */
+function WalletScreen({ action }: { action?: ReactNode }) {
+  const t = useScreenText();
+  const w = t.wallet;
+  return (
+    <Shell title={w.title}>
+      <div className="rounded-[14px] bg-yellow p-4 text-ink">
+        <p className="text-[10px] uppercase opacity-70">{w.credits}</p>
+        <p className="headline mt-1 text-[40px] leading-none">{w.balance}</p>
+        <p className="mt-2 text-[10px] uppercase">{w.earn}</p>
+      </div>
+      <div className="flex items-center gap-3 rounded-[14px] bg-gradient-to-br from-ink-500 to-ink-700 p-3">
+        <span className="grid h-8 w-12 place-items-center rounded-[6px] bg-yellow text-[8px] font-medium text-ink">HYROX</span>
+        <span className="text-[11px] leading-tight">
+          {w.card}
+          <span className="block text-[10px] text-grey-300">{w.cardSub}</span>
+        </span>
+      </div>
+      <Card className="!p-0">
+        <p className="px-3 pb-1 pt-2.5 text-[10px] uppercase text-grey-300">{w.latest}</p>
+        <ul>
+          {w.items.map(([k, d, v]) => (
+            <li key={k} className="flex items-center gap-3 border-t border-ink-600 px-3 py-2 text-[11px]">
+              <span className="flex-1">
+                {k}
+                <span className="block text-[9px] text-grey-300">{d}</span>
+              </span>
+              <span className={cn("headline text-[16px]", v.startsWith("+") ? "text-yellow" : "")}>{v}</span>
+            </li>
+          ))}
+        </ul>
+      </Card>
+      {action}
+    </Shell>
   );
 }
 
@@ -330,7 +405,7 @@ function RewardsScreen({ action }: { action?: ReactNode }) {
 }
 
 /* ───────────── Sep: Race weekend perks ───────────── */
-function PerksScreen() {
+function PerksScreen({ action }: { action?: ReactNode }) {
   const t = useScreenText();
   const k = t.perks;
   const perks = k.items;
@@ -369,10 +444,12 @@ function PerksScreen() {
           ))}
         </ul>
       </Card>
-      <Card className="flex items-center justify-between text-[11px]">
-        <span>{k.village}</span>
-        <ChevronRight className="h-4 w-4 text-yellow" />
-      </Card>
+      {action ?? (
+        <Card className="flex items-center justify-between text-[11px]">
+          <span>{k.village}</span>
+          <ChevronRight className="h-4 w-4 text-yellow" />
+        </Card>
+      )}
     </Shell>
   );
 }

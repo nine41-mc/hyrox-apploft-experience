@@ -22,13 +22,24 @@ export function Ask({ c }: { c: Content }) {
         </Reveal>
         <ol className="mt-12 grid gap-3 md:grid-cols-3">
           {ask.phases.map((p, i) => (
-            <Reveal as="li" key={p.name} delay={i * 0.08} className={`p-5 md:p-6 ${i === 1 ? "bg-yellow text-ink" : "border border-paper/30 bg-ink/60"}`}>
-              <p className={`eyebrow !text-[11px] ${i === 1 ? "" : "text-grey-300"}`}>{p.when}</p>
+            <Reveal as="li" key={p.name} delay={i * 0.08} className={`p-5 md:p-6 ${i === 0 ? "bg-yellow text-ink" : "border border-paper/30 bg-ink/60"}`}>
+              <p className={`eyebrow !text-[11px] ${i === 0 ? "" : "text-grey-300"}`}>{p.when}</p>
               <h3 className="headline mt-4 text-[34px] md:text-[40px]">{p.name}</h3>
-              <p className={`mt-2 text-[15px] ${i === 1 ? "" : "text-paper/80"}`}>{p.text}</p>
+              <p className={`mt-2 text-[15px] ${i === 0 ? "" : "text-paper/80"}`}>{p.text}</p>
             </Reveal>
           ))}
         </ol>
+        <Reveal delay={0.05} className="mt-10 border border-yellow/60 bg-ink/70 p-5 md:p-7">
+          <p className="eyebrow text-yellow">{ask.explore.k}_</p>
+          <ul className="mt-4 grid gap-x-8 gap-y-3 md:grid-cols-2">
+            {ask.explore.items.map((item) => (
+              <li key={item} className="flex gap-3 text-[16px] leading-relaxed text-paper/90">
+                <span className="mt-[9px] h-1.5 w-1.5 shrink-0 bg-yellow" />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
         <Reveal delay={0.05} className="mt-10">
           <p className="eyebrow text-grey-300">{ask.principles.k}_</p>
           <ul className="mt-4 grid gap-px bg-paper/20 md:grid-cols-3">

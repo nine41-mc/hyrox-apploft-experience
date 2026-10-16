@@ -23,7 +23,7 @@ export function Prototype({ p }: { p: Content["prototype"] }) {
   return (
     <>
       <p className="eyebrow text-yellow">{p.eyebrow}_</p>
-      <Headline as="h1" lines={p.title} hl={p.titleHl} className="mt-4" />
+      <Headline lines={p.title} hl={p.titleHl} className="mt-4" />
       <p className="mt-6 max-w-[640px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{p.lead}</p>
 
       {/* controls */}
@@ -104,7 +104,7 @@ export function Prototype({ p }: { p: Content["prototype"] }) {
       {/* caption */}
       <div aria-live="polite" className="mt-10 grid gap-4 border-t border-ink-600 pt-6 md:grid-cols-[auto_1fr] md:gap-10">
         <p className="headline text-[40px] text-yellow md:text-[48px]">
-          {s.month} · {s.name}
+          {String(step + 1).padStart(2, "0")} · {s.name}
         </p>
         <p className="max-w-[720px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">
           <span className="eyebrow mr-2 !text-[11px] text-grey-300">{p.views[view]}_</span>

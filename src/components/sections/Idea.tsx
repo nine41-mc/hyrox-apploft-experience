@@ -5,7 +5,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Phone } from "@/components/ui/Phone";
 import { AppScreen } from "@/components/screens/AppScreens";
 import { RecordWeb } from "@/components/mocks/RecordWeb";
-import { IdCard } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { PassFieldsCard } from "@/components/ui/PassFieldsCard";
 
 export function Idea({ c, passHref }: { c: Content; passHref: string }) {
   const { idea, ui } = c;
@@ -20,18 +21,7 @@ export function Idea({ c, passHref }: { c: Content; passHref: string }) {
             </Reveal>
           </div>
           <Reveal delay={0.1}>
-            <p className="eyebrow flex items-center gap-3 text-yellow">
-              {idea.kicker}_
-              {/* easter egg: the concept prototype */}
-              <a
-                href={passHref}
-                aria-label={c.prototype.open}
-                title={c.prototype.open}
-                className="group grid h-11 w-11 place-items-center border border-yellow/40 text-yellow transition-colors hover:bg-yellow hover:text-ink"
-              >
-                <IdCard className="h-5 w-5 transition-transform group-hover:scale-110" />
-              </a>
-            </p>
+            <p className="eyebrow text-yellow">{idea.kicker}_</p>
             <p className="mt-4 max-w-[560px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{idea.body}</p>
           </Reveal>
         </div>
@@ -50,9 +40,24 @@ export function Idea({ c, passHref }: { c: Content; passHref: string }) {
             </Reveal>
           ))}
         </ol>
-        <Reveal className="mt-px flex flex-col gap-2 bg-yellow p-5 text-ink md:flex-row md:items-baseline md:gap-6 md:p-6">
-          <p className="headline shrink-0 text-[22px] md:text-[26px]">{idea.standard.k}_</p>
-          <p className="text-[16px] leading-relaxed md:text-[17px]">{idea.standard.v}</p>
+        {/* the key: the HYROX Pass – links to its own page */}
+        <Reveal className="mt-px">
+          <a
+            href={passHref}
+            className="group grid items-center gap-6 bg-yellow p-6 text-ink md:grid-cols-[1fr_auto] md:gap-10 md:p-8"
+          >
+            <span>
+              <span className="headline block text-[30px] md:text-[40px]">{idea.pass.k}_</span>
+              <span className="mt-2 block max-w-[640px] text-[16px] leading-relaxed md:text-[18px]">{idea.pass.v}</span>
+              <span className="eyebrow mt-5 inline-flex min-h-11 items-center gap-2 bg-ink px-4 !text-[12px] text-paper">
+                {idea.pass.cta}
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </span>
+            </span>
+            <span className="hidden w-[300px] -rotate-3 transition-transform group-hover:rotate-0 md:block" aria-hidden>
+              <PassFieldsCard />
+            </span>
+          </a>
         </Reveal>
 
         {/* Web + app: the record is the product */}

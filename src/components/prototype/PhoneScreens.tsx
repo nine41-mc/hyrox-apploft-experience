@@ -7,15 +7,15 @@ import { cn } from "@/components/ui/cn";
 import { useScreenText } from "@/components/screens/ScreenLocale";
 
 /**
- * Lena's app in the concept prototype – the same screens as "Lena's 2027" on the main page,
+ * Lena's app in the HYROX Pass prototype – built from the shared app screens,
  * with a call to action that advances the prototype. The button is a pointer shortcut only
  * (tabIndex -1); the accessible controls live outside the device frame.
  */
-const STEPS: { screen: ScreenKey; cta: "bookSim" | "seePass" | "bookCrew" | "restart" }[] = [
-  { screen: "forecast", cta: "bookSim" },
+const STEPS: { screen: ScreenKey; cta: "checkinCta" | "seePass" | "walletCta" | "restart" }[] = [
+  { screen: "checkin", cta: "checkinCta" },
   { screen: "sim", cta: "seePass" },
-  { screen: "rewards", cta: "bookCrew" },
-  { screen: "race", cta: "restart" },
+  { screen: "wallet", cta: "walletCta" },
+  { screen: "perks", cta: "restart" },
 ];
 
 export function PhoneStep({ step, onNext }: { step: number; onNext: () => void }) {

@@ -1,9 +1,9 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { Check, ChevronRight, Star } from "lucide-react";
+import { Check, ChevronRight } from "lucide-react";
 import { cn } from "@/components/ui/cn";
-import { PassCard, passFields, statusFields } from "@/components/screens/AppScreens";
+import { PassCard, passFields } from "@/components/screens/AppScreens";
 import { useScreenText } from "@/components/screens/ScreenLocale";
 
 /**
@@ -17,9 +17,9 @@ export function AthleteWeb({ step, onNext }: { step: number; onNext: () => void 
   const t = useScreenText();
   return (
     <Frame nav={t.web.athleteNav} active={[0, 2, 3, 0][step]} who="Lena K." sub="Hafen Athletics">
-      {step === 0 && <AthleteTrain onNext={onNext} />}
+      {step === 0 && <AthleteDashboard onNext={onNext} />}
       {step === 1 && <AthleteSim onNext={onNext} />}
-      {step === 2 && <AthletePass onNext={onNext} />}
+      {step === 2 && <AthleteWallet onNext={onNext} />}
       {step === 3 && <AthleteRecord onNext={onNext} />}
     </Frame>
   );
@@ -29,7 +29,7 @@ export function ClubWeb({ step, onNext }: { step: number; onNext: () => void }) 
   const t = useScreenText();
   return (
     <Frame nav={t.web.clubNav} active={[1, 2, 3, 4][step]} who="Hafen Athletics" sub="Club OS" club>
-      {step === 0 && <ClubTrain onNext={onNext} />}
+      {step === 0 && <ClubCheckins onNext={onNext} />}
       {step === 1 && <ClubSim onNext={onNext} />}
       {step === 2 && <ClubFunnel onNext={onNext} />}
       {step === 3 && <ClubRace onNext={onNext} />}
@@ -107,53 +107,107 @@ function Bar({ value, tone = "paper" }: { value: number; tone?: "paper" | "yello
 }
 
 /* ───────────── athlete ───────────── */
-function AthleteTrain({ onNext }: { onNext: () => void }) {
+function AthleteDashboard({ onNext }: { onNext: () => void }) {
   const t = useScreenText();
-  const w = t.web.train;
-  const log = w.days;
+  const w = t.web.dashboard;
   return (
-    <>
-      <div className="grid grid-cols-3 gap-4">
-        <div className="col-span-2 flex items-end">
-          <H k={w.k} title={w.title} />
-        </div>
-        <div className="row-span-2">
-          <PassCard fields={passFields(t)} />
-          <Box className="mt-4">
-            <Label>{t.forecast.forecast}</Label>
-            <div className="mt-2 flex items-baseline gap-3">
-              <p className="headline text-[48px] leading-none">~64</p>
-              <p className="text-[12px] text-grey-300">{w.range}</p>
-            </div>
-            <p className="mt-2 text-[12px] text-grey-300">{w.forecastNote}</p>
-          </Box>
-        </div>
-        <Box className="col-span-2">
-          <Label>{w.log}</Label>
-          <ul className="mt-3 divide-y divide-ink-600">
-            {log.map(([d, session, src, dur]) => (
-              <li key={d} className="flex items-center gap-4 py-3 text-[14px]">
-                <span className="w-10 text-grey-300">{d}</span>
-                <span className="flex-1">{session}</span>
-                <span className="text-[12px] text-grey-300">{src}</span>
-                <span className="w-16 text-right">{dur}</span>
-                <Check className="h-4 w-4 text-yellow" />
+    <div className="grid h-full grid-cols-3 gap-4">
+      <div className="col-span-2 flex flex-col gap-4">
+        <H k={w.k} title={w.title} />
+        <Box>
+          <Label>{w.history}</Label>
+          <ul className="mt-2 divide-y divide-ink-600">
+            {w.rows.map(([when, where, kind]) => (
+              <li key={when} className="flex items-center gap-4 py-2.5 text-[14px]">
+                <span className="w-24 text-grey-300">{when}</span>
+                <span className="flex-1">{where}</span>
+                <span className="rounded-full bg-ink-700 px-2.5 py-0.5 text-[11px] text-grey-300">{kind}</span>
               </li>
             ))}
           </ul>
         </Box>
-        <div className="col-span-3 flex items-center justify-between bg-ink-700 p-5">
-          <div>
-            <Label>{w.next}</Label>
-            <p className="headline mt-2 text-[28px]">{w.nextTitle}</p>
-            <p className="mt-1 text-[14px] text-grey-300">{w.nextLine}</p>
-          </div>
-          <Go onClick={onNext}>{t.cta.bookSim}</Go>
+        <div className="grid grid-cols-2 gap-4">
+          <Box>
+            <Label>{w.bookings}</Label>
+            <ul className="mt-2 space-y-2 text-[13px]">
+              {w.bookingRows.map(([when, what]) => (
+                <li key={when}>
+                  <span className="block text-grey-300">{when}</span>
+                  {what}
+                </li>
+              ))}
+            </ul>
+          </Box>
+          <Box>
+            <Label>{w.favourites}</Label>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {w.favs.map((f) => (
+                <span key={f} className="rounded-full border border-paper/30 px-2.5 py-1 text-[12px]">
+                  {f}
+                </span>
+              ))}
+            </div>
+          </Box>
         </div>
+      </div>
+      <div className="flex flex-col gap-4">
+        <PassCard fields={passFields(t)} />
+        <Box>
+          <Label>{w.onDemand}</Label>
+          <p className="mt-2 text-[14px]">{w.onDemandItem}</p>
+        </Box>
+        <div className="mt-auto">
+          <Go onClick={onNext}>{w.cta}</Go>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function AthleteWallet({ onNext }: { onNext: () => void }) {
+  const t = useScreenText();
+  const w = t.web.wallet;
+  return (
+    <>
+      <H k={w.k} title={w.title} />
+      <div className="grid grid-cols-[1fr_1.4fr] gap-4">
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-4 rounded-[18px] bg-gradient-to-br from-ink-500 to-ink-700 p-5">
+            <span className="grid h-14 w-20 place-items-center rounded-[8px] bg-yellow text-[11px] font-medium text-ink">HYROX</span>
+            <span className="text-[15px] leading-tight">
+              {w.card}
+              <span className="block text-[12px] text-grey-300">{w.cardSub}</span>
+            </span>
+          </div>
+          <Box>
+            <Label>{w.cashback}</Label>
+            <p className="headline mt-2 text-[40px] leading-none">{w.cashbackValue}</p>
+          </Box>
+          <Box>
+            <Label>{w.benefit}</Label>
+            <p className="mt-2 text-[14px]">{w.benefitLine}</p>
+          </Box>
+        </div>
+        <Box className="flex flex-col">
+          <Label>{w.tx}</Label>
+          <ul className="mt-2 divide-y divide-ink-600">
+            {w.rows.map(([when, what, v]) => (
+              <li key={when + what} className="flex items-center gap-4 py-3 text-[14px]">
+                <span className="w-24 text-grey-300">{when}</span>
+                <span className="flex-1">{what}</span>
+                <span className={cn("headline text-[20px]", v.startsWith("+") && "text-yellow")}>{v}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-auto pt-4">
+            <Go onClick={onNext}>{w.cta}</Go>
+          </div>
+        </Box>
       </div>
     </>
   );
 }
+
 
 function AthleteSim({ onNext }: { onNext: () => void }) {
   const t = useScreenText();
@@ -208,55 +262,6 @@ function AthleteSim({ onNext }: { onNext: () => void }) {
   );
 }
 
-function AthletePass({ onNext }: { onNext: () => void }) {
-  const pts = [64.0, 65.8, 66.4, 67.3];
-  const path = pts.map((p, i) => `${i === 0 ? "M" : "L"}${(i / (pts.length - 1)) * 300} ${70 - ((p - 63) / 5) * 64}`).join(" ");
-  const t = useScreenText();
-  const w = t.web.pass;
-  const rewards = w.items.map(([k, d], i) => [k, d, i === 0] as const);
-  return (
-    <>
-      <H k={w.k} title={w.title} />
-      <div className="grid grid-cols-[1fr_1.2fr] gap-4">
-        <div className="flex flex-col gap-4">
-          <PassCard status="Regular" fields={statusFields(t)} />
-          <Box>
-            <div className="flex items-baseline justify-between">
-              <Label>HYROX Index</Label>
-              <p className="headline text-[36px] leading-none">{t.num("67.3")}</p>
-            </div>
-            <svg viewBox="0 0 300 72" className="mt-3 h-[56px] w-full" aria-hidden>
-              <path d={path} fill="none" stroke="#FFED00" strokeWidth="2.5" />
-            </svg>
-          </Box>
-        </div>
-        <Box>
-          <Label>{`${t.pass.status} · ${t.rewards.ladder}`}</Label>
-          <div className="mt-3 grid grid-cols-3 gap-1 text-center text-[12px] uppercase">
-            <span className="bg-ink-600 py-2 text-grey-300">Occasional</span>
-            <span className="bg-paper py-2 font-medium text-ink">Regular</span>
-            <span className="bg-ink-600 py-2 text-grey-300">All-in</span>
-          </div>
-          <div className="mt-5">
-            <Label>{w.rewards}</Label>
-          </div>
-          <ul className="mt-3 divide-y divide-ink-600">
-            {rewards.map(([k, d, hot]) => (
-              <li key={k} className="flex items-center justify-between gap-4 py-3">
-                <span>
-                  <span className={cn("block text-[15px]", hot && "text-yellow")}>{k}</span>
-                  <span className="block text-[12px] text-grey-300">{d}</span>
-                </span>
-                {hot ? <Go onClick={onNext}>{t.cta.bookCrew}</Go> : <span className="text-[12px] text-grey-300">{w.unlocked}</span>}
-              </li>
-            ))}
-          </ul>
-          <p className="mt-4 text-[13px] text-grey-300">{w.crew}</p>
-        </Box>
-      </div>
-    </>
-  );
-}
 
 function AthleteRecord({ onNext }: { onNext: () => void }) {
   const t = useScreenText();
@@ -300,6 +305,33 @@ function AthleteRecord({ onNext }: { onNext: () => void }) {
 }
 
 /* ───────────── club ───────────── */
+function ClubCheckins({ onNext }: { onNext: () => void }) {
+  const t = useScreenText();
+  const w = t.web.clubCheckins;
+  return (
+    <>
+      <H k={w.k} title={w.title} />
+      <Kpis items={w.kpis.map(([v, k], i) => [v, k, i === 2])} />
+      <Box className="mt-4">
+        <Label>{w.list}</Label>
+        <ul className="mt-2 divide-y divide-ink-600">
+          {w.rows.map(([time, who, what]) => (
+            <li key={time + who} className="flex items-center gap-4 py-2.5 text-[14px]">
+              <span className="w-14 text-grey-300">{time}</span>
+              <span className="flex-1">{who}</span>
+              <span className="text-[12px] text-grey-300">{what}</span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-4 flex items-center justify-between gap-4">
+          <p className="text-[13px] text-grey-300">{w.payout}</p>
+          <Go onClick={onNext}>{w.cta}</Go>
+        </div>
+      </Box>
+    </>
+  );
+}
+
 function Kpis({ items }: { items: [string, string, boolean?][] }) {
   return (
     <div className="grid grid-cols-4 gap-3">
@@ -313,48 +345,6 @@ function Kpis({ items }: { items: [string, string, boolean?][] }) {
   );
 }
 
-function ClubTrain({ onNext }: { onNext: () => void }) {
-  const t = useScreenText();
-  const w = t.web.clubTrain;
-  const ready = [
-    ["Lena K.", "~64", `3× ${w.perWeek}`],
-    ["Mia K.", "~62", `3× ${w.perWeek}`],
-    ["Tom R.", "~66", `2× ${w.perWeek}`],
-    ["Sara P.", "~61", `2× ${w.perWeek}`],
-  ];
-  return (
-    <>
-      <H
-        k={w.k}
-        title="Hafen Athletics_"
-        right={
-          <span className="eyebrow flex items-center gap-1.5 border border-paper/40 px-3 py-2 !text-[11px]">
-            <Star className="h-3.5 w-3.5 text-yellow" /> {w.rated}
-          </span>
-        }
-      />
-      <Kpis items={w.kpis.map(([v, k], i) => [v, k, i === 1])} />
-      <Box className="mt-4">
-        <div className="flex items-center justify-between">
-          <Label>{w.ready}</Label>
-          <span className="text-[12px] text-grey-300">{w.more}</span>
-        </div>
-        <ul className="mt-2 divide-y divide-ink-600">
-          {ready.map(([n, f, t]) => (
-            <li key={n} className="flex items-center gap-4 py-2.5 text-[14px]">
-              <span className="flex-1">{n}</span>
-              <span className="w-24 text-grey-300">{t}</span>
-              <span className="w-16 text-right">{f}</span>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-4 flex justify-end">
-          <Go onClick={onNext}>{w.invite}</Go>
-        </div>
-      </Box>
-    </>
-  );
-}
 
 function ClubSim({ onNext }: { onNext: () => void }) {
   const t = useScreenText();
