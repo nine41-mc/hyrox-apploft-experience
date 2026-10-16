@@ -16,11 +16,11 @@ export function Footer({ c, locale }: { c: Content; locale: Locale }) {
         </div>
         <div>
           <p className="eyebrow mb-4 text-grey-300">{ui.sources}</p>
-          <ol className="space-y-2 text-[13px] text-grey-300">
+          <ol className="space-y-0.5 text-[13px] text-grey-300">
             {sources.map((s) => (
               <li key={s.n} id={`source-${s.n}`} className="scroll-mt-24">
                 <span className="mr-2 text-paper">[{s.n}]</span>
-                <a href={s.url} target="_blank" rel="noreferrer" className="underline decoration-ink-500 underline-offset-4 hover:text-yellow">
+                <a href={s.url} target="_blank" rel="noreferrer" className="inline-block py-1.5 underline decoration-ink-500 underline-offset-4 hover:text-yellow">
                   {s.label}
                   <span className="sr-only"> {ui.newTab}</span>
                 </a>

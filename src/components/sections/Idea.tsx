@@ -61,7 +61,7 @@ export function Idea({ c, passHref }: { c: Content; passHref: string }) {
         </Reveal>
 
         {/* Web + app: the record is the product */}
-        <div className="mt-16 grid items-end gap-10 md:mt-24 lg:grid-cols-[1.55fr_1fr] lg:gap-14">
+        <div className="mt-16 grid grid-cols-1 items-end gap-10 md:mt-24 lg:grid-cols-[1.55fr_1fr] lg:gap-14">
           <Reveal>
             <div role="img" aria-label={ui.webCaption}>
               <div aria-hidden>

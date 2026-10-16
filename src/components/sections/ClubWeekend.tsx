@@ -67,7 +67,7 @@ export function ClubWeekend({ c }: { c: Content }) {
               </li>
             ))}
           </ul>
-          <p className="headline mt-8 border-t border-paper/15 pt-6 text-[24px] leading-[1.05] md:text-[32px]">
+          <p className="headline mt-8 border-t border-paper/15 pt-6 text-[24px] leading-[1.05] md:text-[26px] xl:text-[32px]">
             <span className="hl">{cw.rivals.answer}</span>
           </p>
         </Reveal>

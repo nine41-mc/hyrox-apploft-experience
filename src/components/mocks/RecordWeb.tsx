@@ -24,7 +24,7 @@ export function RecordWeb() {
           <span className="text-paper">{m.nav[2]}</span>
         </span>
       </div>
-      <div className="grid gap-6 p-5 md:grid-cols-[1fr_1.3fr] md:p-7">
+      <div className="grid grid-cols-1 gap-6 p-5 md:grid-cols-[1fr_1.3fr] md:p-7">
         <div>
           <div className="grid h-16 w-16 place-items-center bg-ink-600 text-[20px] font-medium">LK</div>
           <p className="headline mt-4 text-[34px] md:text-[40px]">Lena K.</p>

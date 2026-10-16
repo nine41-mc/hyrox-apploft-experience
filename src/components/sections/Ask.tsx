@@ -51,7 +51,7 @@ export function Ask({ c }: { c: Content }) {
             ))}
           </ul>
         </Reveal>
-        <Reveal delay={0.1} className="mt-10 flex flex-col gap-3 md:flex-row">
+        <Reveal delay={0.1} className="mt-10 flex flex-col gap-3 md:flex-row md:flex-wrap">
           {ask.contacts.map((p) => (
             <div key={p.name} className="bg-paper px-5 py-4 text-ink md:min-w-[260px]">
               <p className="headline text-[24px]">{p.name}</p>

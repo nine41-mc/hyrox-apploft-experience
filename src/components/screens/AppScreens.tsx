@@ -249,11 +249,11 @@ function SimScreen({ action }: { action?: ReactNode }) {
             <Check className="h-2.5 w-2.5" /> {m.judged}
           </Tag>
         </div>
-        <p className="mt-1 text-[10px] text-grey-300">{m.judgeLine}</p>
+        <p className="mt-1 truncate text-[10px] text-grey-300">{m.judgeLine}</p>
       </Card>
       <Card className="min-h-0 flex-1 overflow-hidden">
         <p className="mb-2 text-[10px] uppercase text-grey-300">{m.stations}</p>
-        <ul className="space-y-1.5">
+        <ul className={action ? "space-y-1" : "space-y-1.5"}>
           {splits.map(([name, w]) => (
             <li key={name} className="flex items-center gap-2 text-[10px]">
               <span className="w-[62px] shrink-0">{name}</span>
@@ -264,7 +264,7 @@ function SimScreen({ action }: { action?: ReactNode }) {
           ))}
         </ul>
       </Card>
-      <div className="flex items-center justify-between bg-yellow px-3 py-2.5 text-ink">
+      <div className={cn("flex items-center justify-between bg-yellow px-3 text-ink", action ? "py-1.5" : "py-2.5")}>
         <div>
           <p className="text-[9px] uppercase">{m.firstIndex}</p>
           <p className="headline text-[28px]">{t.num("65.8")}</p>

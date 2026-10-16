@@ -17,7 +17,7 @@ export function Wins({ c }: { c: Content }) {
         <ul className="mt-14 grid gap-px bg-ink-600 md:grid-cols-3 lg:mt-16">
           {wins.columns.map((col, i) => (
             <Reveal as="li" key={col.k} delay={i * 0.08} className={`p-6 md:p-8 ${i === 2 ? "bg-yellow text-ink" : "bg-ink-800"}`}>
-              <h3 className="headline text-[36px] md:text-[44px]">{col.k}</h3>
+              <h3 className="headline text-[36px] md:text-[32px] lg:text-[44px]">{col.k}</h3>
               <ul className="mt-6 space-y-3">
                 {col.items.map((it) => (
                   <li key={it} className={`flex gap-3 text-[16px] leading-snug ${i === 2 ? "" : "text-paper/85"}`}>

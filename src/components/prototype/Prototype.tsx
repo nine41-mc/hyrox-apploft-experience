@@ -94,7 +94,9 @@ export function Prototype({ p }: { p: Content["prototype"] }) {
             </div>
           </MacBook>
         </div>
-        <Phone className="w-[252px] !shadow-[0_40px_70px_-30px_rgba(0,0,0,0.55)] md:w-[272px]" label={`${p.phoneLabel}: ${s.name}`}>
+        <span className="sr-only">{`${p.phoneLabel}: ${s.name}`}</span>
+        {/* decorative device: the phone holds a pointer-only shortcut button, so it is hidden from assistive tech */}
+        <Phone className="w-[252px] !shadow-[0_40px_70px_-30px_rgba(0,0,0,0.55)] md:w-[272px]">
           <div key={step} className="h-full motion-safe:animate-[fade-in_0.35s_ease-out]">
             <PhoneStep step={step} onNext={next} />
           </div>

@@ -84,7 +84,7 @@ export function PassView({ locale }: { locale: Locale }) {
                   i === 2 && "bg-paper text-ink",
                 )}
               >
-                <h2 className="headline text-[40px] md:text-[48px]">{m.k}</h2>
+                <h2 className="headline text-[40px] md:text-[32px] lg:text-[48px]">{m.k}</h2>
                 <p className={cn("mt-3 text-[16px] leading-relaxed", i === 1 ? "text-paper/80" : "text-ink/80")}>{m.v}</p>
               </Reveal>
             ))}
@@ -116,11 +116,6 @@ export function PassView({ locale }: { locale: Locale }) {
               );
             })}
           </ul>
-        </section>
-
-        {/* gallery */}
-        <section className="container-site mt-20 md:mt-28">
-          <PassGallery k={p.gallery.k} items={p.gallery.items} labels={{ close: p.gallery.close, prev: p.gallery.prev, next: p.gallery.next }} />
         </section>
 
         {/* Lena's 24 hours */}
@@ -162,6 +157,11 @@ export function PassView({ locale }: { locale: Locale }) {
         {/* interactive prototype */}
         <section className="container-site mt-20 md:mt-28">
           <Prototype p={c.prototype} />
+        </section>
+
+        {/* gallery */}
+        <section className="container-site mt-20 md:mt-28">
+          <PassGallery k={p.gallery.k} items={p.gallery.items} labels={{ close: p.gallery.close, prev: p.gallery.prev, next: p.gallery.next }} />
         </section>
 
         {/* two ways to launch */}

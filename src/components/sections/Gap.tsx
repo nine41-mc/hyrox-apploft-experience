@@ -36,7 +36,7 @@ export function Gap({ c }: { c: Content }) {
         <ul className="mt-16 grid border-t border-ink-600 md:mt-24 md:grid-cols-3">
           {gap.stats.map((s, i) => (
             <Reveal as="li" key={s.label} delay={i * 0.08} className="border-b border-ink-600 py-8 pr-4 md:border-b-0 md:border-r md:pl-6 md:first:pl-0 md:last:border-r-0">
-              <p className={`headline text-[48px] md:text-[72px] lg:text-[88px] ${s.value === "0" ? "text-yellow" : ""}`}>
+              <p className={`headline text-[48px] md:text-[56px] lg:text-[88px] ${s.value === "0" ? "text-yellow" : ""}`}>
                 {s.value}
               </p>
               <p className="mt-2 text-[14px] text-grey-300 md:text-[16px]">
