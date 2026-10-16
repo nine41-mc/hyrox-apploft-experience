@@ -447,7 +447,7 @@ export const backlog = {
         { t: "Euro-Guthaben im Pass" },
         { t: "HYROX Credits" },
         { t: "bunq x HYROX Card verknüpft" },
-        { t: "Personal Training, Sims und Events bezahlen" },
+        { t: "Payment (Events, Personal Trainings)" },
         { t: "Merch-Shop" },
       ],
     },
@@ -557,7 +557,7 @@ export const pass = {
         id: "wallet",
         k: "Wallet & Shop",
         v: "Bezahlen mit dem Pass – im Club, online und am Event.",
-        chips: ["Euro-Guthaben im Pass", "HYROX Credits", "bunq x HYROX Card verknüpft", "Personal Training, Sims und Events bezahlen", "Merch-Shop"],
+        chips: ["Euro-Guthaben im Pass", "HYROX Credits", "bunq x HYROX Card verknüpft", "Payment (Events, Personal Trainings)", "Merch-Shop"],
       },
       {
         id: "train",
