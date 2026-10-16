@@ -12,6 +12,7 @@ export const meta = {
   description:
     "From the first workout to the first race: a year-round platform that connects everyone who trains HYROX with their club and with HYROX. A vision concept by apploft.",
   summaryTitle: "Executive summary – HYROX Experience 2027",
+  prototypeTitle: "HYROX Pass – concept prototype",
 };
 
 export const ui = {
@@ -287,6 +288,50 @@ export const ask = {
     { name: "Manuel Cramer", role: "CPO, apploft." },
   ],
   site: "apploft.de",
+};
+
+export const prototype = {
+  eyebrow: "Concept prototype · H2 2027+",
+  title: ["What the HYROX Pass", "could become."],
+  titleHl: "could become.",
+  lead: "One athlete, one club, four steps. Tap through Lena’s way from her first workout to her first race – as she sees it, and as her club sees it.",
+  viewLabel: "View",
+  views: { athlete: "Athlete", club: "Club" },
+  stepsLabel: "Steps",
+  prev: "Previous step",
+  next: "Next step",
+  restart: "Start again",
+  steps: [
+    {
+      name: "Train",
+      month: "Jan",
+      athlete: "Lena trains in her home club with the official programming. Every session lands in her Pass – and a first Index forecast appears.",
+      club: "Hafen Athletics sees who trains HYROX but has never raced – and invites them to a rookie sim with one click.",
+    },
+    {
+      name: "First sim",
+      month: "Feb",
+      athlete: "Her first judged sim, rookie division, in her own gym. The forecast becomes a real HYROX Index.",
+      club: "Coach Ana judges the sim to the Sim Standard. Results go straight to HYROX – no paperwork.",
+    },
+    {
+      name: "Pass",
+      month: "Jun",
+      athlete: "Sims, sessions and the Club Weekend make Lena a Regular. Her points unlock 20% off her first race.",
+      club: "The club sees its funnel – from class to sim to ticket – and earns a share on every race booked with its code.",
+    },
+    {
+      name: "First race",
+      month: "Oct",
+      athlete: "Race day runs in the HYROX Event App with the same ID. The result flows back – her record begins.",
+      club: "Nine members raced for the first time. The club celebrates them on The Wall – and earns its revenue share.",
+    },
+  ],
+  macLabel: "Laptop: web view",
+  phoneLabel: "Phone: Lena’s app",
+  note: "Concept prototype for a conversation with HYROX. Persona, club and data are illustrative.",
+  back: "Back to the vision",
+  open: "Open the concept prototype",
 };
 
 export const footer = {

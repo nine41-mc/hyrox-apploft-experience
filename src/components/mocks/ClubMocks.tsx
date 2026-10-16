@@ -63,10 +63,10 @@ export function ClubOsMock({ note }: { note: string }) {
 /** The gym-floor leaderboard screen */
 export function WallMock({ caption }: { caption: string }) {
   const legends = [
-    ["Lena K.", "9 sims", "72.4"],
-    ["Jonas B.", "8 sims", "78.9"],
-    ["Mara S.", "8 sims", "69.2"],
-    ["Deniz A.", "7 sims", "81.0"],
+    ["Jonas B.", "11 sims", "78.9"],
+    ["Mara S.", "10 sims", "69.2"],
+    ["Deniz A.", "9 sims", "81.0"],
+    ["Tom R.", "8 sims", "74.5"],
   ];
   return (
     <div className="flex h-full flex-col">

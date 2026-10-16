@@ -32,7 +32,7 @@ export function AppScreen({ screen }: { screen: ScreenKey }) {
   }
 }
 
-function Shell({ title, children }: { title: string; children: ReactNode }) {
+export function Shell({ title, children }: { title: string; children: ReactNode }) {
   return (
     <div className="flex h-full flex-col px-4 pb-6 text-paper">
       <div className="flex items-center justify-between py-2">
@@ -45,11 +45,11 @@ function Shell({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
-function Card({ children, className }: { children: ReactNode; className?: string }) {
+export function Card({ children, className }: { children: ReactNode; className?: string }) {
   return <div className={cn("rounded-[14px] bg-ink-700 p-3", className)}>{children}</div>;
 }
 
-function Tag({ children, tone = "yellow" }: { children: ReactNode; tone?: "yellow" | "grey" }) {
+export function Tag({ children, tone = "yellow" }: { children: ReactNode; tone?: "yellow" | "grey" }) {
   return (
     <span
       className={cn(
@@ -447,7 +447,7 @@ function RecordScreen() {
 }
 
 /* ───────────── bits ───────────── */
-function Progress({ value, steps }: { value: number; steps: number }) {
+export function Progress({ value, steps }: { value: number; steps: number }) {
   return (
     <div className="mt-2 flex gap-1">
       {Array.from({ length: steps }).map((_, i) => (
@@ -457,7 +457,7 @@ function Progress({ value, steps }: { value: number; steps: number }) {
   );
 }
 
-function QrPattern({ className }: { className?: string }) {
+export function QrPattern({ className }: { className?: string }) {
   // Deterministic pseudo-QR (21×21) with three finder patterns – decoration only
   const n = 21;
   const finder = (x: number, y: number) =>

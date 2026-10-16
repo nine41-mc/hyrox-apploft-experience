@@ -5,8 +5,9 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Phone } from "@/components/ui/Phone";
 import { AppScreen } from "@/components/screens/AppScreens";
 import { RecordWeb } from "@/components/mocks/RecordWeb";
+import { IdCard } from "lucide-react";
 
-export function Idea({ c }: { c: Content }) {
+export function Idea({ c, passHref }: { c: Content; passHref: string }) {
   const { idea, ui } = c;
   return (
     <Section id="idea" tone="ink" className="overflow-hidden">
@@ -19,7 +20,18 @@ export function Idea({ c }: { c: Content }) {
             </Reveal>
           </div>
           <Reveal delay={0.1}>
-            <p className="eyebrow text-yellow">{idea.kicker}_</p>
+            <p className="eyebrow flex items-center gap-3 text-yellow">
+              {idea.kicker}_
+              {/* easter egg: the concept prototype */}
+              <a
+                href={passHref}
+                aria-label={c.prototype.open}
+                title={c.prototype.open}
+                className="group grid h-11 w-11 place-items-center border border-yellow/40 text-yellow transition-colors hover:bg-yellow hover:text-ink"
+              >
+                <IdCard className="h-5 w-5 transition-transform group-hover:scale-110" />
+              </a>
+            </p>
             <p className="mt-4 max-w-[560px] text-[17px] leading-relaxed text-paper/85 md:text-[19px]">{idea.body}</p>
           </Reveal>
         </div>

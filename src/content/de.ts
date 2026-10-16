@@ -12,6 +12,7 @@ export const meta = {
   description:
     "Vom ersten Workout zum ersten Rennen: eine Plattform, die alle, die HYROX trainieren, das ganze Jahr mit ihrem Club und mit HYROX verbindet. Ein Visionskonzept von apploft.",
   summaryTitle: "Executive Summary – HYROX Experience 2027",
+  prototypeTitle: "HYROX Pass – Konzept-Prototyp",
 };
 
 export const ui = {
@@ -287,6 +288,50 @@ export const ask = {
     { name: "Manuel Cramer", role: "CPO, apploft." },
   ],
   site: "apploft.de",
+};
+
+export const prototype = {
+  eyebrow: "Konzept-Prototyp · H2 2027+",
+  title: ["Was der HYROX Pass", "werden könnte."],
+  titleHl: "werden könnte.",
+  lead: "Eine Athletin, ein Club, vier Schritte. Klick dich durch Lenas Weg vom ersten Workout zum ersten Rennen – wie sie ihn sieht und wie ihr Club ihn sieht.",
+  viewLabel: "Ansicht",
+  views: { athlete: "Athletin", club: "Club" },
+  stepsLabel: "Schritte",
+  prev: "Voriger Schritt",
+  next: "Nächster Schritt",
+  restart: "Von vorn",
+  steps: [
+    {
+      name: "Trainieren",
+      month: "Jan",
+      athlete: "Lena trainiert in ihrem Home Club mit dem offiziellen Programming. Jede Einheit landet in ihrem Pass – und eine erste Index-Prognose erscheint.",
+      club: "Hafen Athletics sieht, wer HYROX trainiert, aber noch nie gestartet ist – und lädt mit einem Klick zur Rookie-Sim ein.",
+    },
+    {
+      name: "Erste Sim",
+      month: "Feb",
+      athlete: "Ihre erste gejudgte Sim, Rookie-Division, im eigenen Gym. Aus der Prognose wird ein echter HYROX Index.",
+      club: "Coach Ana judgt die Sim nach Sim Standard. Die Ergebnisse gehen direkt an HYROX – ohne Papierkram.",
+    },
+    {
+      name: "Pass",
+      month: "Jun",
+      athlete: "Sims, Einheiten und der Club Weekend machen Lena zum Regular. Ihre Punkte bringen 20 % auf ihr erstes Rennen.",
+      club: "Der Club sieht seinen Funnel – von der Klasse über die Sim bis zum Ticket – und verdient an jedem Rennen, das mit seinem Code gebucht wird.",
+    },
+    {
+      name: "Erstes Rennen",
+      month: "Okt",
+      athlete: "Der Race Day läuft in der HYROX Event App mit derselben ID. Das Ergebnis fließt zurück – ihr Record beginnt.",
+      club: "Neun Mitglieder sind zum ersten Mal gestartet. Der Club feiert sie auf The Wall – und bekommt seinen Revenue Share.",
+    },
+  ],
+  macLabel: "Laptop: Web-Ansicht",
+  phoneLabel: "Handy: Lenas App",
+  note: "Konzept-Prototyp für ein Gespräch mit HYROX. Persona, Club und Daten sind illustrativ.",
+  back: "Zurück zur Vision",
+  open: "Konzept-Prototyp öffnen",
 };
 
 export const footer = {

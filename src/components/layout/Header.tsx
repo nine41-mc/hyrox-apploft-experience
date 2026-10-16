@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { home, summaryPath, type Content, type Locale } from "@/content";
+import { home, passPath, summaryPath, type Content, type Locale } from "@/content";
 import { cn } from "@/components/ui/cn";
 import { asset } from "@/lib/asset";
 import { Lockup } from "./Lockup";
@@ -10,8 +10,11 @@ import { Lockup } from "./Lockup";
 const LOCALES: Locale[] = ["en", "de"];
 
 /** EN/DE switch – keeps the current section (#hash) when changing language. */
-function LangSwitch({ locale, page, label }: { locale: Locale; page: "home" | "summary"; label: string }) {
-  const pathFor = (l: Locale) => asset(page === "home" ? home[l] : summaryPath[l]);
+type Page = "home" | "summary" | "pass";
+const PATHS: Record<Page, Record<Locale, string>> = { home, summary: summaryPath, pass: passPath };
+
+function LangSwitch({ locale, page, label }: { locale: Locale; page: Page; label: string }) {
+  const pathFor = (l: Locale) => asset(PATHS[page][l]);
   return (
     <div className="flex items-center border border-paper/30" role="group" aria-label={label}>
       {LOCALES.map((l) => (
@@ -38,7 +41,7 @@ function LangSwitch({ locale, page, label }: { locale: Locale; page: "home" | "s
 }
 
 /**
- * `page` = "home" → section links are pure anchors; "summary" → they jump back to the one-pager.
+ * `page` = "home" → section links are pure anchors; "summary" / "pass" → they jump back to the one-pager.
  */
 export function Header({
   locale,
@@ -49,7 +52,7 @@ export function Header({
   locale: Locale;
   nav: Content["nav"];
   ui: Content["ui"];
-  page: "home" | "summary";
+  page: Page;
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);

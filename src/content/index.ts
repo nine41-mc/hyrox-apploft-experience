@@ -9,3 +9,4 @@ export const content: Record<Locale, Content> = { en: { ...en }, de: { ...de } }
 
 export const home: Record<Locale, string> = { en: "/", de: "/de/" };
 export const summaryPath: Record<Locale, string> = { en: "/summary/", de: "/de/summary/" };
+export const passPath: Record<Locale, string> = { en: "/pass/", de: "/de/pass/" };

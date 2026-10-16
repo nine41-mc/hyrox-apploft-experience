@@ -1,4 +1,5 @@
-import { content, type Locale } from "@/content";
+import { content, passPath, type Locale } from "@/content";
+import { asset } from "@/lib/asset";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -21,7 +22,7 @@ export function HomeView({ locale }: { locale: Locale }) {
         <Hero c={c} />
         <Statement c={c} />
         <Gap c={c} />
-        <Idea c={c} />
+        <Idea c={c} passHref={asset(passPath[locale])} />
         <Year year={c.year} ui={c.ui} />
         <ClubWeekend c={c} />
         <Wins c={c} />
