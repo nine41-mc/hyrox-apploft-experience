@@ -347,7 +347,7 @@ export const backlog = {
       name: "Compete",
       desc: "Von der ersten Sim an die Startlinie.",
       size: "md",
-      tone: "ink",
+      tone: "outline",
       features: [
         { t: "Gejudgte Sims & Sim Standard", p: "build" },
         { t: "Index-Prognose", p: "build" },
@@ -387,7 +387,7 @@ export const backlog = {
       name: "Firmen & Benefits",
       desc: "Ein neuer B2B-Kanal.",
       size: "md",
-      tone: "ink",
+      tone: "outline",
       features: [
         { t: "HYROX-Tarif in Wellpass", p: "explore" },
         { t: "Kurs „First HYROX“", p: "explore" },
