@@ -1,4 +1,4 @@
-# HYROX Experience 2027 – vision site
+# HYROX Vision – vision site
 
 A responsive one-pager (Desktop / Tablet / Phone) by apploft. that shows what a year-round
 HYROX platform could look like in 2027: HYROX ID, Licence, Index, Home Club, Club OS.

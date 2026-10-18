@@ -4,10 +4,10 @@
  * Facts are sourced (see `sources`); people, clubs and app data in the screens are illustrative.
  */
 export const meta = {
-  title: "HYROX Experience 2027 – A vision by apploft.",
+  title: "HYROX Vision – An exploration by apploft.",
   description:
     "From the first workout to the first race: a year-round platform that connects everyone who trains HYROX with their club and with HYROX. A vision concept by apploft.",
-  summaryTitle: "Executive summary – HYROX Experience 2027",
+  summaryTitle: "Executive summary – HYROX Vision",
   prototypeTitle: "The HYROX Pass – a concept by apploft.",
 };
 
@@ -56,7 +56,7 @@ export const nav = [
 ];
 
 export const hero = {
-  eyebrow: "Exploration HYROX Experience 2027_",
+  eyebrow: "Exploration HYROX Vision_",
   lines: ["Every", "day", "counts."],
   highlight: "counts.",
   box: { title: "A vision", sub: "by apploft." },
@@ -92,16 +92,16 @@ export const idea = {
   title: ["The pieces exist.", "Connect them."],
   titleHl: "Connect them.",
   kicker: "One platform for everyone who trains",
-  body: "Training clubs, official programming, race sims, the HYROX Account – they are all there. What’s missing is the thread that connects them and makes progress visible long before the first ticket: from the first workout to the first race, and back.",
+  body: "HYROX Training Clubs, Partner Gyms and Affiliates, official programming, race sims, the HYROX ID – they are all there. What’s missing is the thread that connects them and makes progress visible long before the first ticket: from the first workout to the first race, and back.",
   pillars: [
     { n: "01", name: "Train", tag: "Programming · tracking", text: "Official programming and on-demand classes, every session tracked – in any club, with any wearable." },
     { n: "02", name: "Fuel", tag: "Nutrition · recovery", text: "Daily nutrition tips for training and race week, plus partner offers that fit the goal." },
     { n: "03", name: "Compete", tag: "Sims · Index · races", text: "Judged sims to the Sim Standard, a personal Index, the Club Weekend – and the way to the first race." },
-    { n: "04", name: "Belong", tag: "Clubs worldwide · teams", text: "Clubs worldwide – not just HYROX clubs – crews and corporate leagues, open to every athlete." },
+    { n: "04", name: "Belong", tag: "Clubs worldwide · teams", text: "HYROX Training Clubs, Partner Gyms and Affiliates worldwide, crews and corporate leagues – open to every athlete." },
   ],
   pass: {
     k: "The key: the HYROX Pass",
-    v: "Identity, access and benefit in one card – check-in at clubs worldwide, credits, payments and loyalty.",
+    v: "Identity, access and benefit in one card – check-in at HYROX Training Clubs, Partner Gyms and Affiliates worldwide, credits, payments and loyalty.",
     cta: "Explore the HYROX Pass",
   },
   standard: {
@@ -118,7 +118,7 @@ export const clubWeekend = {
   eyebrow: "03_The Club Weekend",
   title: ["One weekend.", "Every club."],
   titleHl: "Every club.",
-  body: "Twice a season, every HYROX club in the world runs the same sim on the same weekend – judged, live on the leaderboard, counting for every athlete’s Index. For many, it’s their first HYROX ‘race’ – in their own gym.",
+  body: "Twice a season, all HYROX Training Clubs, Partner Gyms and Affiliates worldwide run the same sim on the same weekend – judged, live on the leaderboard, counting for every athlete’s Index. For many, it’s their first HYROX ‘race’ – in their own gym.",
   steps: [
     { k: "Announce", v: "Four weeks out: clubs sign up in Club OS, athletes book a slot – at home or as a guest." },
     { k: "Race the sim", v: "Friday to Sunday: the same sim everywhere, judged by certified coaches. First-timers race a scaled rookie division." },
@@ -333,8 +333,8 @@ export const backlog = {
     {
       k: "Clubs",
       items: [
-        ["Home club & club finder", "Every athlete has a home club; clubs worldwide on the map."],
-        ["Network pass", "Guest access to partner clubs worldwide, also when travelling."],
+        ["Home club & club finder", "Every athlete has a home club; HYROX Training Clubs, Partner Gyms and Affiliates worldwide on the map."],
+        ["Network pass", "Guest access to HYROX Training Clubs, Partner Gyms and Affiliates worldwide, also when travelling."],
         ["Club OS", "Free tool for sims, leaderboards, leads and campaigns."],
         ["HYROX Club Weekend", "The same sim in every club on the same weekend."],
         ["Club season", "Club rankings, club vs club, regional leagues."],
@@ -403,8 +403,8 @@ export const backlog = {
       highlights: ["Identity.", "Access.", "Benefit."],
       features: [
         { t: "Identity, record & Index" },
-        { t: "Access to clubs worldwide, like Wellpass" },
-        { t: "Check-in at the door and the station" },
+        { t: "Access to HYROX Training Clubs, Partner Gyms & Affiliates, like Wellpass" },
+        { t: "Check-in at the door and the workout station" },
         { t: "Loyalty status" },
         { t: "Badges for real moments" },
         { t: "Employer-funded via Wellpass" },
@@ -526,7 +526,7 @@ export const pass = {
   eyebrow: "HYROX Pass · concept",
   title: ["One card.", "Every club.", "Every race."],
   titleHl: "Every race.",
-  lead: "What the HYROX Pass could become: identity, access and benefit in one card – check in at clubs worldwide, train, pay, earn credits and race. Built on the HYROX account, open to everyone who trains.",
+  lead: "What the HYROX Pass could become: identity, access and benefit in one card – check in at HYROX Training Clubs, Partner Gyms and Affiliates worldwide, train, pay, earn credits and race. Built on the HYROX ID, open to everyone who trains.",
   back: "Back to the vision",
   hub: {
     k: "The Pass at the centre",
@@ -538,14 +538,14 @@ export const pass = {
       {
         id: "identity",
         k: "Identity",
-        v: "One account for every club, sim and race – the HYROX account as a membership card.",
-        chips: ["HYROX account", "Membership card", "Record & Index", "Club & community profile"],
+        v: "One account for every club, sim and race – the HYROX ID as a membership card.",
+        chips: ["HYROX ID", "Membership card", "Record & Index", "Club & community profile"],
       },
       {
         id: "access",
         k: "Access",
-        v: "Check in wherever HYROX happens – at races, in clubs and at training stations.",
-        chips: ["Check-in at races", "Check-in at clubs worldwide", "Check-in @ training stations"],
+        v: "Check in wherever HYROX happens – at races, in HYROX Training Clubs, Partner Gyms and Affiliates, and at workout stations.",
+        chips: ["Check-in at races", "Check-in at HYROX Training Clubs, Partner Gyms & Affiliates worldwide", "Check-in @ workout stations"],
       },
       {
         id: "benefit",
@@ -591,7 +591,7 @@ export const pass = {
       { icon: "scan", k: "Check-in", v: "At the club door and at the sim station" },
       { icon: "history", k: "Check-in history", v: "Every session, every club" },
       { icon: "calendar", k: "My bookings", v: "Classes, sims, events" },
-      { icon: "map", k: "Club finder", v: "Clubs worldwide, with recommendations" },
+      { icon: "map", k: "Club finder", v: "HYROX Training Clubs, Partner Gyms & Affiliates, with recommendations" },
       { icon: "heart", k: "Favourites", v: "Clubs, coaches, classes" },
       { icon: "play", k: "On-demand workouts", v: "Official programming, anywhere" },
       { icon: "video", k: "Live online classes", v: "With HYROX coaches" },
@@ -624,7 +624,7 @@ export const pass = {
     titleHl: "HYROX Berlin.",
     body: "One athlete, one card – from the club in Hamburg to the start line in Berlin.",
     steps: [
-      { time: "Fri 06:45", k: "Check-in at the club", v: "One tap with the Pass at Hafen Athletics – it works at partner clubs worldwide, too.", tag: "Check-in" },
+      { time: "Fri 06:45", k: "Check-in at the club", v: "One tap with the Pass at Hafen Athletics – it works at HYROX Training Clubs, Partner Gyms and Affiliates worldwide, too.", tag: "Check-in" },
       { time: "Fri 07:00", k: "Station check-in", v: "She taps in at the sim station; splits and heart rate land in her Pass.", tag: "Tracking" },
       { time: "Fri 08:10", k: "Shake on the Pass", v: "Recovery shake at the club bar, paid with HYROX Credits.", tag: "Pay" },
       { time: "Fri 08:30", k: "Fuel for tomorrow", v: "Breakfast, lunch and dinner tips for the day before a race – carbs up, nothing new.", tag: "Fuel" },
@@ -669,20 +669,20 @@ export const sources = [
 
 export const summary = {
   title: "Executive summary",
-  sub: "HYROX Experience 2027 – the pitch on one page",
+  sub: "HYROX Vision – the pitch on one page",
   blocks: [
     {
       k: "The problem",
       v: [
         "Many people who train HYROX haven’t raced yet – the next generation of racers is already in the clubs.",
-        "They train in 11,000+ Training Clubs and many apps; today the first direct touchpoint with HYROX is usually the ticket.",
+        "They train in 11,000+ HYROX Training Clubs, in Partner Gyms, Affiliates and many apps; today the first direct touchpoint with HYROX is usually the ticket.",
         "Clubs run their own programmes and sims, and new formats court the same gyms – a reason to bring HYROX even closer to the clubs.",
       ],
     },
     {
       k: "The insight",
       v: [
-        "The pieces of the way in already exist: official programming, race sims, the HYROX Account, Licence and ranking for the elite.",
+        "The pieces of the way in already exist: official programming, race sims, the HYROX ID, Licence and ranking for the elite.",
         "What’s missing is the thread that connects them and makes progress visible before the first race.",
         "The two numbers that matter: how many race for the first time – and how many come back for a second.",
       ],
@@ -690,7 +690,7 @@ export const summary = {
     {
       k: "The idea",
       v: [
-        "Train, Fuel, Compete, Belong: programming and tracking, nutrition, sims and races, clubs worldwide and corporate leagues.",
+        "Train, Fuel, Compete, Belong: programming and tracking, nutrition, sims and races, HYROX Training Clubs, Partner Gyms and Affiliates worldwide and corporate leagues.",
         "The HYROX Pass as the key: identity, access and benefit – check-in, credits, payments, loyalty.",
         "Two ways to launch the Pass: inside EGYM Wellpass or as a HYROX contract.",
       ],

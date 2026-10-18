@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { RootDocument } from "@/components/layout/RootDocument";
 import { asset } from "@/lib/asset";
 
-export const metadata: Metadata = { title: "404 – HYROX Experience 2027", robots: { index: false } };
+export const metadata: Metadata = { title: "404 – HYROX Vision", robots: { index: false } };
 
 /** One 404 document for both locales (static export → 404.html). */
 export default function GlobalNotFound() {

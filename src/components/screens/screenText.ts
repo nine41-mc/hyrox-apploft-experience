@@ -167,7 +167,7 @@ const en = {
       title: "Hafen Athletics_",
       kpis: [
         ["128", "check-ins today"],
-        ["11", "guests from partner clubs"],
+        ["11", "guests from Partner Gyms & Affiliates"],
         ["€1,960", "class payouts this month"],
         ["92", "have never raced"],
       ] as [string, string][],
@@ -481,7 +481,7 @@ const de: ScreenText = {
       title: "Hafen Athletics_",
       kpis: [
         ["128", "Check-ins heute"],
-        ["11", "Gäste aus Partner-Clubs"],
+        ["11", "Gäste aus Partner Gyms & Affiliates"],
         ["1.960 €", "Kurs-Auszahlungen diesen Monat"],
         ["92", "sind noch nie gestartet"],
       ],
