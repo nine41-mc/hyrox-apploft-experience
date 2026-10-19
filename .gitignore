@@ -20,6 +20,8 @@ next-env.d.ts
 # Copy them locally into these folders (see README).
 /public/fonts/licensed/
 /public/images/licensed/
+# offline presentation package (contains the licensed assets above)
+/HYROX Offline/
 
 # local tooling
 /.claude/

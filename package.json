@@ -7,7 +7,8 @@
     "build": "next build && node scripts/precache.mjs",
     "start": "npx serve out -l 3142",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "offline": "node scripts/offline.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
