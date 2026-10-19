@@ -92,7 +92,7 @@ export const idea = {
   title: ["Die Teile gibt es.", "Verbindet sie."],
   titleHl: "Verbindet sie.",
   kicker: "Eine Plattform für alle, die trainieren",
-  body: "HYROX Training Clubs, Partner Gyms und Affiliates, offizielles Programming, Race Sims, die HYROX ID – alles ist da. Es fehlt der rote Faden, der sie verbindet und Fortschritt sichtbar macht, lange vor dem ersten Ticket: vom ersten Workout zum ersten Rennen und wieder zurück.",
+  body: "HYROX Training Clubs, Partner Gyms und Affiliates, offizielles Programming, Race Sims, die HYROX ID (heute HYROX Account) – alles ist da. Es fehlt der rote Faden, der sie verbindet und Fortschritt sichtbar macht, lange vor dem ersten Ticket: vom ersten Workout zum ersten Rennen und wieder zurück.",
   pillars: [
     { n: "01", name: "Train", tag: "HYROX365 · Tracking", text: "Offizielles HYROX365-Programming und On-Demand-Kurse, jede Einheit getrackt – in jedem Club, mit jedem Wearable." },
     { n: "02", name: "Fuel", tag: "HYROX Academy · Ernährung", text: "Tägliche Ernährungstipps für Training und Race-Woche auf Basis der HYROX Academy, dazu Partner-Angebote, die zum Ziel passen." },
@@ -536,7 +536,7 @@ export const pass = {
   eyebrow: "HYROX Pass · Konzept",
   title: ["Eine Karte.", "Jeder Club.", "Jedes Rennen."],
   titleHl: "Jedes Rennen.",
-  lead: "Was der HYROX Pass werden könnte: Identität, Zugang und Benefit auf einer Karte – einchecken in HYROX Training Clubs, Partner Gyms und Affiliates weltweit, trainieren, bezahlen, Credits sammeln und Rennen laufen. Gebaut auf der HYROX ID, offen für alle, die trainieren.",
+  lead: "Was der HYROX Pass werden könnte: Identität, Zugang und Benefit auf einer Karte – einchecken in HYROX Training Clubs, Partner Gyms und Affiliates weltweit, trainieren, bezahlen, Credits sammeln und Rennen laufen. Gebaut auf der HYROX ID (heute HYROX Account), offen für alle, die trainieren.",
   back: "Zurück zur Vision",
   hub: {
     k: "Der Pass im Zentrum",
@@ -548,8 +548,8 @@ export const pass = {
       {
         id: "identity",
         k: "Identität",
-        v: "Ein Konto für jeden Club, jede Sim und jedes Rennen – die HYROX ID als Kundenkarte.",
-        chips: ["HYROX ID", "Kundenkarte", "Record & Index", "Club- & Community-Profil"],
+        v: "Ein Konto für jeden Club, jede Sim und jedes Rennen – die HYROX ID (heute HYROX Account) als Kundenkarte.",
+        chips: ["HYROX ID (heute HYROX Account)", "Kundenkarte", "Record & Index", "Club- & Community-Profil"],
       },
       {
         id: "access",
@@ -695,7 +695,7 @@ export const summary = {
     {
       k: "Der Insight",
       v: [
-        "Die Teile für den Weg ins Rennen gibt es schon: HYROX365-Programming und -Education, Race Sims, die HYROX ID, Licence und Ranking für die Elite.",
+        "Die Teile für den Weg ins Rennen gibt es schon: HYROX365-Programming und -Education, Race Sims, die HYROX ID (heute HYROX Account), Licence und Ranking für die Elite.",
         "Es fehlt der rote Faden, der sie verbindet und Fortschritt vor dem ersten Rennen sichtbar macht.",
         "Die zwei Zahlen, die zählen: Wie viele starten zum ersten Mal – und wie viele kommen ein zweites Mal?",
       ],
