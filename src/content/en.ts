@@ -64,7 +64,7 @@ export const hero = {
   cta: "See the vision",
 };
 
-export const ticker = ["Every day counts", "Every body", "Every club", "First sim", "First race", "Be the record"];
+export const ticker = ["Every day counts", "The Fitness Race for Every Body", "#HYROXFAMILY", "Every club", "First sim", "First race", "Be the record"];
 
 export const statement = {
   lines: ["They train HYROX.", "Every week.", "They haven’t raced.", "Yet."],
@@ -78,8 +78,8 @@ export const gap = {
   title: ["365 days of training.", "3 race days."],
   titleHl: "3 race days.",
   sub: "The other 362 are HYROX’s biggest opportunity.",
-  body: "Most HYROX training happens in the clubs – with their own programme, sims and community, logged in all kinds of apps. Many of these athletes haven’t raced yet. Connecting those days with HYROX is where the next million racers come from.",
-  legend: { race: "Race weekends – for those who already race", club: "Training days in the club – the opportunity" },
+  body: "Most HYROX training happens in the clubs – with their own programme, sims and community, logged in all kinds of apps. Many of these athletes haven’t raced yet. HYROX365 already makes HYROX trainable 365 days a year – the Pass makes those days count. Connecting them with HYROX is where the next million racers come from.",
+  legend: { race: "Race weekends – 100+ worldwide in 2026, for those who already race", club: "Training days in the club – the opportunity" },
   stats: [
     { value: "1.4M+", label: "racers in season 25/26", source: 1 },
     { value: "11,000+", label: "HYROX Training Clubs", source: 2 },
@@ -94,10 +94,10 @@ export const idea = {
   kicker: "One platform for everyone who trains",
   body: "HYROX Training Clubs, Partner Gyms and Affiliates, official programming, race sims, the HYROX ID – they are all there. What’s missing is the thread that connects them and makes progress visible long before the first ticket: from the first workout to the first race, and back.",
   pillars: [
-    { n: "01", name: "Train", tag: "Programming · tracking", text: "Official programming and on-demand classes, every session tracked – in any club, with any wearable." },
-    { n: "02", name: "Fuel", tag: "Nutrition · recovery", text: "Daily nutrition tips for training and race week, plus partner offers that fit the goal." },
-    { n: "03", name: "Compete", tag: "Sims · Index · races", text: "Judged sims to the Sim Standard, a personal Index, the Club Weekend – and the way to the first race." },
-    { n: "04", name: "Belong", tag: "Clubs worldwide · teams", text: "HYROX Training Clubs, Partner Gyms and Affiliates worldwide, crews and corporate leagues – open to every athlete." },
+    { n: "01", name: "Train", tag: "HYROX365 · tracking", text: "Official HYROX365 programming and on-demand classes, every session tracked – in any club, with any wearable." },
+    { n: "02", name: "Fuel", tag: "HYROX Academy · nutrition", text: "Daily nutrition tips for training and race week, based on the HYROX Academy, plus partner offers that fit the goal." },
+    { n: "03", name: "Compete", tag: "Sims · Index · races", text: "Judged sims to the Sim Standard, a personal Index, the Club Weekend – and the way to the first race, where 99% reach the finish line." },
+    { n: "04", name: "Belong", tag: "#HYROXFAMILY · clubs · teams", text: "HYROX Training Clubs, Partner Gyms and Affiliates worldwide, crews and corporate leagues – the #HYROXFAMILY, open to every athlete." },
   ],
   pass: {
     k: "The key: the HYROX Pass",
@@ -378,7 +378,7 @@ export const backlog = {
         ["Qualification paths", "From the club season to regional finals."],
         ["Athlete & club insights", "Who trains where and who comes back."],
         ["Membership model", "A free account plus a paid tier."],
-        ["Experiences as top rewards", "Elite camps and Worlds trips for top status."],
+        ["HYROX Experiences as top rewards", "Camps and trips by HYROX Experiences for top status."],
         ["Sponsored benchmark day", "The Club Weekend as a stage for partners."],
       ] as [string, string][],
     },
@@ -423,7 +423,7 @@ export const backlog = {
     {
       id: "train",
       name: "Train & track",
-      desc: "Programming in, data back.",
+      desc: "Built on HYROX365: programming in, data back.",
       size: "md",
       tone: "outline",
       features: [
@@ -561,7 +561,7 @@ export const pass = {
         id: "benefit",
         k: "Benefit",
         v: "Rewards that feel earned – and can be funded by the employer.",
-        chips: ["Loyalty status", "Badges for real moments", "Partner offers", "Employer-funded via Wellpass"],
+        chips: ["Loyalty status", "Badges for real moments", "Partner offers", "HYROX Experiences as rewards", "Employer-funded via Wellpass"],
       },
       {
         id: "wallet",
@@ -572,7 +572,7 @@ export const pass = {
       {
         id: "train",
         k: "Train & Track",
-        v: "Programming in, data back.",
+        v: "Built on HYROX365: programming in, data back.",
         chips: ["Official programming", "HYROX workout tracking", "Splits & analytics", "Wearables", "On-demand & live classes"],
       },
     ],
@@ -640,7 +640,7 @@ export const pass = {
       { time: "Fri 08:30", k: "Fuel for tomorrow", v: "Breakfast, lunch and dinner tips for the day before a race – carbs up, nothing new.", tag: "Fuel" },
       { time: "Sat 08:00", k: "Fast track in Berlin", v: "Check-in at HYROX Berlin with the Pass – fast lane, wristband wallet already topped up.", tag: "Race day" },
       { time: "Sat 11:42", k: "For the record", v: "Every split goes straight into her record and Index.", tag: "Record" },
-      { time: "Sat 13:00", k: "Cashback and credits", v: "10% cashback at the merch stand with the bunq x HYROX card; the race and her sims earn credits for the next ticket.", tag: "Credits" },
+      { time: "Sat 13:00", k: "Cashback and credits", v: "10% cashback at the merch stand with the bunq x HYROX card; the race and her sims earn credits for the next ticket.", tag: "Credits", source: 12 },
     ],
     note: "How it started: “First HYROX”, a certified beginner course in her club that ended with her first sim – paid from her employer’s health budget.",
   },
@@ -675,6 +675,9 @@ export const sources = [
   { n: 9, label: "Spartan – DEKA Gym vs Gym", url: "https://cn.spartan.com/en/deka/gym-versus-gym" },
   { n: 10, label: "Athletech News – F45 PEAK500, Mar 2026", url: "https://athletechnews.com/f45-peak500-fitness-competition-red-bull/" },
   { n: 11, label: "Hybrid Fitness Media – UK/EU race market, Jul 2026", url: "https://hybridfitnessmedia.com/?p=4949" },
+  { n: 12, label: "bunq – bunq x HYROX Card: 10% cashback on HYROX merch, priority check-in (Oct 2026)", url: "https://www.bunq.com/en-de/lp/hyrox-card" },
+  { n: 13, label: "hyrox.com – 100+ events in 2026, 99% reach the finish line (Oct 2026)", url: "https://hyrox.com/find-my-level/" },
+  { n: 14, label: "HYROX365 – training, HYROX Academy and affiliation (Oct 2026)", url: "https://www.hyrox365.com/" },
 ];
 
 export const summary = {
@@ -692,7 +695,7 @@ export const summary = {
     {
       k: "The insight",
       v: [
-        "The pieces of the way in already exist: official programming, race sims, the HYROX ID, Licence and ranking for the elite.",
+        "The pieces of the way in already exist: HYROX365 programming and education, race sims, the HYROX ID, Licence and ranking for the elite.",
         "What’s missing is the thread that connects them and makes progress visible before the first race.",
         "The two numbers that matter: how many race for the first time – and how many come back for a second.",
       ],

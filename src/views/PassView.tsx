@@ -26,6 +26,7 @@ import { PassHub } from "@/components/sections/PassHub";
 import { IndexExplainer } from "@/components/sections/IndexExplainer";
 import { PassStory } from "@/components/sections/PassStory";
 import { cn } from "@/components/ui/cn";
+import { Src } from "@/components/ui/Section";
 import { asset } from "@/lib/asset";
 
 const ICONS: Record<string, LucideIcon> = {
@@ -135,7 +136,10 @@ export function PassView({ locale }: { locale: Locale }) {
                   />
                   <span className="eyebrow mt-3 inline-block rounded-full bg-ink-700 px-2.5 py-1 !text-[10px] text-paper/80 lg:mt-5">{s.tag}</span>
                   <h3 className="headline mt-3 text-[22px] md:text-[24px]">{s.k}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-paper/75">{s.v}</p>
+                  <p className="mt-2 text-[15px] leading-relaxed text-paper/75">
+                    {s.v}
+                    {"source" in s && s.source ? <Src label={c.ui.source} n={s.source} /> : null}
+                  </p>
                 </Reveal>
               );
             })}
