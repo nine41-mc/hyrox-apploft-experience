@@ -7,6 +7,7 @@ import { AppScreen } from "@/components/screens/AppScreens";
 import { RecordWeb } from "@/components/mocks/RecordWeb";
 import { ArrowRight } from "lucide-react";
 import { PassFieldsCard } from "@/components/ui/PassFieldsCard";
+import { IndexExplainer } from "@/components/sections/IndexExplainer";
 
 export function Idea({ c, passHref }: { c: Content; passHref: string }) {
   const { idea, ui } = c;
@@ -76,6 +77,11 @@ export function Idea({ c, passHref }: { c: Content; passHref: string }) {
             </Phone>
             <p className="mt-3 text-[13px] text-grey-300" aria-hidden>{ui.appCaption}</p>
           </Reveal>
+        </div>
+
+        {/* what the Index on the record means */}
+        <div className="mt-10 md:mt-14">
+          <IndexExplainer x={idea.index} />
         </div>
 
         <Reveal className="mt-16 md:mt-24">

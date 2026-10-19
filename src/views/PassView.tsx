@@ -23,6 +23,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { PassFieldsCard } from "@/components/ui/PassFieldsCard";
 import { PassGallery } from "@/components/sections/PassGallery";
 import { PassHub } from "@/components/sections/PassHub";
+import { IndexExplainer } from "@/components/sections/IndexExplainer";
 import { PassStory } from "@/components/sections/PassStory";
 import { cn } from "@/components/ui/cn";
 import { asset } from "@/lib/asset";
@@ -77,6 +78,9 @@ export function PassView({ locale }: { locale: Locale }) {
             <p className="headline shrink-0 text-[24px] text-yellow md:text-[28px]">{p.gap.k}_</p>
             <p className="mt-3 text-[16px] leading-relaxed text-paper/85 md:mt-0 md:text-[18px]">{p.gap.v}</p>
           </Reveal>
+          <div className="mt-3">
+            <IndexExplainer x={c.idea.index} />
+          </div>
         </section>
 
         {/* statement: the Pass is the story */}

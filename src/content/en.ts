@@ -104,6 +104,16 @@ export const idea = {
     v: "Identity, access and benefit in one card – check-in at HYROX Training Clubs, Partner Gyms and Affiliates worldwide, credits, payments and loyalty.",
     cta: "Explore the HYROX Pass",
   },
+  index: {
+    tag: "Concept",
+    k: "The HYROX Index",
+    v: "One number that shows where an athlete stands between races – calculated from judged sims and races, adjusted for age group and division. Like a golf handicap: comparable across clubs and cities, and it moves with every result.",
+    facts: [
+      { k: "From real results", v: "Only judged sims to the Sim Standard and official races count." },
+      { k: "From 0 to 100", v: "The higher, the faster – relative to age group and division." },
+      { k: "Reliable after three results", v: "Before that, a forecast from training, then a provisional Index." },
+    ],
+  },
   standard: {
     k: "The one hard part",
     v: "The Sim Standard: defined equipment, a certified judge, a rated club. Then a sim in Hamburg counts like a sim in Barcelona.",
