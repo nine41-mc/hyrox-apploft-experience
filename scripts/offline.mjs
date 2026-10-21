@@ -1,8 +1,9 @@
 // Offline package for presenting without internet: a root-path build (with the local licensed
 // font and photos), a tiny zero-dependency static server and a double-click starter.
 // Output: "HYROX Offline/" (gitignored – it contains licensed assets).
-import { execSync } from "node:child_process";
-import { chmodSync, cpSync, existsSync, mkdirSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { execSync, spawn, spawnSync } from "node:child_process";
+import { chmodSync, cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 const target = "HYROX Offline";
@@ -86,6 +87,10 @@ Website (ohne Internet, mit Original-Schrift und Fotos)
    Pass: /de/pass/ bzw. /pass/ · Summary: /de/summary/ bzw. /summary/
 3. Das Terminal-Fenster offen lassen; schließen beendet die Website.
 
+Website als PDF (Ordner „Website als PDF“)
+Startseite, HYROX Pass und Executive Summary – je Deutsch und Englisch. Statischer Ausdruck:
+ohne Interaktion (Prototyp, Hover-Details, wechselndes Statement).
+
 Strategie-Dokument
 „HYROX Experience 2027 – Strategie & Scope.pdf“ (Research-Tab, intern – nicht für HYROX).
 
@@ -94,5 +99,28 @@ Live-Seite in Safari öffnen, „Zum Home-Bildschirm“, alle Seiten einmal aufr
 (ohne Original-Schrift und Fotos).
 `,
 );
+
+// the website as PDF (print layout, A4) – rendered by headless Chrome from the local server
+const chromeBin = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+if (existsSync(chromeBin)) {
+  const pdfDir = join(target, "Website als PDF");
+  mkdirSync(pdfDir, { recursive: true });
+  const server = spawn("node", ["server.mjs"], { cwd: target, stdio: "ignore" });
+  await new Promise((r) => setTimeout(r, 1000));
+  const pages = [
+    ["/de/", "1 Startseite (DE).pdf"], ["/de/pass/", "2 HYROX Pass (DE).pdf"], ["/de/summary/", "3 Executive Summary (DE).pdf"],
+    ["/", "1 Home (EN).pdf"], ["/pass/", "2 HYROX Pass (EN).pdf"], ["/summary/", "3 Executive Summary (EN).pdf"],
+  ];
+  for (const [path, file] of pages) {
+    spawnSync(chromeBin, [
+      "--headless=new", "--no-first-run", `--user-data-dir=${mkdtempSync(join(tmpdir(), "hyrox-pdf-"))}`,
+      "--no-pdf-header-footer", "--virtual-time-budget=10000", `--print-to-pdf=${join(pdfDir, file)}`, `http://localhost:4173${path}`,
+    ], { stdio: "ignore", timeout: 90000 });
+    console.log(`PDF: ${file}`);
+  }
+  server.kill();
+} else {
+  console.warn("Google Chrome not found – skipping the website PDFs.");
+}
 
 console.log(`\nOffline-Paket fertig: ${target}/`);

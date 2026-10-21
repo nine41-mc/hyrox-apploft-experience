@@ -149,8 +149,8 @@ export function PassView({ locale }: { locale: Locale }) {
           </Reveal>
         </section>
 
-        {/* interactive prototype */}
-        <section className="container-site mt-20 md:mt-28">
+        {/* interactive prototype – not printable (the scaled MacBook needs a live browser); the gallery shows the same screens */}
+        <section className="container-site mt-20 print:hidden md:mt-28">
           <Prototype p={c.prototype} />
         </section>
 

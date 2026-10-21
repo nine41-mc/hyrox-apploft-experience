@@ -223,4 +223,8 @@ body {
     opacity: 1 !important;
     transform: none !important;
   }
+  /* keep cards, diagrams and mockups on one page in the PDF */
+  [data-reveal] {
+    break-inside: avoid;
+  }
 }
