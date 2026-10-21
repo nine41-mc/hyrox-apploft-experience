@@ -26,7 +26,7 @@ export function PassBento({ b }: { b: Bento }) {
               <span
                 className={cn(
                   "headline mt-3",
-                  pass ? "tile-accent text-[64px] text-yellow md:text-[96px]" : t.big.length > 7 ? "text-[24px] md:text-[28px]" : "text-[36px] md:text-[44px]",
+                  pass ? "tile-accent text-[64px] text-yellow md:text-[96px]" : t.big.length > 7 ? "text-[20px] md:text-[22px] lg:text-[28px]" : "text-[36px] md:text-[44px]",
                 )}
               >
                 {t.big}
