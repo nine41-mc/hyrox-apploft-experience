@@ -169,6 +169,13 @@ body {
   .summary .headline { font-size: 22px !important; }
   .summary h1.headline { font-size: 40px !important; }
   .summary li { font-size: 11pt !important; }
+  /* the Pass bento keeps its colours on paper */
+  .summary .bento { break-before: page; }
+  .summary .bento .tile { -webkit-print-color-adjust: exact; print-color-adjust: exact; font-size: 9pt !important; }
+  .summary .bento .tile-yellow, .summary .bento .tile-yellow * { background: #ffed00 !important; color: #000 !important; }
+  .summary .bento .tile-paper, .summary .bento .tile-paper * { background: #f2f2f2 !important; color: #000 !important; }
+  .summary .bento .tile-ink, .summary .bento .tile-ink * { background: #000 !important; color: #fff !important; }
+  .summary .bento .tile-ink .tile-accent { color: #ffed00 !important; }
 }
 
 /* Concept prototype: screen change + a gentle nudge on the call to action */

@@ -39,6 +39,10 @@ export function Ask({ c }: { c: Content }) {
               </li>
             ))}
           </ul>
+          <div className="mt-6 border-t border-paper/20 pt-5 md:flex md:items-baseline md:gap-6">
+            <p className="eyebrow shrink-0 text-yellow">{ask.result.k}_</p>
+            <p className="mt-2 text-[16px] font-medium leading-relaxed md:mt-0 md:text-[17px]">{ask.result.v}</p>
+          </div>
         </Reveal>
         <Reveal delay={0.05} className="mt-10">
           <p className="eyebrow text-grey-300">{ask.principles.k}_</p>

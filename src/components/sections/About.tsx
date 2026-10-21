@@ -10,6 +10,7 @@ export function About({ c }: { c: Content }) {
         <div>
           <h2 className="text-[28px] font-medium tracking-tight">{about.k}</h2>
           <p className="mt-3 text-[14px] leading-relaxed text-paper/75">{about.desc}</p>
+          <p className="mt-3 border-l-2 border-yellow pl-3 text-[14px] leading-relaxed text-paper">{about.hyrox}</p>
         </div>
         <div>
           <p className="eyebrow !text-[11px] text-grey-300">{about.refs.k}_</p>

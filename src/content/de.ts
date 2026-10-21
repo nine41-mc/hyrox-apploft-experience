@@ -213,10 +213,11 @@ export const wins = {
 
 export const about = {
   k: "apploft.",
-  desc: "Digitales Produktstudio aus Hamburg, seit 2008. 250+ Apps, 100 Mio.+ Downloads – wir gestalten, bauen und betreiben Apps langfristig.",
+  desc: "Digitales Produktstudio aus Hamburg, seit 2008: 70+ Menschen, 175+ digitale Produkte, 140+ Kunden, die im Schnitt 7+ Jahre bleiben – Strategie, Design, Code und Growth aus einer Hand.",
+  hyrox: "Wir kennen HYROX seit 2021 – und haben schon damals „365 Tage statt Eventtag“ vorgeschlagen.",
   refs: {
     k: "Referenzen",
-    items: ["PadelCity", "qalcha", "SC Freiburg", "BVB", "HSV", "Dynamo Dresden", "FC Basel"],
+    items: ["EGYM", "PadelCity", "qalcha", "transfermarkt", "sky", "SPORT1", "Axel Springer", "neusta sports", "Teamfit", "SC Freiburg", "BVB", "HSV", "Dynamo Dresden", "FC Basel"],
   },
   partner: {
     k: "Premium-Partner",
@@ -238,13 +239,19 @@ export const ask = {
   explore: {
     k: "Was wir gemeinsam erkunden",
     items: [
-      "Wer in den Clubs trainiert – und was zur ersten Sim oder zum ersten Rennen bewegt",
+      "Interviews mit Athletes ohne Rennerfahrung, Coaches und Clubs – was zur ersten Sim oder zum ersten Rennen bewegt",
       "Wie der HYROX Pass zu eurer ID- und Account-Roadmap passt",
       "Pass-Modell: in EGYM Wellpass oder als eigener HYROX-Vertrag",
       "Credits, Bezahlen und die bunq x HYROX Card",
       "Ein faires Modell für Clubs: Auszahlungen, Revenue Share, Club OS",
-      "Klickbare Prototypen, getestet mit Athletes und Clubs",
+      "Analyse von HYROX Account, HYROX365, Training+ und Event App",
+      "Benchmarks wie Strava, parkrun, Playtomic und DEKA – und KPIs wie Erst-Anmeldungen",
+      "Ein validierter Prototyp im HYROX-Look, getestet mit Athletes und 3–5 Clubs einer Stadt",
     ],
+  },
+  result: {
+    k: "Das Ergebnis",
+    v: "Eine Entscheidungsgrundlage für H2 2027: Zielbild, validierter Prototyp, Scope v1.0, Roadmap – und eine Empfehlung zur Development & Run Org.",
   },
   principles: {
     k: "Wie wir bauen und betreiben",
@@ -683,6 +690,28 @@ export const sources = [
 export const summary = {
   title: "Executive Summary",
   sub: "HYROX Vision – der Pitch auf einer Seite",
+  question: {
+    k: "Leitfrage",
+    v: "Welche Mehrwerte kann ein digitaler HYROX-Service Trainierenden ohne Rennerfahrung bieten, damit sie ihr Training mit HYROX verbinden, Teil einer offiziellen Community werden und den Schritt zum ersten Event machen?",
+  },
+  bento: {
+    k: "Der HYROX Pass auf einen Blick",
+    note: "Illustrativ – Konzept-Prototyp „HYROX Pass“ (H2 2027+), Persona Lena K. und Club Hafen Athletics.",
+    tiles: [
+      { id: "index", top: "Index-Prognose ~64 → dein erster Index", big: "65,8", k: "Ein HYROX Index für alle", tone: "yellow" },
+      { id: "sim", top: "Rookie-Sim · Hafen Athletics", big: "1:31:12", k: "Gejudgte Sims im eigenen Club", tone: "paper" },
+      { id: "status", top: "Occasional · Regular · All-in", big: "All-in", k: "Status & Rewards", tone: "paper" },
+      { id: "code", top: "Club-Code HAFEN", big: "−20 %", k: "Aufs erste Rennen", tone: "yellow" },
+      { id: "train", top: "Einheiten diese Woche", big: "3/3", k: "Offizielles Programming", tone: "paper" },
+      { id: "pass", top: "HYROX", big: "PASS_", k: "Every body. Every day.", tone: "ink" },
+      { id: "club", top: "Bereit für die erste Sim", big: "23", k: "Club OS für jeden Club", tone: "paper" },
+      { id: "weekend", top: "Eine Sim · weltweit", big: "Club Weekend_", k: "Alle Clubs auf einmal", tone: "ink" },
+      { id: "race", top: "Live · Station 5/8 · Row", big: "52:18", k: "Race Day mit der HYROX ID", tone: "ink" },
+      { id: "id", top: "Pass · Club · Event App", big: "1 ID", k: "Ein Login für alles", tone: "paper" },
+      { id: "share", top: "Pro Saison · Tickets + Sims", big: "2,4 Tsd. €", k: "Revenue Share für Clubs", tone: "paper" },
+      { id: "record", top: "Feb 65,8 · Aug 68,1 · Okt 69,6", big: "69,6", k: "Dein Record über die Jahre", tone: "yellow" },
+    ],
+  },
   blocks: [
     {
       k: "Das Problem",
@@ -721,6 +750,7 @@ export const summary = {
       v: [
         "Neue Eigentümer seit Sep 2026: ein Konsortium unter Führung von L Catterton mit den Gründern und WNDR; 2 Mio.+ Racer erwartet; XENOM als zweites Format.",
         "apploft. hat PadelCity gebaut – mit integriertem EGYM Wellpass und Hansefit – und ist zertifizierter Premium-Entwicklungspartner von EGYM.",
+        "Wir kennen HYROX seit 2021 – und haben schon damals „365 Tage statt Eventtag“ vorgeschlagen.",
       ],
     },
     {

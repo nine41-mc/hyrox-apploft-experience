@@ -2,6 +2,7 @@ import { content, type Locale } from "@/content";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PrintButton } from "@/components/ui/PrintButton";
+import { PassBento } from "@/components/sections/PassBento";
 
 export function SummaryView({ locale }: { locale: Locale }) {
   const c = content[locale];
@@ -19,6 +20,10 @@ export function SummaryView({ locale }: { locale: Locale }) {
               </h1>
             </div>
             <PrintButton label={ui.print} />
+          </div>
+          <div className="border-b border-ink-600 py-6 md:flex md:items-baseline md:gap-8">
+            <p className="eyebrow shrink-0 text-yellow">{summary.question.k}_</p>
+            <p className="mt-2 text-[18px] font-medium leading-relaxed md:mt-0 md:text-[20px]">{summary.question.v}</p>
           </div>
           <dl className="grid gap-px bg-ink-600 md:grid-cols-2">
             {summary.blocks.map((b, i) => (
@@ -40,6 +45,7 @@ export function SummaryView({ locale }: { locale: Locale }) {
               </div>
             ))}
           </dl>
+          <PassBento b={summary.bento} />
           <p className="mt-6 text-[13px] text-grey-300">{ui.summaryNote}</p>
         </div>
       </main>
