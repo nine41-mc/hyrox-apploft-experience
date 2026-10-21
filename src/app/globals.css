@@ -171,6 +171,7 @@ body {
   .summary li { font-size: 11pt !important; }
   /* the Pass bento keeps its colours on paper */
   .summary .bento { break-before: page; }
+  .summary .bento ul { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
   .summary .bento .tile { -webkit-print-color-adjust: exact; print-color-adjust: exact; font-size: 9pt !important; }
   .summary .bento .tile-yellow, .summary .bento .tile-yellow * { background: #ffed00 !important; color: #000 !important; }
   .summary .bento .tile-paper, .summary .bento .tile-paper * { background: #f2f2f2 !important; color: #000 !important; }
