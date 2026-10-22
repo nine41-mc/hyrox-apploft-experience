@@ -32,3 +32,9 @@ Without them the site still builds: type falls back to Barlow, photos to dark gr
 - `src/app/globals.css` – brand tokens (black, white, yellow `#FFED00`, Brutal Type, highlighter boxes)
 
 Screens, persona, clubs and numbers inside the mockups are illustrative.
+
+## Password protection
+
+GitHub Pages has no access control. After the build, [`scripts/encrypt-export.mjs`](scripts/encrypt-export.mjs) encrypts every HTML page and RSC payload (`*.txt`) with AES-256-GCM (key via PBKDF2 from the repository secret `SITE_PASSWORD`). Every page first shows a password prompt; afterwards the browser stores the key (IndexedDB) and the service worker [`public/sw.js`](public/sw.js) decrypts pages before the browser sees them – also from its offline cache. Not protected: JS bundles, images, fonts and the source code in this public repository. Without the secret the deploy stops.
+
+Change the password: set a new `SITE_PASSWORD` secret and re-run the workflow. The local offline package (`npm run offline`) is not encrypted.

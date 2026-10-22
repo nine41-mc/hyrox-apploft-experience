@@ -28,6 +28,13 @@ jobs:
       - run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+      # Pages has no access control → every page is AES-encrypted and asks for the shared password
+      # (same approach as the PadelCity prototype). Without the secret the deploy stops.
+      - name: Password-protect the export
+        env:
+          SITE_PASSWORD: ${{ secrets.SITE_PASSWORD }}
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+        run: node scripts/encrypt-export.mjs out
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
