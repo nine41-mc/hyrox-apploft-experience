@@ -29,6 +29,33 @@ export function Footer({ c, locale }: { c: Content; locale: Locale }) {
           </ol>
         </div>
       </div>
+      {/* IP disclaimer + legal notice – also printed, so every PDF carries it */}
+      <div className="legal container-site mt-12 grid gap-8 border-t border-ink-600 pt-8 text-[13px] leading-relaxed text-grey-300 md:grid-cols-[1.4fr_1fr]">
+        <div>
+          <p className="eyebrow mb-3 !text-[11px] text-paper">{footer.ip.k}</p>
+          <p className="max-w-[640px]">{footer.ip.v}</p>
+        </div>
+        <address className="not-italic">
+          <p className="eyebrow mb-3 !text-[11px] text-paper">{footer.imprint.k}</p>
+          {footer.imprint.lines.map((l) => (
+            <span key={l} className="block">
+              {l}
+            </span>
+          ))}
+          <a href={`tel:${footer.imprint.phone.replace(/\s/g, "")}`} className="mt-2 inline-block py-1 hover:text-yellow">
+            {footer.imprint.phone}
+          </a>
+          <br />
+          <a href={`mailto:${footer.imprint.email}`} className="inline-block py-1 hover:text-yellow">
+            {footer.imprint.email}
+          </a>
+          <br />
+          <a href={`https://${footer.imprint.web}`} target="_blank" rel="noreferrer" className="inline-block py-1 underline decoration-ink-500 underline-offset-4 hover:text-yellow">
+            {footer.imprint.web}
+            <span className="sr-only"> {ui.newTab}</span>
+          </a>
+        </address>
+      </div>
     </footer>
   );
 }

@@ -668,6 +668,17 @@ export const pass = {
 export const footer = {
   disclaimer:
     "Ein Visionskonzept von apploft. für ein Gespräch mit HYROX. Screens, Persona, Clubs und Daten sind illustrativ. HYROX ist eine Marke ihres Inhabers; Fotos © HYROX, nur zur internen Präsentation.",
+  ip: {
+    k: "Disclaimer",
+    v: "Die auf dieser Website dokumentierten Gedanken und Vorschläge sind geistiges Eigentum der apploft GmbH und unterliegen den geltenden Urhebergesetzen. Die unautorisierte Nutzung, die ganze oder teilweise Vervielfältigung sowie jede Weitergabe an Dritte ist nicht gestattet.",
+  },
+  imprint: {
+    k: "Impressum",
+    lines: ["apploft GmbH", "Bäckerbreitergang 75", "20355 Hamburg"],
+    phone: "+49 40 2263707 0",
+    email: "info@apploft.de",
+    web: "www.apploft.de",
+  },
 };
 
 export const sources = [

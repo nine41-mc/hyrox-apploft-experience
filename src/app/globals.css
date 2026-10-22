@@ -160,7 +160,12 @@ body {
 /* Executive summary prints as a clean A4 page */
 @media print {
   @page { size: A4; margin: 14mm; }
-  header, footer, .print\:hidden { display: none !important; }
+  header, .print\:hidden { display: none !important; }
+  /* the footer prints only its legal block (IP disclaimer + legal notice) */
+  footer { display: block !important; background: #fff !important; padding: 16px 0 0 !important; border: 0 !important; break-inside: avoid; }
+  footer > :not(.legal) { display: none !important; }
+  footer .legal, footer .legal * { color: #000 !important; background: #fff !important; border-color: #ccc !important; text-decoration-color: #ccc !important; }
+  footer .legal { margin-top: 0 !important; font-size: 8.5pt !important; }
   body, .summary, .summary * { background: #fff !important; color: #000 !important; }
   .summary { padding-top: 0 !important; }
   .summary .hl { background: #ffed00 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
