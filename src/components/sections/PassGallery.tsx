@@ -32,7 +32,7 @@ export function PassGallery({ k, items, labels }: { k: string; items: Item[]; la
   return (
     <>
       <p className="eyebrow text-grey-300">{k}_</p>
-      <ul className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-5 grid grid-cols-1 items-start gap-3 md:grid-cols-2 lg:grid-cols-4">
         {items.map((it, i) => (
           <Reveal
             as="li"
@@ -42,16 +42,16 @@ export function PassGallery({ k, items, labels }: { k: string; items: Item[]; la
             <button
               type="button"
               onClick={() => setOpen(i)}
-              className="group block aspect-[3/2] w-full overflow-hidden rounded-[20px] text-left"
+              className="group block w-full overflow-hidden rounded-[20px] text-left"
               aria-label={it.caption}
             >
-              <span className="relative block h-full overflow-hidden">
+              <span className="relative block overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={src(it.src)}
                   alt=""
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                  className="block h-auto w-full transition-transform duration-500 group-hover:scale-[1.04]"
                 />
                 <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-4 pt-10 text-[14px] text-paper">
                   {it.caption}
